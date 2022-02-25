@@ -1,4 +1,4 @@
-class StaticPagesController < ApplicatiionController
+class StaticPagesController < ApplicationController
   def root  
     render :root
   end
