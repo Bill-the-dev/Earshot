@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_logged_in 
-    render json: ["Not logged in"], status 404 unless logged_in?
+    render json: { base: ["Not logged in"]}, status: 401 unless logged_in?
   end
  
   def login!(user)
@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
   def logout!
     current_user.reset_session_token! 
     session[:session_token] = nil
+    @current_user = nil
   end
 
   def logged_in?

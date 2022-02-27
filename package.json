@@ -1,7 +1,7 @@
 {
   "name": "earshot",
   "version": "1.0.0",
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "description": "a spotify clone",
   "main": "webpack.config.js",
   "directories": {
     "lib": "lib",
@@ -29,8 +29,12 @@
     "babel-loader": "^8.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^5.3.0",
     "redux": "^4.1.2",
     "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.1",
+    "url-loader": "^4.1.1",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2"
   }
