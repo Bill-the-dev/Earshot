@@ -62,7 +62,7 @@ class SignupForm extends React.Component {
             />
           </label>
           <label><b>Create a password</b>
-            <input type="text"
+            <input type="password"
               placeholder="Create a password."
               onChange={this.update('password')}
               className="form-input"

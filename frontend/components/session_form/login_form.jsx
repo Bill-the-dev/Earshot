@@ -71,7 +71,7 @@ class LoginForm extends React.Component {
             />
           </label>
           <label><b>Password</b>
-            <input type="text"
+            <input type="password"
               placeholder="Password"
               onChange={this.update('password')}
               className="form-input"
