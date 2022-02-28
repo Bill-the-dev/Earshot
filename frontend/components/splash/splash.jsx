@@ -1,18 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 function openLink(url, newTab) {
   newTab
     ? window.open(url, "_blank", "noopener noreferrer")
     : (window.location.href = url);
 }
 
-
-
 const Splash = ({ currentUser, logout }) => {
-  
-  
   return (
     <div className="splash-background">
       <div className="splash-container">

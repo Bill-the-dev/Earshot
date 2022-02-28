@@ -10,6 +10,8 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // state update to include more fields
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -22,7 +24,7 @@ class LoginForm extends React.Component {
     this.props.processForm(user);
   }
 
-  //process form update?
+  // ^ process form update needed 
 
   renderErrors() {
     return(
@@ -38,7 +40,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-container">
+      <div className="login-container">
         <div className="logo-inline">
           <span >
             <i class="fa-solid fa-ear-listen fa-xl fa-logo"></i>
@@ -52,40 +54,30 @@ class LoginForm extends React.Component {
         <hr/>
         <h3>Sign up with your email address</h3>
         <br />
-        <form onSubmit={this.handleSubmit} className="signup-form">
-          <label><b>What's your email?</b>
+        <form onSubmit={this.handleSubmit} className="login-form">
+          <label><b>Email address or username</b>
             <input type="text"
-              placeholder="Enter your email."
+              placeholder="Email address or username"
               onChange={this.update('email')}
               className="form-input"
             />
           </label>
-          {/* <label><b>Confirm your email</b>
+          <label><b>Password</b>
             <input type="text"
-              value="Enter your email again."
-              onChange={this.update('email')}
-              className="form-input"
-            />
-          </label> */}
-          <label><b>Create a password</b>
-            <input type="text"
-              placeholder="Create a password."
-              onChange={this.update('password')}
-              className="form-input"
-            />
-          </label>
-          <label><b>What should we call you?</b>
-            <input type="text"
-              placeholder="Enter a profile name."
+              placeholder="Password"
               onChange={this.update('password')}
               className="form-input"
             />
           </label>
           <br/>
           <div className='submit-center'>
-            <input className="session-submit" type="submit" value="Sign up" />
+            <input className="session-submit" type="submit" value="Log In" />
             <br />
-            <span> Have an account? {this.props.navLink}.</span>
+            <hr />
+            <br />
+            <span><b>Don't have an account?</b></span>
+            <br />
+            <div className='link-signup'>{this.props.navLink}</div>
           </div>
           {this.renderErrors()}
           </form>
