@@ -130,3 +130,22 @@
   margin-left: 0.5em;
   
 }
+
+.fa-github:hover, .fa-linkedin:hover {
+  cursor: pointer;
+  background-color: var(--splash-green);
+}
+
+  /* BUG: 
+  gh and li icons are round when colored, and background is jsut a thin line */
+
+  /* .f-link{
+    background-color: black;
+    color: white;
+  } */
+
+  /* .fa-github, .fa-linkedin {
+    color: white;
+    background-color: black;
+  } */
+

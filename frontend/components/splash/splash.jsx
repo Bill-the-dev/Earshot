@@ -54,12 +54,12 @@ const Splash = ({ currentUser, logout }) => {
             <li></li>
             <li></li>
             <li className="disable">|</li>
-            <li>
+            <li className="f-links">
               <button onClick={() => openLink("https://github.com/Bill-the-dev/Earshot", true)}>
                 <i class="fa-brands fa-github fa-xl"></i>
               </button>
             </li>
-            <li>
+            <li className="f-link">
               <button onClick={() => openLink("https://www.linkedin.com/in/bill-camarco/", true)}>
                 <i class="fa-brands fa-linkedin fa-xl"></i>
               </button>
