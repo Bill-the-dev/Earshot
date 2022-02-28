@@ -25,13 +25,26 @@
   display: flex;
   align-items: center;
 }
-.fa-logo {
+
+.logo-inline{
+  display: inline-flex;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+.logo-black {
   display: flex;
   color: black;
-  height: 60px;
-  width: 60px;
-  /* align-items: center;
-  justify-content: center; */
+  height: 2.5em;
+  width: 2.5em;
+  margin: 5px;
+  align-items: center;
+
+}
+.logo-title {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  
 }
 hr {
   border: 0;

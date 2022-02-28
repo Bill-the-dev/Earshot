@@ -1,4 +1,5 @@
 import React from 'react'
+import LogoBlack from '../../../app/assets/images/ear-listen-solid.svg'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -38,21 +39,28 @@ class LoginForm extends React.Component {
     );
   }
 
+  // <div >
+  //   <span className="logo-inline">
+  //     <img src={LogoBlack} alt="logo-black" className='logo-black'/>
+  //     <h2 className='logo-title'>Earshot</h2>
+  //   </span>
+  //   <br />
+  // </div>
+
   render() {
+    let signUpLink = this.props.navLink
+
     return (
       <div className="login-container">
-        <div className="logo-inline">
-          <span >
-            <i class="fa-solid fa-ear-listen fa-xl fa-logo"></i>
-            <h2>Earshot</h2>
+        <div >
+          <span className="logo-inline">
+            <img src={LogoBlack} alt="logo-black" className='logo-black'/>
+            <h2 className='logo-title'>Earshot</h2>
           </span>
-          <br />
-        </div>
-        <br/>
-        <h2> Sign up for free to start listening.</h2>
-        <br/>
+        </div>    
         <hr/>
-        <h3>Sign up with your email address</h3>
+        <h5>To continue, log in to Earshot.</h5>
+        <hr />
         <br />
         <form onSubmit={this.handleSubmit} className="login-form">
           <label><b>Email address or username</b>
@@ -77,7 +85,7 @@ class LoginForm extends React.Component {
             <br />
             <span><b>Don't have an account?</b></span>
             <br />
-            <div className='link-signup'>{this.props.navLink}</div>
+            <div className='link-signup' value={this.props.navLink}>{signUpLink}</div>
           </div>
           {this.renderErrors()}
           </form>

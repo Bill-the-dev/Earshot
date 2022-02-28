@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import LogoBlack from '../../../app/assets/images/ear-listen-solid.svg'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -39,10 +40,10 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-container">
-        <div className="logo-inline">
-          <span >
-            <i class="fa-solid fa-ear-listen fa-xl fa-logo"></i>
-            <h2>Earshot</h2>
+        <div >
+          <span className="logo-inline">
+            <img src={LogoBlack} alt="logo-black" className='logo-black'/>
+            <h2 className='logo-title'>Earshot</h2>
           </span>
           <br />
         </div>

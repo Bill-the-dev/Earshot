@@ -131,21 +131,44 @@
   
 }
 
-.fa-github:hover, .fa-linkedin:hover {
+.logo-white {
+  display: flex;
+  color: black;
+  background-color: black;
+  height: 2em;
+  width: 2em;
+  margin: 5px;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Doesn't work wth */
+
+/* f-link {
+  color: black;
+  background-color: black;
+} */
+
+/* f-button {
+  background: none;
+  border: none;
+  outline: none;
+  
+} */
+
+/* .fa-github:hover, .fa-linkedin:hover {
   cursor: pointer;
   background-color: var(--splash-green);
-}
+} */
 
   /* BUG: 
   gh and li icons are round when colored, and background is jsut a thin line */
 
-  /* .f-link{
-    background-color: black;
-    color: white;
-  } */
 
   /* .fa-github, .fa-linkedin {
     color: white;
     background-color: black;
   } */
+
+
 

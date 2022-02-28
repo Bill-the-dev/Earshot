@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LogoGH from '../../../app/assets/images/github-square-brands.svg'
+import LogoLI from '../../../app/assets/images/linkedin-brands.svg'
 
 function openLink(url, newTab) {
   newTab
@@ -49,15 +51,15 @@ const Splash = ({ currentUser, logout }) => {
             <li></li>
             <li></li>
             <li className="disable">|</li>
-            <li className="f-links">
-              <button onClick={() => openLink("https://github.com/Bill-the-dev/Earshot", true)}>
-                <i class="fa-brands fa-github fa-xl"></i>
-              </button>
+            <li className="f-link">
+              <div className="f-button" onClick={() => openLink("https://github.com/Bill-the-dev/Earshot", true)}>
+                <img src={LogoGH} alt="logo-white" className='logo-white'/>
+              </div>
             </li>
             <li className="f-link">
-              <button onClick={() => openLink("https://www.linkedin.com/in/bill-camarco/", true)}>
-                <i class="fa-brands fa-linkedin fa-xl"></i>
-              </button>
+              <div className="f-button" onClick={() => openLink("https://www.linkedin.com/in/bill-camarco/", true)}>
+                <img src={LogoLI} alt="logo-white" className='logo-white'/>
+              </div>
             </li>
           </ul>
         </footer>
@@ -67,3 +69,10 @@ const Splash = ({ currentUser, logout }) => {
 }
 
 export default Splash;
+
+// <li className="f-links">
+//   <img src={LogoLI} alt="logo-white" className='logo-white'/>
+// </li>
+// <li className="f-link">
+//   <img src={LogoGH} alt="logo-white" className='logo-white'/>
+// </li>
