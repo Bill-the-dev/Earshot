@@ -142,33 +142,7 @@
   cursor: pointer;
 }
 
-/* Doesn't work wth */
 
-/* f-link {
-  color: black;
-  background-color: black;
-} */
-
-/* f-button {
-  background: none;
-  border: none;
-  outline: none;
-  
-} */
-
-/* .fa-github:hover, .fa-linkedin:hover {
-  cursor: pointer;
-  background-color: var(--splash-green);
-} */
-
-  /* BUG: 
-  gh and li icons are round when colored, and background is jsut a thin line */
-
-
-  /* .fa-github, .fa-linkedin {
-    color: white;
-    background-color: black;
-  } */
 
 
 
