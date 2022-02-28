@@ -1,8 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Splash = ({ currentUser, logout }) => {
 
+function openLink(url, newTab) {
+  newTab
+    ? window.open(url, "_blank", "noopener noreferrer")
+    : (window.location.href = url);
+}
+
+
+
+const Splash = ({ currentUser, logout }) => {
+  
+  
   return (
     <div className="splash-background">
       <div className="splash-container">
@@ -17,9 +27,9 @@ const Splash = ({ currentUser, logout }) => {
             <li>Download</li>
             <li className="disable">|</li>
             <li>
-              <Link to={ "/signup" } value="Sign up">Sign Up</Link>
+              <Link to={ "/signup" } className="link-to">Sign Up</Link>
             </li>
-            <li><Link to={ "/login" } value="Log In">Log In</Link></li>
+            <li><Link to={ "/login" } className="link-to">Log In</Link></li>
           </ul>
         </div>
         <div className="splash-content">
@@ -44,8 +54,16 @@ const Splash = ({ currentUser, logout }) => {
             <li></li>
             <li></li>
             <li className="disable">|</li>
-            <li><i class="fa-brands fa-github fa-xl"></i></li>
-            <li><i class="fa-brands fa-linkedin fa-xl"></i></li>
+            <li>
+              <button onClick={() => openLink("https://github.com/Bill-the-dev/Earshot", true)}>
+                <i class="fa-brands fa-github fa-xl"></i>
+              </button>
+            </li>
+            <li>
+              <button onClick={() => openLink("https://www.linkedin.com/in/bill-camarco/", true)}>
+                <i class="fa-brands fa-linkedin fa-xl"></i>
+              </button>
+            </li>
           </ul>
         </footer>
       </div>

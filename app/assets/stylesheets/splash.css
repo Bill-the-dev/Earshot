@@ -66,6 +66,15 @@
   pointer-events: none; 
 }
 
+.link-to {
+  text-decoration: none;
+  color: white;
+}
+
+.link-to:hover {
+  color: var(--splash-green);
+}
+
 .splash-content {
   height: 80vh;
   display: flex;

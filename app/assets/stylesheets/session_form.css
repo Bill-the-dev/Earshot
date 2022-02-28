@@ -19,26 +19,32 @@
   font-family: 'Raleway', sans-serif;
   align-items: center;
 }
-.session-logo {
+.fa-logo {
   display: flex;
-  background-color: black;
+  color: black;
   height: 60px;
   width: 60px;
   align-items: center;
   justify-content: center;
+}
+hr {
+  border: 0;
+  width: 70%;
+  border-top: 1px solid rgb(159, 159, 159);
+  margin-top: 1em;
+  margin-bottom: 1em;
+
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
   width: 80%;
-
 }
 
 .form-input {
   width: 100%
 }
-
 
 .session-submit{
   background-color: var(--splash-green);

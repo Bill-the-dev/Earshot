@@ -38,8 +38,8 @@ class SessionForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <span className="session-logo">
-          <i className="fa-solid fa-ear-listen fa-xl"></i>
+          <span >
+          <i class="fa-solid fa-ear-listen fa-xl"></i>
           </span>
           <p>Earshot</p>
           <br/>
