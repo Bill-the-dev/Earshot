@@ -38,29 +38,38 @@ class SessionForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to Earshot!
+          <span className="session-logo">
+          <i className="fa-solid fa-ear-listen fa-xl"></i>
+          </span>
+          <p>Earshot</p>
           <br/>
-          Please {this.props.formType} or {this.props.navLink}
-          {this.renderErrors()}
+          <h2> Sign up for free to start listening.</h2>
+          <p>{this.props.formType} with your email address</p>
+          
           <div className="login-form">
             <br/>
-            <label>Username:
+            <label>What should we call you?
+              <br />
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
-                className="login-input"
+                className="form-input"
               />
             </label>
             <br/>
-            <label>Password:
+            <label>Create a password
+              <br />
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                className="login-input"
+                className="form-input"
               />
             </label>
             <br/>
             <input className="session-submit" type="submit" value={this.props.formType} />
+            <br />
+            Have an account? {this.props.navLink}
+          {this.renderErrors()}
           </div>
         </form>
       </div>

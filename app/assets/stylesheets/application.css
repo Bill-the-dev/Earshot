@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+/* 
+Imported Google Fonts: 
+font-family: 'Montserrat', sans-serif;
+font-family: 'Raleway', sans-serif;  
+*/
+
+
+@import url("./splash.css");
+
+* {
+  padding: 0;
+  margin: 0; 
+}
+
+html, body, main {
+  height: 100%;
+  width: 100%;
+}
+
+body, main {
+  margin: 0px;
+}
+
+.app-container {
+  display: flex;
+  height: 100%;
+}

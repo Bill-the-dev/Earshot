@@ -1,0 +1,56 @@
+:root {
+--splash-blue: rgb(42, 64, 171);
+--splash-green: rgb(102,212,110);
+}
+
+.login-form-container {
+  display: flex;
+  background-color: white;
+  background-size: 100%; 
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.login-form-box {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  font-family: 'Raleway', sans-serif;
+  align-items: center;
+}
+.session-logo {
+  display: flex;
+  background-color: black;
+  height: 60px;
+  width: 60px;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+
+}
+
+.form-input {
+  width: 100%
+}
+
+
+.session-submit{
+  background-color: var(--splash-green);
+  color: black;
+  cursor: pointer;
+  width: 8em;
+  border-radius: 2em;
+  padding: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+  font-weight: 700;
+  border: none;
+  align-items: center;
+  justify-content: center;
+}
