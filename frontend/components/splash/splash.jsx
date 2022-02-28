@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import LogoGH from '../../../app/assets/images/github-square-brands.svg'
 import LogoLI from '../../../app/assets/images/linkedin-brands.svg'
+import LogoWhite from '../../../app/assets/images/ear-listen-solid-white.svg'
 
 function openLink(url, newTab) {
   newTab
@@ -15,13 +16,11 @@ const Splash = ({ currentUser, logout }) => {
       <div className="splash-container">
         <div className="splash-header">
           <div className="splash-logo-container">
-            <i class="fa-solid fa-ear-listen fa-xl"></i>
+            <img src={LogoWhite} alt="logo-white" className='logo-white'/>
             <h1>Earshot</h1>
           </div>
           <ul className="splash-nav">
-            <li>Premium</li>
-            <li>Support</li>
-            <li>Download</li>
+            <li>Explore as Guest</li>
             <li className="disable">|</li>
             <li>
               <Link to={ "/signup" } className="link-to">Sign Up</Link>
@@ -43,7 +42,7 @@ const Splash = ({ currentUser, logout }) => {
         </div>
         <footer className="splash-footer">
           <div className="splash-logo-container">
-            <i class="fa-solid fa-ear-listen fa-xl"></i>
+            <img src={LogoWhite} alt="logo-white" className='logo-white'/>
             <h1>Earshot</h1>
           </div>
           <ul className="splash-nav">
