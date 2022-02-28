@@ -42,7 +42,7 @@ class SignupForm extends React.Component {
       <div className="signup-container">
         <div >
           <span className="logo-inline">
-            <img src={window.LogoBlack} alt="logo-black" className='logo-black'/>
+            <img src={LogoBlack} alt="logo-black" className='logo-black'/>
             <h2 className='logo-title'>Earshot</h2>
           </span>
           <br />
