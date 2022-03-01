@@ -328,6 +328,7 @@
 .ct-track-info {
   flex-direction: column;
   height: 100%;
+  width: 50%;
   padding-left: 1rem;
 }
 
@@ -338,12 +339,8 @@
 }
 
 .ct-like {
-  /* position: relative;
-  left: 30%; */
-  align-self: flex-end;
-  /* justify-content: ; */
+  align-self: center;
   padding-left: 1rem;
-  /* Inconsistent! */
 }
 
 .ct-artist {
