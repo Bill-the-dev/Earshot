@@ -133,12 +133,14 @@ const Home = () => {
     <div className="media-footer">
       <div className="current-track">
         <div className="ct-art"></div>
-        <div className="ct-title">ct-Title</div>
-        <div className="ct-artist">ct-Artist</div>
-        <div className="ct-like"></div>
+        <div className="ct-track-info">
+          <div className="ct-title">ct-Title</div>
+          <div className="ct-artist">ct-Artist</div>
+        </div>
+        <div className="ct-like">{'<3'}</div>
       </div>
-      <div className="media-player"></div>
-      <div className="media-controls"></div>
+      <div className="media-player">Media Buttons</div>
+      <div className="media-controls">Media Controls</div>
     </div>   
   </div>
 )}

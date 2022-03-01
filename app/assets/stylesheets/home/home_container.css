@@ -1,6 +1,7 @@
 :root {
   --text-selected: rgb(255, 255, 255);
   --text-default: rgb(180, 179, 179);
+  --tile: rgb(25, 24, 24)
 }
 
 * {
@@ -12,7 +13,6 @@
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 9fr 1fr;
   color: var(--text-default);
   font-family: 'Raleway', sans-serif;
 
@@ -22,7 +22,6 @@
   .left-container {
     background-color: rgb(1, 0, 0);
     grid-column: 1 / 1;
-    grid-row: 1 / 2;
     display: flex;
     flex-direction: column;
   }
@@ -124,7 +123,6 @@
     background : rgb(86, 21, 15);
     background : linear-gradient(180deg, rgba(86, 21, 15, 1)10%, rgba(19, 18, 18, 1)50%);
     grid-column : 2 / 2;
-    grid-row : 1 / 2;
   }
 
   /* Main Header */
@@ -191,15 +189,36 @@
   
   .l-tile {
     border: 1px solid gray;
+    border-radius: 2px;
+    background-color: rgba(152, 152, 152, 0.2);
     height: 3rem;
     width: 3rem;
     align-items: center;
     
     margin: 1%;
-    padding: 2%;
     flex-grow: 1;
     flex-basis: 30%;
     display: flex; 
+
+    cursor: pointer;
+
+  }
+
+    .l-tile-art {
+    border: 1px solid #ffff;
+    border-radius: 1px;
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    /* height: 60vh;
+    width: 60vh; */
+    
+    align-self: center;
+  }
+
+  .l-tile-title {
+    font-size: 1em;
+    padding-left: 1em;
+    color: var(--text-selected);
   }
 
   /* Suggestions Mix */
@@ -224,7 +243,8 @@
     flex-direction: row;
     justify-content: space-evenly;
     border: 1px solid gray;
-    height: 10rem;
+    /* height: 10rem; */
+    flex-basis: 40%;
     width: 100%;
     align-items: center;
   }
@@ -232,39 +252,117 @@
   .s-tile {
     display: flex;
     flex-direction: column;
-    height: 8rem;
-    width: 3rem;
+    flex-basis: 20%;
+    height: 14rem;
     border: 1px solid gray;
-    justify-content: center;
-
-    flex-basis: 13%;
-    flex-grow: 1;
+    border-radius: 2px;
+    /* flex-grow: 1; */
     padding: 1%;
     margin: 1%;
+    cursor: pointer;
+    background-color: var(--tile);
   }
 
   .s-tile-art {
     border: 1px solid #ffff;
-    height: 60%;
-    
+    border-radius: 1px;
+    aspect-ratio: 1 /1;
+    flex-basis: 70%;
     align-self: center;
   }
 
   .s-tile-title {
     font-size: 0.8em;
     color: var(--text-selected);
+    padding-top: 1em;
+    padding-left: 1em;
   }
-
+  
   .s-tile-source {
     font-size: 0.6em;
     color: var(--text-default);
+    padding-top: 0.5em;
+    padding-left: 1em;
   }
   
 
-
-
-
-
-
 /* Media Footer */
 
+.media-footer {
+  background-color: var(--tile);
+  border: 1px solid grey;
+  grid-column: 1 / 2;
+  height: 5rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+/* Current Track Container */
+.current-track {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid grey;
+  height: 100%;
+  width: 25%;
+  align-items: center;
+  padding: 1em;
+}
+
+.ct-art {
+  border: 1px solid white;
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.ct-track-info {
+  flex-direction: column;
+  height: 100%;
+  padding-left: 1rem;
+}
+
+.ct-title {
+  color: white;
+  font-size: 0.9em;
+  padding: 0.2em
+}
+
+.ct-like {
+  /* position: relative;
+  left: 30%; */
+  align-self: flex-end;
+  /* justify-content: ; */
+  padding-left: 1rem;
+  /* Inconsistent! */
+}
+
+.ct-artist {
+  font-size: 0.8em;
+  padding: 0.2em;
+}
+
+/* Media Player Container */
+.media-player {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  height: 100%;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  
+}
+/* Media Controls Container */
+.media-controls {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  height: 100%;
+  width: 25%;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1em;
+}
