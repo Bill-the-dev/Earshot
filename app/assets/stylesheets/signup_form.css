@@ -1,7 +1,3 @@
-:root {
---splash-blue: rgb(42, 64, 171);
---splash-green: rgb(102,212,110);
-}
 
 .signup-container {
   display: flex;
@@ -15,15 +11,20 @@
   align-items: center;
 }
 
+.sub-h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
 .signup-form {
   display: flex;
   flex-direction: column;
-  width: 70%; 
+  width: 60%; 
 }
 
-.signup-form h3 {
-  display: flex;
-  align-items: center;
+.sub-h3 {
+  font-size: 0.9em;
+  font-weight: 600;
 }
 
 .logo-inline{
@@ -31,6 +32,7 @@
   margin-top: 2em;
   margin-bottom: 1em;
 }
+
 .logo-black {
   display: flex;
   color: black;
@@ -44,12 +46,14 @@
   display: flex;
   align-items: center;
   margin: 5px;
+  font-size: 1.4em;
+  font-weight: 600;
   
 }
 hr {
   border: 0;
-  width: 70%;
-  border-top: 1px solid rgb(159, 159, 159);
+  width: 50%;
+  border-top: 1px solid var(--lt-gray-a);
   margin-top: 1em;
   margin-bottom: 1em;
 
@@ -58,13 +62,21 @@ hr {
 .login-form {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 60%;
+  font-size: .8em;
 }
 
 .form-input {
+  width: 100%;
   padding: 7px;
   margin-top: 5px;
   margin-bottom: 15px;
+}
+
+.input-label-txt {
+  font-size: 0.75em;
+  font-weight: 600;
+  margin-top: 0.8rem;
 }
 
 .submit-center {
@@ -74,7 +86,7 @@ hr {
 }
 
 .session-submit{
-  background-color: var(--splash-green);
+  background-color: var(--green);
   color: black;
   cursor: pointer;
   width: 8em;
@@ -87,4 +99,16 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.session-submit:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.1);
+  background-color: var(--lt-green);
+}
+
+.have-acct-span {
+  font-size: 0.8em;
+
 }

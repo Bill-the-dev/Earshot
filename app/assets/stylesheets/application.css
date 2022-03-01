@@ -20,7 +20,8 @@ font-family: 'Montserrat', sans-serif;
 font-family: 'Raleway', sans-serif;  
 */
 
-
+@import "base/_reset.scss";
+@import "base/_colors.scss";
 @import url("./splash.css");
 
 * {

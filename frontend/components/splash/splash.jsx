@@ -16,7 +16,7 @@ const Splash = ({ currentUser, logout }) => {
       <div className="splash-container">
         <div className="splash-header">
           <div className="splash-logo-container">
-            <img src={LogoWhite} alt="logo-white" className='logo-white'/>
+            <img src={LogoWhite} alt="logo-white" className='logo-white-splash'/>
             <h1>Earshot</h1>
           </div>
           <ul className="splash-nav">
@@ -42,7 +42,7 @@ const Splash = ({ currentUser, logout }) => {
         </div>
         <footer className="splash-footer">
           <div className="splash-logo-container">
-            <img src={LogoWhite} alt="logo-white" className='logo-white'/>
+            <img src={LogoWhite} alt="logo-white" className='logo-white-splash'/>
             <h1>Earshot</h1>
           </div>
           <ul className="splash-nav">
@@ -52,12 +52,12 @@ const Splash = ({ currentUser, logout }) => {
             <li className="disable">|</li>
             <li className="f-link">
               <div className="f-button" onClick={() => openLink("https://github.com/Bill-the-dev/Earshot", true)}>
-                <img src={LogoGH} alt="logo-white" className='logo-white'/>
+                <img src={LogoGH} alt="logo-white" className='logo-white-GH'/>
               </div>
             </li>
             <li className="f-link">
               <div className="f-button" onClick={() => openLink("https://www.linkedin.com/in/bill-camarco/", true)}>
-                <img src={LogoLI} alt="logo-white" className='logo-white'/>
+                <img src={LogoLI} alt="logo-white" className='logo-white-LI'/>
               </div>
             </li>
           </ul>

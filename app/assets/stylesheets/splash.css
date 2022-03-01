@@ -1,11 +1,7 @@
-:root {
---splash-blue: rgb(42, 64, 171);
---splash-green: rgb(102,212,110);
-}
 
 .splash-background {
-  display: flexbox;
-  background-color: var(--splash-blue);
+  display: flex;
+  background-color: var(--blue);
   background-size: 100%; 
   height: 100%;
   width: 100%;
@@ -14,12 +10,15 @@
 .splash-container {
   display: block;
   height: 100%;
+  width: 100%;
 }
 
 .splash-header {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 3.5rem;
   background-color: black;
   font-family: 'Raleway', sans-serif;
   color: white;
@@ -28,17 +27,21 @@
 .splash-logo-container {
   display: flex;
   align-items: center;
-  margin-left: 1em;
+  margin-left: 1.2em;
+  height: 100%;
 }
 
-.logo-white {
-  
+.logo-white-splash {
+  height: 2rem;
+  width: 2rem;
 }
 
 .splash-header h1 {
   display: flex;
   align-items: center;
   margin-left: 0.5em;
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
 .splash-nav {
@@ -56,7 +59,7 @@
 }
 
 .splash-nav li:hover {
-  color: var(--splash-green);
+  color: var(--green);
   cursor: pointer;
 }
 
@@ -71,7 +74,7 @@
 }
 
 .link-to:hover {
-  color: var(--splash-green);
+  color: var(--green);
 }
 
 .splash-content {
@@ -80,7 +83,7 @@
   flex-direction: column;
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
-  color: var(--splash-green);
+  color: var(--green);
   text-align: center;
   justify-content: center;
   margin: 1em;
@@ -103,8 +106,8 @@
 }
 
 .splash-get-btn{
-  background-color: var(--splash-green);
-  color: var(--splash-blue);
+  background-color: var(--green);
+  color: var(--blue);
   cursor: pointer;
   border-radius: 2em;
   padding: 1em;
@@ -112,27 +115,43 @@
   padding-right: 2em;
   font-weight: 700;
   border: none;
+  transition: 100ms;
+}
+
+.splash-get-btn:hover{
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.1);
+  background-color: var(--lt-green);
 }
 
 .splash-footer{
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   background-color: black;
   font-family: 'Raleway', sans-serif;
   color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 3.5rem;
 }
 
 .splash-footer h1 {
   display: flex;
   align-items: center;
   margin-left: 0.5em;
+  font-size: 1.3rem;
+  font-weight: 700;
   
 }
 
-.logo-white {
+.logo-white-GH,
+.logo-white-LI {
   display: flex;
-  color: black;
+  color: white;
   background-color: black;
   height: 2em;
   width: 2em;

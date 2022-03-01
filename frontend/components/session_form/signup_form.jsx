@@ -49,27 +49,27 @@ class SignupForm extends React.Component {
           <br />
         </div>
         <br/>
-        <h2> Sign up for free to start listening.</h2>
+        <h2 className='sub-h2'> Sign up for free to start listening.</h2>
         <br/>
         <hr/>
-        <h3>Sign up with your email address</h3>
+        <h3 className='sub-h3'>Sign up with your email address</h3>
         <br />
         <form onSubmit={this.handleSubmit} className="signup-form">
-          <label><b>What's your email?</b>
+          <label className='input-label-txt'><b>What's your email?</b>
             <input type="text"
               placeholder="Enter your email."
               onChange={this.update('email')}
               className="form-input"
             />
           </label>
-          <label><b>Create a password</b>
+          <label className='input-label-txt'><b>Create a password</b>
             <input type="password"
               placeholder="Create a password."
               onChange={this.update('password')}
               className="form-input"
             />
           </label>
-          <label><b>What should we call you?</b>
+          <label className='input-label-txt'><b>What should we call you?</b>
             <input type="text"
               placeholder="Enter a profile name."
               onChange={this.update('username')}
@@ -80,7 +80,7 @@ class SignupForm extends React.Component {
           <div className='submit-center'>
             <input className="session-submit" type="submit" value="Sign up" />
             <br />
-            <span> Have an account? {this.props.navLink}.</span>
+            <span className='have-acct-span'> Have an account? {this.props.navLink}.</span>
           </div>
           {this.renderErrors()}
           </form>
