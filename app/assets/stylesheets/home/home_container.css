@@ -136,7 +136,9 @@
     align-items: center;
     justify-content: right;
     padding-right: 3em;
-    /* position: fixed; relation only to window  */
+    position: fixed;
+    top: 0;
+
 
   }
 
@@ -147,22 +149,28 @@
     width: 8em;
     border-radius: 1rem;
     border: 1px solid grey;
-    justify-content: flex-end;
+    position: fixed;
+    right: 0;
     padding: 5px;
+    margin-right: 2.5rem;
     font-size: 0.7rem;
-    align-items: center;    
+    align-items: center; 
+    z-index: 1;  
+    background-color: black; 
   }
 
   /* Main Content */
   .main-content {
-    padding: 40px;
+    padding: 2.5rem;
   }
 
   .m-greeting {
     font-size: 2em;
     font-weight: 700;
     color: var(--text-selected);
-    margin-bottom: 8px;
+    margin-bottom: 0.8rem;
+    margin-top: 2rem;
+    
   }
 
   /* Library Mix */
