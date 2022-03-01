@@ -12,6 +12,7 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import GreetingContainer from './greeting/greeting_container';
 import SplashContainer from './splash/splash_container';
+import HomeContainer from './home/home_container';
 
 const App = () => (
   <div className='app-container'>
@@ -23,6 +24,7 @@ const App = () => (
       <Route exact path="/" component={SplashContainer}/>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+      <AuthRoute exact path="/home" component={HomeContainer} />
       
     </Switch>
   </div>

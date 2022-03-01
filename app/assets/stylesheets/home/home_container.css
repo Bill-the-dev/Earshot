@@ -1,0 +1,270 @@
+:root {
+  --text-selected: rgb(255, 255, 255);
+  --text-default: rgb(180, 179, 179);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.home-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 9fr 1fr;
+  color: var(--text-default);
+  font-family: 'Raleway', sans-serif;
+
+}
+
+/* Section - Menu Bar */
+  .left-container {
+    background-color: rgb(1, 0, 0);
+    grid-column: 1 / 1;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-nav {
+    
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .logo-text {
+    display: flex;
+    font-size: 1.3em;
+    font-weight: 600;
+    padding-right: 8px;
+    color: var(--text-selected);
+
+  }
+
+  .logo-white {
+    display: flex;
+    color: var(--text-selected);
+    height: 2.5em;
+    width: 2.5em;
+    padding: 8px;
+    padding-right: 4px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .nav-large {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 8px;
+  }
+
+  .nav-lg-item {
+    font-size: 1rem;
+    padding-top: 5px;
+    cursor: pointer;
+  }
+
+  .nav-small {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 8px
+  }
+
+  .nav-sm-item {
+    font-size: 0.8rem;
+    padding-top: 5px;
+    cursor: pointer;
+  }
+
+  .hr {
+    display: flex;
+    color: rgb(40, 40, 40);
+    border: 0;
+    width: 50%;
+    border-top: 1px solid rgb(159, 159, 159);
+    margin-top: 1em;
+    margin-bottom: 1em;
+    /* margin-left: 8px;
+    padding-right: 8px; */
+    position: right;
+    
+
+  }
+
+  .playlists {
+
+  }
+  
+  .pl-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 8px;
+  }
+
+  .pl-item {
+    font-size: 0.8rem;
+    padding-top: 5px;
+    cursor: pointer;
+  }
+
+
+  
+
+/* Section - Main Container */
+  .main-container {
+    background : rgb(86, 21, 15);
+    background : linear-gradient(180deg, rgba(86, 21, 15, 1)10%, rgba(19, 18, 18, 1)50%);
+    grid-column : 2 / 2;
+    grid-row : 1 / 2;
+  }
+
+  /* Main Header */
+  .main-header {
+    display: flex;
+    box-sizing: border-box;
+    height: 3em;
+    width: 100%;
+    border: solid 1px grey;
+    padding-left: 40px;
+    align-items: center;
+    justify-content: right;
+    padding-right: 3em;
+    /* position: fixed; relation only to window  */
+
+  }
+
+  .mh-username {
+    display: flex;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 8em;
+    border-radius: 1rem;
+    border: 1px solid grey;
+    justify-content: flex-end;
+    padding: 5px;
+    font-size: 0.7rem;
+    align-items: center;    
+  }
+
+  /* Main Content */
+  .main-content {
+    padding: 40px;
+  }
+
+  .m-greeting {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--text-selected);
+    margin-bottom: 8px;
+  }
+
+  /* Library Mix */
+  .m-library-mix {
+    font-size: 1em;
+    font-weight: 500;
+    color: var(--text-selected);
+  }
+  
+  .l-tiles {
+    list-style: none;
+    border-radius: 3px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    border: 1px solid gray;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .l-tile {
+    border: 1px solid gray;
+    height: 3rem;
+    width: 3rem;
+    align-items: center;
+    
+    margin: 1%;
+    padding: 2%;
+    flex-grow: 1;
+    flex-basis: 30%;
+    display: flex; 
+  }
+
+  /* Suggestions Mix */
+  .m-suggestions {
+    width: 100%;
+    height: 100%;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .s-title {
+    font-size: 1.5em;
+    color: var(--text-selected);
+    margin-top: 4px; 
+    margin-bottom: 4px; 
+  }
+
+  .s-row {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 1px solid gray;
+    height: 10rem;
+    width: 100%;
+    align-items: center;
+  }
+
+  .s-tile {
+    display: flex;
+    flex-direction: column;
+    height: 8rem;
+    width: 3rem;
+    border: 1px solid gray;
+    justify-content: center;
+
+    flex-basis: 13%;
+    flex-grow: 1;
+    padding: 1%;
+    margin: 1%;
+  }
+
+  .s-tile-art {
+    border: 1px solid #ffff;
+    height: 60%;
+    
+    align-self: center;
+  }
+
+  .s-tile-title {
+    font-size: 0.8em;
+    color: var(--text-selected);
+  }
+
+  .s-tile-source {
+    font-size: 0.6em;
+    color: var(--text-default);
+  }
+  
+
+
+
+
+
+
+/* Media Footer */
+
