@@ -35,7 +35,7 @@ const Splash = ({ currentUser, logout }) => {
           <div >
             <input 
               type="button"
-              value="GET EARSHOT FREE"
+              value="CHECK IT OUT"
               className="splash-get-btn"
               /> 
           </div>

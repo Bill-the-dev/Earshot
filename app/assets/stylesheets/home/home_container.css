@@ -27,13 +27,14 @@
   }
 
   .home-nav {
-    
+    margin-left: 0.5rem;
   }
 
   .logo {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-top: 0.4rem;
   }
 
   .logo-text {
@@ -63,18 +64,20 @@
     align-items: flex-start;
     margin: 8px;
   }
-
+  
   .nav-lg-item {
     font-size: 1rem;
     padding-top: 5px;
     cursor: pointer;
+    list-style: none;
   }
-
+  
   .nav-small {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 8px
+    margin: 8px;
+    list-style: none;
   }
 
   .nav-sm-item {
@@ -87,19 +90,15 @@
     display: flex;
     color: rgb(40, 40, 40);
     border: 0;
-    width: 50%;
+    width: 100%;
     border-top: 1px solid rgb(159, 159, 159);
     margin-top: 1em;
-    margin-bottom: 1em;
-    /* margin-left: 8px;
-    padding-right: 8px; */
-    position: right;
-    
+    margin-bottom: 1em;   
 
   }
 
   .playlists {
-
+    margin-left: 0.5rem;
   }
   
   .pl-list {
@@ -107,12 +106,14 @@
     flex-direction: column;
     align-items: flex-start;
     margin: 8px;
+    overflow-y: auto;
   }
 
   .pl-item {
     font-size: 0.8rem;
     padding-top: 5px;
     cursor: pointer;
+    list-style: none;
   }
 
 
@@ -162,6 +163,7 @@
   /* Main Content */
   .main-content {
     padding: 2.5rem;
+    overflow-y: auto;
   }
 
   .m-greeting {
