@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import LogoWhite from '../../../app/assets/images/ear-listen-solid-white.svg'
 
+// NOTE: export at bottom looks like: 
+// export default Home
+
 function openLink(url, newTab) {
   newTab
     ? window.open(url, "_blank", "noopener noreferrer")

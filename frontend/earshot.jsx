@@ -30,6 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.logout = logout;
   window.getState = store.getState;
   window.dispatch = store.dispatch; 
-  window.currentUser = currentUser;
+  // window.currentUser = currentUser;
 
 });

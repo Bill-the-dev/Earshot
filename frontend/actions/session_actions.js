@@ -30,12 +30,24 @@ export const login = user => dispatch => (
   .then(
     user => (dispatch(receiveCurrentUser(user))), 
     errors => (dispatch(receiveErrors(errors.responseJSON)))
-  ));
+  )
+);
 
 export const logout = () => dispatch => {
-  debugger
+  // debugger
   return (
     APIUtil.logout()
     .then(() => (dispatch(logoutCurrentUser())))
   );
+}
+
+export const loginDemo = () => dispatch => {
+  const user = {username: 'KindGuest', password: 'password'};
+  return(
+    APIUtil.login(user)
+    .then(
+      user => dispatch(receiveCurrentUser(user)),
+      errors => dispatch(receiveErrors(errors))
+    )
+  )
 }

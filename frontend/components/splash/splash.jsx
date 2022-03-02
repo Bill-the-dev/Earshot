@@ -12,8 +12,8 @@ function openLink(url, newTab) {
 
 const Splash = (props) => {
   
-  const { currentUser, logout } = props
-  debugger
+  const { currentUser, logout, loginDemo } = props
+  // debugger
   return (
     <div className="splash-background">
       <div className="splash-container">
@@ -23,7 +23,7 @@ const Splash = (props) => {
             <h1>Earshot</h1>
           </div>
           <ul className="splash-nav">
-            <li>Explore as Guest</li>
+            <li onClick={() => loginDemo()}>Explore as Guest</li>
             <li onClick={logout}>Log Out</li>
             <li className="disable">|</li>
             <li>

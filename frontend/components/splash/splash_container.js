@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
-import { logout } from "../../actions/session_actions";
+import { logout, loginDemo } from "../../actions/session_actions";
 import Splash from "./splash";
 
 const mSTP = (state) => {
-  debugger
+  // debugger
   return {
     currentUser: state.entities.users[state.session.id]
   };
@@ -11,7 +11,8 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    loginDemo: () => dispatch(loginDemo())
   };
 };
 
