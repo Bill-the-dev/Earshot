@@ -39,13 +39,6 @@ class LoginForm extends React.Component {
     );
   }
 
-  // <div >
-  //   <span className="logo-inline">
-  //     <img src={LogoBlack} alt="logo-black" className='logo-black'/>
-  //     <h2 className='logo-title'>Earshot</h2>
-  //   </span>
-  //   <br />
-  // </div>
 
   render() {
     let signUpLink = this.props.navLink
@@ -59,18 +52,18 @@ class LoginForm extends React.Component {
           </span>
         </div>    
         <hr/>
-        <h5>To continue, log in to Earshot.</h5>
+        <h5 id="login-continue">To continue, log in to Earshot.</h5>
         <hr />
         <br />
         <form onSubmit={this.handleSubmit} className="login-form">
-          <label><b>Email address or username</b>
+          <label className='input-label-txt'><b>Email address or username</b>
             <input type="text"
               placeholder="Email address or username"
               onChange={this.update('email')}
               className="form-input"
             />
           </label>
-          <label><b>Password</b>
+          <label className='input-label-txt'><b>Password</b>
             <input type="password"
               placeholder="Password"
               onChange={this.update('password')}
