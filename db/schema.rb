@@ -26,5 +26,4 @@ ActiveRecord::Schema.define(version: 2022_02_25_202049) do
     t.index ["session_token"], name: "index_users_on_session_token"
     t.index ["username"], name: "index_users_on_username"
   end
-
 end

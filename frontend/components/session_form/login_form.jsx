@@ -56,10 +56,10 @@ class LoginForm extends React.Component {
         <hr />
         <br />
         <form onSubmit={this.handleSubmit} className="login-form">
-          <label className='input-label-txt'><b>Email address or username</b>
+          <label className='input-label-txt'><b>Username</b>
             <input type="text"
-              placeholder="Email address or username"
-              onChange={this.update('email')}
+              placeholder="Username"
+              onChange={this.update('username')}
               className="form-input"
             />
           </label>

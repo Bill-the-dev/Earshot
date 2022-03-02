@@ -1,5 +1,5 @@
 class Api::SessionsController < ApplicationController
-  before_action :ensure_logged_in, only: [:destroy] 
+  # before_action :ensure_logged_in, only: [:destroy] 
 
   # def new
   #   render :new
@@ -20,19 +20,19 @@ class Api::SessionsController < ApplicationController
     end
   end
 
-  def destroy 
-    logout!
-    render json: {}
-  end
+  # def destroy 
+  #   logout!
+  #   render json: {}
+  # end
 
   # Another option w/ error reporting, w/o before action
-  # def destroy
-  #   @user = current_user
-  #   if @user
-  #     logout
-  #     render "api/users/show"
-  #   else
-  #     render json: ["Not signed in"], status: 404
-  #   end
-  # end
+  def destroy
+    @user = current_user
+    if @user
+      logout!
+      render "api/users/show"
+    else
+      render json: ["Not signed in"], status: 404
+    end
+  end
 end

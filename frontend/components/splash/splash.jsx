@@ -10,7 +10,10 @@ function openLink(url, newTab) {
     : (window.location.href = url);
 }
 
-const Splash = ({ currentUser, logout }) => {
+const Splash = (props) => {
+  
+  const { currentUser, logout } = props
+  debugger
   return (
     <div className="splash-background">
       <div className="splash-container">
@@ -21,6 +24,7 @@ const Splash = ({ currentUser, logout }) => {
           </div>
           <ul className="splash-nav">
             <li>Explore as Guest</li>
+            <li onClick={logout}>Log Out</li>
             <li className="disable">|</li>
             <li>
               <Link to={ "/signup" } className="link-to">Sign Up</Link>
