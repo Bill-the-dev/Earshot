@@ -14,7 +14,7 @@
 #login-continue {
   font-size: 0.8em;
   font-weight: 600;
-  padding-top: 3rem;
+  padding-top: 1.5rem;
 }
 
 .login-form {
@@ -88,9 +88,34 @@ hr {
   justify-content: center;
 }
 
+.guest-submit{
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  font-size: 0.8rem;
+  width: 14em;
+  border-radius: 2em;
+  padding: 1.1em;
+  margin-top: 1.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+  font-weight: 700;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guest-submit:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.1);
+  background-color: black;
+}
+
 .link-signup{
   background-color: white;
-  color: grey;
+  color: inherit;
   cursor: pointer;
   text-decoration: none;
   width: 16em;

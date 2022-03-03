@@ -9,6 +9,7 @@ class LoginForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   // state update to include more fields
@@ -22,7 +23,15 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.login(user)
+      .then(() => this.props.history.push('/home'))
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    this.props.login({username: 'KindGuest', password: 'password'})
+    .then(() => this.props.history.push('/home'))
+    
   }
 
   // ^ process form update needed 
@@ -50,8 +59,9 @@ class LoginForm extends React.Component {
             <img src={LogoBlack} alt="logo-black" className='logo-black'/>
             <h2 className='logo-title'>Earshot</h2>
           </span>
-        </div>    
+        </div> 
         <hr/>
+        <div className='guest-submit' onClick={this.handleDemo}>Continue as Guest</div>   
         <h5 id="login-continue">To continue, log in to Earshot.</h5>
         <hr />
         <br />

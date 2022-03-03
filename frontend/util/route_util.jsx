@@ -27,8 +27,6 @@ const mapStateToProps = state => (
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 
 
-
-
 const Protected = ({ component: Component, path, loggedIn, exact }) => (
   <Route 
   path={path} 
@@ -41,5 +39,5 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
       )} />
       );
       
-      export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
+export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
       // moved below mSTP for screenshots

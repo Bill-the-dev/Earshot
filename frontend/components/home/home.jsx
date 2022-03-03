@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import LogoWhite from '../../../app/assets/images/ear-listen-solid-white.svg'
 
+import MediaPlayer from "../media_footer/media_player.jsx"
+
 // NOTE: export at bottom looks like: 
 // export default Home
 
@@ -142,7 +144,9 @@ const Home = () => {
         </div>
         <div className="ct-like">{'<3'}</div>
       </div>
-      <div className="media-player">Media Buttons</div>
+      <div className="media-player">
+        <MediaPlayer />
+      </div>
       <div className="media-controls">Media Controls</div>
     </div>   
   </div>
