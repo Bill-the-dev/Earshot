@@ -20,29 +20,32 @@ User.create(
 
 # Genre
   # g_rock = Genre.create(
-  #   name: 'Rock',
+  #   name: 'Afrobeat',
   # )
 
 # Artist
-  a_fela_kuti = Artsist.create(
-    name: 'Fela Kuti',
-    genre_id: 1
-  )
-  a_fela_kuti.artist_img.attach(
-    io: open("https://earshot-dev.s3.amazonaws.com/dhHhDoNhPjshEssvZmFiGei1", filename: )
-  )
-
-
-# Album 
-  # alb_zombie = Album.create(
-  #   name: 'Zombie (USA)',
-  #   artist_id: 1
+  # a_fela_kuti = Artsist.create(
+  #   name: 'Fela Kuti',
+  #   genre_id: 1
+  # )
+  # a_fela_kuti.artist_img.attach(
+  #   io: open("https://earshot-dev.s3.amazonaws.com/dhHhDoNhPjshEssvZmFiGei1", filename: )
   # )
 
-# Song
-  # s_zombie = Song.create(
-  #   title: 'Zombie'
-  #   album_id: 1
-  # )
+
+Album 
+  alb_zombie = Album.create(
+    name: 'Zombie (USA)',
+    artist_id: 1
+  )
+  alb_zombie.album_art.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/dhHhDoNhPjshEssvZmFiGei1", filename: )
+  )
+
+Song
+  s_zombie = Song.create(
+    title: 'Zombie'
+    album_id: 1
+  )
 
 

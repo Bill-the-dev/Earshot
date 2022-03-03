@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import LogoWhite from '../../../app/assets/images/ear-listen-solid-white.svg'
 
-import MediaPlayer from "../media_footer/media_player.jsx"
+import MainContainer from "./main_container/main_container";
+import MediaPlayer from "./media_footer/media_player.jsx"
 
 // NOTE: export at bottom looks like: 
 // export default Home
@@ -13,10 +14,19 @@ function openLink(url, newTab) {
     : (window.location.href = url);
 }
 
+
 const Home = () => {
+  debugger
   return (
   <div className="home-container">
-    {/* Left Menu Bar */}
+    <LeftMenuBar />
+    <MainContainer />
+    <MediaFooter /> 
+  </div>
+)}
+
+const LeftMenuBar = () => {
+  return (
     <div className="left-container">
       <div className="home-nav">
         <div className="logo">
@@ -24,7 +34,7 @@ const Home = () => {
           <p className="logo-text">Earshot</p>
         </div >
         <ul className="nav-large">
-          <li className="nav-lg-item">Home</li>
+          <li className="nav-lg-item active" >Home</li>
           <li className="nav-lg-item">Search</li>
           <li className="nav-lg-item">Library</li>
         </ul>
@@ -44,97 +54,13 @@ const Home = () => {
         </ul>
       </div>
     </div>
-    {/* Main Container */}
-    <div className="main-container">
-      
-      <div className="main-header">
-        <div className="mh-nav"></div>
-        <div className="mh-username">
-          <h3>currentUser</h3>
-        </div>
-      </div>
-      
-      <div className="main-content">
-        <div className="m-greeting">Hello there</div>
-        <div className="m-library-mix">
-          <ul className="l-tiles">
-            <li className="l-tile" id="l-tile-1">
-              <div className="l-tile-art"></div>
-              <p className="l-tile-title">lt-Tile</p>
-            </li>
-            <li className="l-tile" id="l-tile-2">
-              <div className="l-tile-art"></div>
-              <p className="l-tile-title">lt-Tile</p>
-            </li>
-            <li className="l-tile" id="l-tile-3">
-              <div className="l-tile-art"></div>
-              <p className="l-tile-title">lt-Tile</p>
-            </li>
-            <li className="l-tile" id="l-tile-4">
-              <div className="l-tile-art"></div>
-              <p className="l-tile-title">lt-Tile</p>
-            </li>
-            <li className="l-tile" id="l-tile-5">
-              <div className="l-tile-art"></div>
-              <p className="l-tile-title">lt-Tile</p>
-            </li>
-            <li className="l-tile" id="l-tile-6">
-              <div className="l-tile-art"></div>
-              <p className="l-tile-title">lt-Tile</p>
-            </li>
-          </ul>
-        </div>
-        <div className="m-suggestions">
-          <p className="s-title">Things you might like</p>
-          <ul className="s-row">
-            <li className="s-tile" id="s-tile-">
-              <div className="s-tile-art"></div>
-              <p className="s-tile-title">st-Title</p>
-              <p className="s-tile-source">st-Source</p>
-            </li>
-            <li className="s-tile" id="s-tile-">
-              <div className="s-tile-art"></div>
-              <p className="s-tile-title">st-Title</p>
-              <p className="s-tile-source">st-Source</p>
-            </li>
-            <li className="s-tile" id="s-tile-">
-              <div className="s-tile-art"></div>
-              <p className="s-tile-title">st-Title</p>
-              <p className="s-tile-source">st-Source</p>
-            </li>
-            <li className="s-tile" id="s-tile-">
-              <div className="s-tile-art"></div>
-              <p className="s-tile-title">st-Title</p>
-              <p className="s-tile-source">st-Source</p>
-            </li>
-          </ul>
-          <ul className="s-row">
-            <li className="s-tile" id="s-tile-">
-              <div className="s-tile-art"></div>
-              <p className="s-tile-title">st-Title</p>
-              <p className="s-tile-source">st-Source</p>
-            </li>
-            <li className="s-tile" id="s-tile-">
-              <div className="s-tile-art"></div>
-              <p className="s-tile-title">st-Title</p>
-              <p className="s-tile-source">st-Source</p>
-            </li>
-            <li className="s-tile" id="s-tile-">
-              <div className="s-tile-art"></div>
-              <p className="s-tile-title">st-Title</p>
-              <p className="s-tile-source">st-Source</p>
-            </li>
-            <li className="s-tile" id="s-tile-">
-              <div className="s-tile-art"></div>
-              <p className="s-tile-title">st-Title</p>
-              <p className="s-tile-source">st-Source</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+  )
+}
 
-    {/* Media Footer */}
+
+
+const MediaFooter = () => {
+  return (
     <div className="media-footer">
       <div className="current-track">
         <div className="ct-art"></div>
@@ -148,8 +74,10 @@ const Home = () => {
         <MediaPlayer />
       </div>
       <div className="media-controls">Media Controls</div>
-    </div>   
-  </div>
-)}
+    </div> 
+  )
+}
+
+
 
 export default Home

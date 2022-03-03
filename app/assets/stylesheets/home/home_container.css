@@ -58,6 +58,10 @@
     align-items: flex-start;
     margin: 8px;
   }
+
+  .nav-large .active{
+    color: white;
+  }
   
   .nav-lg-item {
     font-size: 1rem;
@@ -150,6 +154,7 @@
     margin-right: 2.5rem;
     font-size: 0.7rem;
     align-items: center; 
+    justify-content: center;
     z-index: 1;  
     background-color: black; 
   }
@@ -208,16 +213,23 @@
 
   }
 
-    .l-tile-art {
+  .l-tile-art {
     border: 1px solid #ffff;
     border-radius: 1px;
     aspect-ratio: 1 / 1;
     height: 100%;
     /* height: 60vh;
     width: 60vh; */
-    
+    /* object-fit: contain; */
     align-self: center;
   }
+
+  .lt-art {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
 
   .l-tile-title {
     font-size: 1em;

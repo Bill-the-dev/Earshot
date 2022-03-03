@@ -1,8 +1,9 @@
 import { connect } from "react-redux";
-import { logout } from "../../actions/session_actions";
-import Home from "./home";
+import { logout } from "../../../actions/session_actions"
+import MainHeader from "./main_header";
 
 const mSTP = (state) => {
+  debugger
   return {
     currentUser: state.entities.users[state.session.id]
   };
@@ -14,6 +15,5 @@ const mDTP = (dispatch) => {
   };
 };
 
-export default connect(mSTP, mDTP)(Home);
 
-
+export default connect(mSTP, mDTP)(MainHeader);
