@@ -33,7 +33,7 @@ User.create(
   # )
 
 
-Album 
+# Album 
   alb_zombie = Album.create(
     name: 'Zombie (USA)',
     artist_id: 1
@@ -42,7 +42,7 @@ Album
     io: open("https://earshot-dev.s3.amazonaws.com/songs/dhHhDoNhPjshEssvZmFiGei1", filename: )
   )
 
-Song
+# Song
   s_zombie = Song.create(
     title: 'Zombie'
     album_id: 1
