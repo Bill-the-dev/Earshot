@@ -9,7 +9,9 @@
 
 require 'open-uri'
 
+findorcreateby
 # need a destroy all at the start?
+# find ||= create update find or create by name and updates the info 
 
 demo_user = User.create()
 User.create(
@@ -20,7 +22,7 @@ User.create(
 
 # Genre
   # g_rock = Genre.create(
-  #   name: 'Afrobeat',
+  #   name: 'Rock',
   # )
 
 # Artist
