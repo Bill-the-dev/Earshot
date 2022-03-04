@@ -4,7 +4,7 @@ import MainHeaderContainer from "./main_header_container"
 
 // MainContainer > MainHeader
 const MainHeader = ({currentUser, logout}) => {
-  debugger
+  // debugger
   return (
     <div className="main-header">
       <div className="mh-nav"></div>

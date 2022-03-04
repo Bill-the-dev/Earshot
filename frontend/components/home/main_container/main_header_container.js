@@ -3,7 +3,7 @@ import { logout } from "../../../actions/session_actions"
 import MainHeader from "./main_header";
 
 const mSTP = (state) => {
-  debugger
+  // debugger
   return {
     currentUser: state.entities.users[state.session.id]
   };

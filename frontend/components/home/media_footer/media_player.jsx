@@ -10,7 +10,7 @@ class MediaPlayer extends React.Component {
 
   render() {
     // debugger
-    let zombie_src = "https://earshot-dev.s3.amazonaws.com/dhHhDoNhPjshEssvZmFiGei1";
+    let zombie_src = "https://earshot-dev.s3.amazonaws.com/songs/alb_chulahoma/04+Meet+Me+In+the+City.m4a";
     return(
       <div>
         <button onClick={this.playAudio}>

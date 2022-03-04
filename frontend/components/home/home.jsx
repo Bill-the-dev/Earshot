@@ -16,7 +16,7 @@ function openLink(url, newTab) {
 
 
 const Home = () => {
-  debugger
+  // debugger
   return (
   <div className="home-container">
     <LeftMenuBar />
