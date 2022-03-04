@@ -1,7 +1,7 @@
 import React from 'react'
 
 class MediaPlayer extends React.Component {
-
+  debugger
   playAudio() {
     // debugger
     const audioEl = document.getElementsByClassName("audio-element")[0]
