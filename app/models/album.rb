@@ -5,11 +5,11 @@ class Album < ApplicationRecord
     # dependent destroy?
 
   has_many :songs,
-    # foreign_key: :album_id,
-    # class_name: :Song
+    foreign_key: :album_id,
+    class_name: :Song
 
   belongs_to :artist,
-    # foreign_key: :artist_id,
-    # class_name: :Artist
+    foreign_key: :artist_id,
+    class_name: :Artist
 
 end

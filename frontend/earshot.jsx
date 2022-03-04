@@ -4,6 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 // Testing
 import { signup, login, logout } from './actions/session_actions';
+import {fetchSongs} from './actions/song_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   // const store = configureStore()
@@ -29,7 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.login = login;
   window.logout = logout;
   window.getState = store.getState;
-  window.dispatch = store.dispatch; 
+  window.dispatch = store.dispatch;
+  window.fetchSongs = fetchSongs; 
   // window.currentUser = currentUser;
 
 });

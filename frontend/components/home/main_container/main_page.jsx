@@ -3,9 +3,10 @@ import MainHeader from "./main_header_container";
 import MainLibraryMix from "./main_library_mix";
 import MainSuggestions from "./main_suggestions";
 
-const MainContainer = () => {
+const MainPage = () => {
+  // debugger
   return (
-    <div className="main-container">
+    <div className="main-page">
       <MainHeader />
       <div className="main-content">
         <div className="m-greeting">Hello there</div>
@@ -16,4 +17,4 @@ const MainContainer = () => {
   )
 }
 
-export default MainContainer;
+export default MainPage;

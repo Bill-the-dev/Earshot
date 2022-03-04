@@ -5,10 +5,10 @@ class Artist < ApplicationRecord
   # depedent destroy?
   
   has_many :albums,
-    # foreign_key: :artist_id,
-    # class_name: :Album
+    foreign_key: :artist_id,
+    class_name: :Album
 
   belongs_to :genre,
-    # foreign_key: :genre_id,
-    # class_name: :Genre
+    foreign_key: :genre_id,
+    class_name: :Genre
 end

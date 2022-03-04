@@ -118,7 +118,7 @@
   
 
 /* Section - Main Container */
-  .main-container {
+  .main-page {
     background : rgb(86, 21, 15);
     background : linear-gradient(180deg, rgba(86, 21, 15, 1)10%, rgba(19, 18, 18, 1)50%);
     grid-column : 2 / 2;

@@ -5,7 +5,7 @@ class Genre < ApplicationRecord
   # dependent destroy?
 
   has_many :artists,
-    # foreign_key: :artist_id,
-    # class_name: :Artist
+    foreign_key: :artist_id,
+    class_name: :Artist
 
 end

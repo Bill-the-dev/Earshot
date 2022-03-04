@@ -1,13 +1,16 @@
 import { RECEIVE_SONG, RECEIVE_SONGS } from "../actions/song_actions"; 
 
 const SongsReducer = (oldState = {}, action) => {
-  debugger
+  // debugger
   Object.freeze(oldState)
+  const newState = Object.assign({}, oldState)
+
   switch (action.type) {
     case RECEIVE_SONG:
-      return Object.assign({}, oldState, {[action.type.id]: action.type})
+      newState[action.song.id] = action.song;
+      return newState;
     case RECEIVE_SONGS:
-      return action.songs
+      return action.songs;
   
     default:
       return oldState

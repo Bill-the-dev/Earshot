@@ -6,17 +6,20 @@ export const RECEIVE_SONGS = 'RECEIVE_SONGS'
 
 // Action Creators
 export const receiveSong = (song) => {
-  debugger
   return ({
     type: RECEIVE_SONG,
     song
   })
 }
 
-export const receiveSongs = (songs) => ({
-  type: RECEIVE_SONGS,
-  songs
-})
+export const receiveSongs = (songs) => {
+  return (
+    {
+      type: RECEIVE_SONGS,
+      songs
+    }
+  ) 
+}
 
 // Thunks
 export const fetchSong = id => dispatch => {

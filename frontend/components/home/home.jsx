@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LogoWhite from '../../../app/assets/images/ear-listen-solid-white.svg'
+import LogoWhite from '../../../app/assets/images/ear-listen-solid-white.svg';
 
-import MainContainer from "./main_container/main_container";
-import MediaPlayer from "./media_footer/media_player.jsx"
+import MainPage from "./main_container/main_page_container";
+import MediaPlayer from "./media_footer/media_player.jsx";
 
 // NOTE: export at bottom looks like: 
 // export default Home
@@ -20,7 +20,7 @@ const Home = () => {
   return (
   <div className="home-container">
     <LeftMenuBar />
-    <MainContainer />
+    <MainPage />
     <MediaFooter /> 
   </div>
 )}
