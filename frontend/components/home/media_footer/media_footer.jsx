@@ -1,13 +1,19 @@
 import React from 'react'
+// icons
+import playIcon from '../../../../app/assets/images/media_bar/play-solid.svg';
+import pauseIcon from '../../../../app/assets/images/media_bar/pause-solid.svg';
 
-class MediaPlayer3 extends React.Component {
+
+class MediaFooter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {}
+    this.playAudio = this.playAudio.bind(this)
   }
   
   componentDidMount(){
     this.props.fetchSongs();
+    
     // debugger
   }
 
@@ -18,40 +24,73 @@ class MediaPlayer3 extends React.Component {
   }
 
   playAudio() {
-    // debugger
     const audioEl = document.getElementsByClassName("audio-element")[0];
-    debugger
+    let btnPlayPause = playIcon
+  
     if (audioEl.paused) {
       audioEl.play()
+      this.btnPlayPause = pauseIcon;
+      // playState ?
     } else {
       audioEl.pause()
+      this.btnPlayPause = playIcon;
+      // playState ?
     }
   }
 
+
+  muteAudio() {
+    const muteIconContainer = document.getElementById('mute-icon');
+    muteIconContainer.addEventListener('click', () => {
+    if (audioEl.muted) {
+      audioEl.mute = false;
+      // muteState ?
+    } else {
+      audioEl.muted = true;
+      // muteState ?
+    }
+  })
+
+  }
+
   render(){
+    if (!this.btnPlayPause) {
+      this.btnPlayPause = playIcon;
+    }
     return (
-      <div id="audio-player-container">
-        
-        <div className="media-player">
-          <audio className="audio-element" src={this.state.songUrl}></audio>
-          <button onClick={this.playAudio} id="play-pause-btn">Play/Pause</button>
-          <span 
-            className="time" id="current-time"
-            >0:00
-          </span>
-          <span
-            className="time" id="duration"
-            >0:00
-          </span>
+      <div className="media-footer">
+        {/* TRACK */}
+        <div className="current-track">
+          <div className="ct-art"></div>
+          <div className="ct-track-info">
+            <div className="ct-title">ct-Title</div>
+            <div className="ct-artist">ct-Artist</div>
+          </div>
+          <div className="ct-like">{'<3'}</div>      
         </div>
-        
+        {/* MEDIA CONTROLS CTR */}
+        {/* <div id="audio-player-container">  */}
+        <div className="media-player">
+          <audio className="audio-element" src={this.state.songUrl} preload="metadata"></audio>
+          <button onClick={this.playAudio} id="play-pause-btn">
+            <img id="play-pause-icon" src={this.btnPlayPause} alt="play-pause" />  
+          </button>
+          <div className="track-time">
+            <div id="current-time" >0:00</div>
+            <div id="duration" >0:00</div>
+          </div>
+        </div>
+        {/* </div> */}
+        {/* MEDIA CONTROLS RIGHT */}
         <div className="media-controls">Media Controls
           <output id="volume-output">100</output>
           <input type="range" id="volume-slider" max="100" value="100"/>
           
-          <button id="mute-icon">Mute</button>
+          <button id="mute-icon" onClick={this.muteAudio}>Mute</button>
         </div>
-      </div>
+      </div> 
+      
+      
     )
   }
 
@@ -61,7 +100,7 @@ class MediaPlayer3 extends React.Component {
 
 
 
-export default MediaPlayer3
+export default MediaFooter
 
 
 

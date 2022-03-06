@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import MediaPlayer3 from "./media_player3";
+import MediaFooter from "./media_footer";
 import { fetchSong, fetchSongs } from "../../../actions/song_actions";
 
 
@@ -22,4 +22,4 @@ const mDTP = (dispatch) => {
   })
 }
 
-export default connect(mSTP, mDTP)(MediaPlayer3)
+export default connect(mSTP, mDTP)(MediaFooter)
