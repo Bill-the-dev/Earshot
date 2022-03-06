@@ -11,10 +11,9 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => {
       render={props => {
         if (loggedIn) {
           return <Component {...props} />
-        } else  {
+        } else {
           return <Redirect to="/" />
         }
-
       }}
      />
   );

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { logout, loginDemo } from "../../actions/session_actions";
+import { logout, loginDemo, login } from "../../actions/session_actions";
 import Splash from "./splash";
 
 const mSTP = (state) => {
@@ -12,7 +12,8 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
-    loginDemo: () => dispatch(loginDemo())
+    loginDemo: () => dispatch(loginDemo()),
+    login: (user) => dispatch(login(user))
   };
 };
 

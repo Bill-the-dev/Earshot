@@ -1,15 +1,18 @@
+import React from "react";
 import { connect } from "react-redux";
-import MediaPlayer from "./media_player";
+import MediaPlayer3 from "./media_player3";
 import { fetchSong, fetchSongs } from "../../../actions/song_actions";
 
-// ownProps?
-// const mSTP = (state, ownProps) => {
-//   debugger
-//   return ({
-//     // song: state.songs[ownProps.match.params.songId]
-//     song: null
-//   })
-// }
+
+
+const mSTP = state => {
+  // debugger
+  return ( {
+    currentSong: state.entities.songs[1]
+    // place holder:
+    // when song is clicked, fetch song, pass into mediaplayer as prop. 
+  })
+}
 
 const mDTP = (dispatch) => {
   // debugger
@@ -19,4 +22,4 @@ const mDTP = (dispatch) => {
   })
 }
 
-export default connect(mSTP, mDTP)(MediaPlayer)
+export default connect(mSTP, mDTP)(MediaPlayer3)

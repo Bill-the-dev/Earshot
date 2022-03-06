@@ -13,6 +13,7 @@ import LogInFormContainer from './session_form/login_form_container';
 import GreetingContainer from './greeting/greeting_container';
 import SplashContainer from './splash/splash_container';
 import HomeContainer from './home/home_container';
+import MediaPlayer3 from './home/media_footer/media_player_container';
 
 const App = () => (
   <div className='app-container'>
@@ -25,6 +26,8 @@ const App = () => (
       <Route exact path="/login" component={LogInFormContainer} /> 
       <Route exact path="/signup" component={SignUpFormContainer} /> 
       <AuthRoute exact path="/home" component={HomeContainer} />
+      <Route exact path="/mediaplayer3" component={MediaPlayer3}/>
+      
       {/* <AuthRoute exact path="/login" component={LogInFormContainer} /> 
       <AuthRoute exact path="/signup" component={SignUpFormContainer} /> 
       <AuthRoute exact path="/home" component={HomeContainer} /> */}

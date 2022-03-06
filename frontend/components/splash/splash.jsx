@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import LogoGH from '../../../app/assets/images/github-square-brands.svg'
 import LogoLI from '../../../app/assets/images/linkedin-brands.svg'
 import LogoWhite from '../../../app/assets/images/ear-listen-solid-white.svg'
+import SplashNav from "./splash_nav";
 
 function openLink(url, newTab) {
   newTab
@@ -10,38 +12,32 @@ function openLink(url, newTab) {
     : (window.location.href = url);
 }
 
+// function handleDemo(e) {
+//     e.preventDefault();
+//     this.props.login({username: 'KindGuest', password: 'password'})
+//     .then(() => this.props.history.push('/home'))
+    
+// }
+
 const Splash = (props) => {
   
-  const { currentUser, logout, loginDemo } = props
+  const { currentUser, logout, loginDemo, login } = props
   // debugger
   return (
     <div className="splash-background">
       <div className="splash-container">
-        <div className="splash-header">
-          <div className="splash-logo-container">
-            <img src={LogoWhite} alt="logo-white" className='logo-white-splash'/>
-            <h1>Earshot</h1>
-          </div>
-          <ul className="splash-nav">
-            <li onClick={() => loginDemo()}>Explore as Guest</li>
-            <li onClick={logout}>Log Out</li>
-            <li className="disable">|</li>
-            <li>
-              <Link to={ "/signup" } className="link-to">Sign Up</Link>
-            </li>
-            <li><Link to={ "/login" } className="link-to">Log In</Link></li>
-          </ul>
-        </div>
+        <SplashNav login={login} logout={logout} currentUser={currentUser}/>
         <div className="splash-content">
           <p id="splash-content-left">Listening is</p>
           <p id="splash-content-right">everything</p>
           <p id="splash-content-center">Handfulls of songs. No credit card needed.</p>
           <div >
-            <input 
-              type="button"
-              value="CHECK IT OUT"
+            <Link 
+              to={ "/signup" }
               className="splash-get-btn"
-              /> 
+              >CHECK IT OUT
+            </Link>
+               
           </div>
         </div>
         <footer className="splash-footer">
@@ -73,9 +69,3 @@ const Splash = (props) => {
 
 export default Splash;
 
-// <li className="f-links">
-//   <img src={LogoLI} alt="logo-white" className='logo-white'/>
-// </li>
-// <li className="f-link">
-//   <img src={LogoGH} alt="logo-white" className='logo-white'/>
-// </li>

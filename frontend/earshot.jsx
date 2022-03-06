@@ -4,7 +4,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 // Testing
 import { signup, login, logout } from './actions/session_actions';
-import {fetchSongs} from './actions/song_actions'
+import {fetchSongs, fetchSong} from './actions/song_actions'
+import { fetchAlbum, fetchAlbums } from './actions/album_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   // const store = configureStore()
@@ -32,6 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.fetchSongs = fetchSongs; 
+  window.fetchSong = fetchSong;
+  window.fetchAlbums = fetchAlbums;
+  window.fetchAlbum = fetchAlbum;
+
   // window.currentUser = currentUser;
 
 });

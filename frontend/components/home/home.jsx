@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import LogoWhite from '../../../app/assets/images/ear-listen-solid-white.svg';
 
 import MainPage from "./main_container/main_page_container";
-import MediaPlayer from "./media_footer/media_player.jsx";
+import MediaPlayer from "./media_footer/media_player_container";
 
 // NOTE: export at bottom looks like: 
 // export default Home
@@ -68,12 +68,9 @@ const MediaFooter = () => {
           <div className="ct-title">ct-Title</div>
           <div className="ct-artist">ct-Artist</div>
         </div>
-        <div className="ct-like">{'<3'}</div>
+        <div className="ct-like">{'<3'}</div>      
       </div>
-      <div className="media-player">
-        <MediaPlayer />
-      </div>
-      <div className="media-controls">Media Controls</div>
+      <MediaPlayer />
     </div> 
   )
 }
