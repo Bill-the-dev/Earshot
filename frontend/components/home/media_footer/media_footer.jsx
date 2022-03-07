@@ -2,61 +2,111 @@ import React from 'react'
 // icons
 import playIcon from '../../../../app/assets/images/media_bar/play-solid.svg';
 import pauseIcon from '../../../../app/assets/images/media_bar/pause-solid.svg';
+import mutedIcon from '../../../../app/assets/images/media_bar/volume-xmark-solid.svg';
+import volHighIcon from '../../../../app/assets/images/media_bar/volume-high-solid.svg';
 
 
 class MediaFooter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      currentSong: "",
+      currentAlbum: "",
+      duration: null,
+      formattedDuration: null,
+    }
     this.playAudio = this.playAudio.bind(this)
   }
   
-  componentDidMount(){
-    this.props.fetchSongs();
+  componentDidMount(){ // accepts (prevProps, prevState) 
+    this.props.fetchSongs()
+      // .then(this.setState(this.props.currentSong))
     
-    // debugger
+    // audioEl.onloadedmetadata = () => {
+    //   this.setState({
+    //       duration: this.formatTime(audioEl.duration)
+    //   })
+    // }
+    debugger
   }
 
   componentDidUpdate(prevProps){
     if(prevProps.currentSong !== this.props.currentSong){
       this.setState(this.props.currentSong)
+        // .then(this.setState({
+        //   currentSong: this.props.currentSong.title
+        // }))
     }
+
+    debugger
   }
 
+  formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
+    return `${mins}:${formatSecs}`;
+  }
+  
+  audioDur() {
+    debugger
+    const durationEl = document.getElementsByClassName("audio-element")[0];
+    // return durationEl.onloadedmetadata = () => {
+
+    if (!durationEl) return '0:00';
+
+    return this.formatTime(durationEl.duration)
+    // } 
+
+    // if (audio.readyState > 0) {
+    //   this.showDuration();
+    // } else {
+      //   audioEl.
+      // }
+  }
+
+  
+
   playAudio() {
-    const audioEl = document.getElementsByClassName("audio-element")[0];
-    let btnPlayPause = playIcon
+    const audioEl = document.getElementsByClassName
+    ("audio-element")[0];
+    const playbackIcon = document.getElementById('play-pause-icon')
+    debugger
   
     if (audioEl.paused) {
+      // this.audioDur()
       audioEl.play()
-      this.btnPlayPause = pauseIcon;
+      playbackIcon.src = pauseIcon;
       // playState ?
     } else {
       audioEl.pause()
-      this.btnPlayPause = playIcon;
+      playbackIcon.src = playIcon;
       // playState ?
     }
   }
 
-
   muteAudio() {
-    const muteIconContainer = document.getElementById('mute-icon');
-    muteIconContainer.addEventListener('click', () => {
+    const muteIcon = document.getElementById('volume-icon');
+    const audioEl = document.getElementsByClassName("audio-element")[0];
     if (audioEl.muted) {
-      audioEl.mute = false;
+      audioEl.muted = false;
+      muteIcon.src = volHighIcon;
       // muteState ?
     } else {
       audioEl.muted = true;
+      muteIcon.src = mutedIcon;
       // muteState ?
     }
-  })
-
   }
 
   render(){
+    debugger
     if (!this.btnPlayPause) {
       this.btnPlayPause = playIcon;
     }
+    // if (!this.audioDur) {
+    //   this.audioDur = null;
+    // }
     return (
       <div className="media-footer">
         {/* TRACK */}
@@ -69,33 +119,30 @@ class MediaFooter extends React.Component {
           <div className="ct-like">{'<3'}</div>      
         </div>
         {/* MEDIA CONTROLS CTR */}
-        {/* <div id="audio-player-container">  */}
         <div className="media-player">
           <audio className="audio-element" src={this.state.songUrl} preload="metadata"></audio>
           <button onClick={this.playAudio} id="play-pause-btn">
             <img id="play-pause-icon" src={this.btnPlayPause} alt="play-pause" />  
           </button>
+          {/* Track Time */}
           <div className="track-time">
             <div id="current-time" >0:00</div>
-            <div id="duration" >0:00</div>
+            <div id="duration" >{this.audioDur}</div>
+            {/* <div id="duration" >{this.state.formattedDuration}</div> */}
           </div>
         </div>
-        {/* </div> */}
         {/* MEDIA CONTROLS RIGHT */}
-        <div className="media-controls">Media Controls
+        <div className="media-controls">
+          <button id="volume-button" onClick={this.muteAudio}>
+            <img id="volume-icon" src={volHighIcon} alt="volume-mute" />  
+          </button>
           <output id="volume-output">100</output>
           <input type="range" id="volume-slider" max="100" value="100"/>
           
-          <button id="mute-icon" onClick={this.muteAudio}>Mute</button>
         </div>
-      </div> 
-      
-      
+      </div>    
     )
   }
-
-  
-
 }
 
 
@@ -103,79 +150,9 @@ class MediaFooter extends React.Component {
 export default MediaFooter
 
 
+// refs: 
+// https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState
+
+// https://www.w3.org/2010/05/video/mediaevents.html
 
 
-
-
-// class MediaPlayer3 extends React.Component {
-//   constructor(props) {
-//     super(props)
-//     this.state = {
-//       audioState: 'paused',  // paused or playing
-//       currentSong: '',
-//       currentAlbum: '',
-//       songDuration: null
-//     }
-//     this.toggleAudio = this.toggleAudio.bind(this);
-//   }
-
-  
-//   componentDidMount(){};
-  
-//   componentDidUpdate(){};
-  
-//   toggleAudio() {
-//     const audioEl = document.getElementsByClassName("audio-el")
-//     if (this.audioEl.paused) {
-//       return this.audioEl.play()
-//     } else {
-//       return this.audioEl.pause()
-//     }
-//     // if (this.state.audioState.value = 'paused') {
-//     //   audio.play()
-//     //   this.setState({
-//     //     audioState: 'playing'
-//     //   }) 
-//     // } else {
-//     //   audio.pause();
-//     //   this.setState({
-//     //     audioState: 'paused'
-//     //   }) 
-//     // }
-//   }
-// //  <div>
-// //       //   <button onClick={this.toggleAudio}>
-// //       //       <span>Play Audio</span>
-// //       //   </button>
-// //       //   <audio className={"audio-element"}>
-// //       //     <source src={song_url}/>
-// //       //   </audio>
-// //       // </div>
-  
-//   render(){
-//     let song_url = "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--52b35ddfefd7e57aab46422ec95c71424a7f17e7/04+Meet+Me+In+the+City.m4a";
-
-//     return(
-//       <div id="audio-player-container">
-//         <p>Audio Player</p>
-//         <audio id="audio-el" src={song_url} preload="metadata"></audio>
-//         <button id="play-pause-btn" onClick={this.toggleAudio}>Play/Pause</button>
-//         <span 
-//           className="time" id="current-time"
-//           >0:00
-//         </span>
-//         <span
-//           className="time" id="duration"
-//           >0:00
-//         </span>
-//         <output id="volume-output">100</output>
-//         <input type="range" id="volume-slider" max="100" value="100"/>
-        
-//         <button id="mute-icon">Mute</button>
-//       </div>
-//     )
-//   }
-
-
-
-// }

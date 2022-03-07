@@ -83,7 +83,10 @@
   align-self: center;
   justify-content: center;
   aspect-ratio: 1 / 1;
+  padding-left: 5%; /* off center w/o this */
 }
+
+
 
 .track-time{
   width: 100%;
@@ -106,12 +109,30 @@
 /* MEDIA CONTROLS RIGHT */
 .media-controls {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   border: 1px solid grey;
   height: 100%;
   width: 25%;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   padding: 1em;
 }
+
+#volume-button {
+  display: flex;
+  height: 1.5em;
+  width: 1.5em;
+  border: none;
+  background-color: inherit;
+}
+
+#volume-icon {
+  height: 1.5em;
+  width: 1.5em;
+  align-self: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  // padding-left: 10%; /* off center w/o this */
+}
+
 
