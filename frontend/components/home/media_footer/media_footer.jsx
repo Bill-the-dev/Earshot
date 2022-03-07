@@ -20,25 +20,44 @@ class MediaFooter extends React.Component {
   
   componentDidMount(){ // accepts (prevProps, prevState) 
     this.props.fetchSongs()
-      // .then(this.setState(this.props.currentSong))
-    
-    // audioEl.onloadedmetadata = () => {
-    //   this.setState({
-    //       duration: this.formatTime(audioEl.duration)
-    //   })
-    // }
     debugger
   }
 
   componentDidUpdate(prevProps){
     if(prevProps.currentSong !== this.props.currentSong){
       this.setState(this.props.currentSong)
-        // .then(this.setState({
-        //   currentSong: this.props.currentSong.title
-        // }))
     }
-
     debugger
+  }
+
+  currentRangeTime() {
+    const currentTrackTime = document.getElementById('current-track-time');
+    const timeRange = document.getElementById('time-range');
+    timeRange.addEventListener('input', () => {
+      return currentTrackTime.innerText = this.formatTime(timeRange.value)
+    })
+  }
+
+  maxRangeTime() {
+    const timeRange = document.getElementById('time-range');
+    const audioEl = document.getElementsByClassName("audio-element")[0];
+    return timeRange.max = Math.floor(audioEl.duration)
+  }
+
+  audioDuration() {
+    debugger
+    const durationEl = document.getElementsByClassName("audio-element")[0];
+    const forceRender = () => { this.forceUpdate() } 
+
+    if (!durationEl) return "0:00";
+    durationEl.addEventListener('loadedmetadata', forceRender)
+    
+    if (durationEl.readyState > 0) {
+      durationEl.removeEventListener('loadedmetadata', forceRender)
+      return this.formatTime(durationEl.duration)
+    } else {
+      return "0:00"
+    }
   }
 
   formatTime(seconds) {
@@ -46,23 +65,6 @@ class MediaFooter extends React.Component {
     const secs = Math.floor(seconds % 60);
     const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
     return `${mins}:${formatSecs}`;
-  }
-  
-  audioDur() {
-    debugger
-    const durationEl = document.getElementsByClassName("audio-element")[0];
-    // return durationEl.onloadedmetadata = () => {
-
-    if (!durationEl) return '0:00';
-
-    return this.formatTime(durationEl.duration)
-    // } 
-
-    // if (audio.readyState > 0) {
-    //   this.showDuration();
-    // } else {
-      //   audioEl.
-      // }
   }
 
   
@@ -74,7 +76,6 @@ class MediaFooter extends React.Component {
     debugger
   
     if (audioEl.paused) {
-      // this.audioDur()
       audioEl.play()
       playbackIcon.src = pauseIcon;
       // playState ?
@@ -99,14 +100,30 @@ class MediaFooter extends React.Component {
     }
   }
 
+  
+
   render(){
     debugger
+    const audioEl = document.getElementsByClassName("audio-element")[0];
+    const duration = this.audioDuration()
+    const timeRange = document.getElementById('time-range');
+    
     if (!this.btnPlayPause) {
       this.btnPlayPause = playIcon;
     }
-    // if (!this.audioDur) {
-    //   this.audioDur = null;
-    // }
+
+    if (audioEl && audioEl.readyState > 0) {
+      console.log('loaded')
+      this.maxRangeTime();
+      this.currentRangeTime();
+      timeRange.addEventListener('change', () => {
+        timeRange.value = Math.floor(audioEl.currentTime)
+      })
+      debugger
+    }
+
+    
+
     return (
       <div className="media-footer">
         {/* TRACK */}
@@ -126,9 +143,9 @@ class MediaFooter extends React.Component {
           </button>
           {/* Track Time */}
           <div className="track-time">
-            <div id="current-time" >0:00</div>
-            <div id="duration" >{this.audioDur}</div>
-            {/* <div id="duration" >{this.state.formattedDuration}</div> */}
+            <div id="current-track-time" ></div>
+            <input type="range" id="time-range" max="100" value="0"/>
+            <div id="duration" >{duration}</div>
           </div>
         </div>
         {/* MEDIA CONTROLS RIGHT */}
@@ -144,8 +161,6 @@ class MediaFooter extends React.Component {
     )
   }
 }
-
-
 
 export default MediaFooter
 

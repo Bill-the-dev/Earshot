@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Switch, Route } from "react-router-dom";
 import LogoWhite from '../../../app/assets/images/ear-listen-solid-white.svg';
 
 import MainPage from "./main_container/main_page_container";
-import MediaPlayer from "./media_footer/media_player_container";
+import MediaFooter from "./media_footer/media_player_container";
+import AlbumShow from "./main_container/album/album_container";
 
 // NOTE: export at bottom looks like: 
 // export default Home
@@ -20,7 +21,10 @@ const Home = () => {
   return (
   <div className="home-container">
     <LeftMenuBar />
-    <MainPage />
+    <Switch >
+      <Route exact path='/home/albums/:albumId' component={AlbumShow} />
+      <Route exact path='/home' component={MainPage} />
+    </Switch>
     <MediaFooter /> 
   </div>
 )}
@@ -56,25 +60,5 @@ const LeftMenuBar = () => {
     </div>
   )
 }
-
-
-
-const MediaFooter = () => {
-  return (
-    <div className="media-footer">
-      <div className="current-track">
-        <div className="ct-art"></div>
-        <div className="ct-track-info">
-          <div className="ct-title">ct-Title</div>
-          <div className="ct-artist">ct-Artist</div>
-        </div>
-        <div className="ct-like">{'<3'}</div>      
-      </div>
-      <MediaPlayer />
-    </div> 
-  )
-}
-
-
 
 export default Home

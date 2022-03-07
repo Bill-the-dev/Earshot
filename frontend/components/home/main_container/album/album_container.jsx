@@ -1,19 +1,22 @@
 import { connect } from "react-redux";
 import { fetchAlbums, fetchAlbum } from "../../../../actions/album_actions";
-import Album from "./album";
+import AlbumShow from "./album_show"
 
-const mSTP = (state) => {
-  return {
-    currentUser: state.entities.users[state.session.id]
+// const mSTP = (state) => {
+//   debugger
+//   return {
+//     albums: state.albums
 
-  };
-};
+//   };
+// };
 
 const mDTP = (dispatch) => {
+  debugger
   return {
     fetchAlbums: () => dispatch(fetchAlbums()),
-    fetchAlbum: () => dispatch(fetchAlbum()),
+    fetchAlbum: (albumId) => dispatch(fetchAlbum(albumId)),
   };
 };
 
-export default connect(mSTP, mDTP)(Album);
+// export default connect(mSTP, mDTP)(AlbumShow);
+export default connect(null, mDTP)(AlbumShow);
