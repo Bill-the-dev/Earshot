@@ -1,0 +1,121 @@
+.album-show {
+  background: rgb(86, 21, 15);
+  background: linear-gradient(180deg, rgba(86, 21, 15, 1)10%, rgba(19, 18, 18, 1)50%);
+  grid-column: 2 / 2;
+  // padding: 2.5rem;
+  overflow-y: auto;
+
+}
+
+.main-header-temp {
+  display: flex;
+  box-sizing: border-box;
+  height: 3em;
+  width: 100%;
+  border: solid 1px grey;
+  padding-left: 40px;
+  align-items: center;
+  justify-content: right;
+  padding-right: 3em;
+  position: fixed;
+  top: 0;
+
+}
+
+.album-show-header {
+  display: flex;
+  box-sizing: border-box;
+  height: 10em;
+  width: 100%;
+  border: solid 1px grey;
+  margin-top: 4em;
+}
+
+.album-show-play-like {
+  display: flex;
+  box-sizing: border-box;
+  height: 4em;
+  width: 100%;
+  border: solid 1px grey;
+  padding: 1em;
+}
+
+.album-show-list-container {
+  display: flex;
+  box-sizing: border-box;
+  height: auto;
+  width: 100%;
+  border: solid 1px grey;
+  padding: 1em;
+}
+
+.album-show-list {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: auto;
+  width: 100%;
+
+}
+
+.song-li {
+  display: flex;
+  box-sizing: border-box;
+  height: auto;
+  width: 100%;
+  border: solid 1px grey;
+  padding: 0.5em;
+  align-items: center;
+  // justify-content: center;
+}
+
+.song-li:hover {
+  background-color: var(--lt-gray-tran);
+}
+
+// .song-li:
+
+.song-li-idx {
+  display: flex;
+  height: 100%;
+  width: 5%;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px grey;
+}
+
+.song-li-info-left {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 75%;
+  padding-left: 0.2em;
+  border: solid 1px grey;
+}
+  .song-li-title {
+    font-size: 1rem;
+    color: white;
+    font-weight: 500;
+  }
+
+  .song-li-artist {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: var(--lt-gray-b);
+  }
+
+
+.song-li-info-right {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  height: 100%;
+  width: 20%;
+  border: solid 1px grey;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+
+

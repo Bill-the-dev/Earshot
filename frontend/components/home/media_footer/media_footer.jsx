@@ -6,6 +6,8 @@ import mutedIcon from '../../../../app/assets/images/media_bar/volume-xmark-soli
 import volHighIcon from '../../../../app/assets/images/media_bar/volume-high-solid.svg';
 
 
+
+
 class MediaFooter extends React.Component {
   constructor(props) {
     super(props);
@@ -15,37 +17,45 @@ class MediaFooter extends React.Component {
       duration: null,
       formattedDuration: null,
     }
+    // this.audioEl = React.createRef()
+    // this.timeRangeEl = React.createRef()
+    // this.currentTrackTime = React.createRef()
+
     this.playAudio = this.playAudio.bind(this)
+    this.formatTime = this.formatTime.bind(this)
+    this.updateRange = this.updateRange.bind(this)
   }
   
   componentDidMount(){ // accepts (prevProps, prevState) 
     this.props.fetchSongs()
-    debugger
+    // debugger
   }
 
   componentDidUpdate(prevProps){
     if(prevProps.currentSong !== this.props.currentSong){
       this.setState(this.props.currentSong)
     }
-    debugger
-  }
-
-  currentRangeTime() {
-    const currentTrackTime = document.getElementById('current-track-time');
-    const timeRange = document.getElementById('time-range');
-    timeRange.addEventListener('input', () => {
-      return currentTrackTime.innerText = this.formatTime(timeRange.value)
-    })
+    // debugger
   }
 
   maxRangeTime() {
+    // invoked on audio load duration
     const timeRange = document.getElementById('time-range');
     const audioEl = document.getElementsByClassName("audio-element")[0];
+    // debugger
     return timeRange.max = Math.floor(audioEl.duration)
   }
-
+  
+ 
+  updateRange(rangeInput) {
+    const timeRange = document.getElementById('time-range');
+    return (e) => {
+      this.formatTime(timeRange.value)
+    }
+  }
+  
   audioDuration() {
-    debugger
+    // debugger
     const durationEl = document.getElementsByClassName("audio-element")[0];
     const forceRender = () => { this.forceUpdate() } 
 
@@ -54,6 +64,8 @@ class MediaFooter extends React.Component {
     
     if (durationEl.readyState > 0) {
       durationEl.removeEventListener('loadedmetadata', forceRender)
+      this.maxRangeTime();
+      // debugger
       return this.formatTime(durationEl.duration)
     } else {
       return "0:00"
@@ -73,16 +85,65 @@ class MediaFooter extends React.Component {
     const audioEl = document.getElementsByClassName
     ("audio-element")[0];
     const playbackIcon = document.getElementById('play-pause-icon')
-    debugger
+    // debugger
   
     if (audioEl.paused) {
       audioEl.play()
       playbackIcon.src = pauseIcon;
+      audioEl.addEventListener('timeupdate', e => {
+        this.currentRangeTime()
+      })
       // playState ?
     } else {
-      audioEl.pause()
+      audioEl.pause()     
       playbackIcon.src = playIcon;
+      this.currentRangeTime()
       // playState ?
+    }
+  }
+
+  currentRangeTime() {
+    const currentTrackTime = document.getElementById('current-track-time');
+    const timeRange = document.getElementById('time-range');
+    const audioEl = document.getElementsByClassName("audio-element")[0];
+   
+    if (!currentTrackTime) return "0:00";
+
+    if (audioEl.readyState > 0 && audioEl.paused) {
+      currentTrackTime.innerHTML = this.formatTime(audioEl.currentTime)
+      this.updateRange()
+      // return this.formatTime(audioEl.currentTime)
+    } else if (audioEl.readyState > 0 && !audioEl.paused) {
+      currentTrackTime.innerHTML = this.formatTime(audioEl.currentTime)
+      this.updateRange()
+    } else {
+      return "0:00"
+    }
+  }
+
+  clickRange(e) {
+    const currentTrackTime = document.getElementById('current-track-time');
+    const timeRange = document.getElementById('time-range');
+    const audioEl = document.getElementsByClassName("audio-element")[0];
+    if (!audioEl) return null
+    if (audioEl.readyState > 0){
+      // audioEl.currentTime = audioEl.duration * 
+    }
+
+  }
+
+  percentWidth(e) {
+    e.target.offsetWidth
+  }
+
+  updateRange() {
+    // debugger
+    const currentTrackTime = document.getElementById('current-track-time');
+    const timeRange = document.getElementById('time-range');
+    const audioEl = document.getElementsByClassName("audio-element")[0];
+    if (!audioEl) return null
+    if (audioEl.readyState > 0){
+      timeRange.value = Math.floor(audioEl.currentTime)
     }
   }
 
@@ -99,30 +160,18 @@ class MediaFooter extends React.Component {
       // muteState ?
     }
   }
-
+  
   
 
   render(){
-    debugger
+    // debugger
     const audioEl = document.getElementsByClassName("audio-element")[0];
-    const duration = this.audioDuration()
     const timeRange = document.getElementById('time-range');
+    const duration = this.audioDuration()
     
     if (!this.btnPlayPause) {
       this.btnPlayPause = playIcon;
-    }
-
-    if (audioEl && audioEl.readyState > 0) {
-      console.log('loaded')
-      this.maxRangeTime();
-      this.currentRangeTime();
-      timeRange.addEventListener('change', () => {
-        timeRange.value = Math.floor(audioEl.currentTime)
-      })
-      debugger
-    }
-
-    
+    }    
 
     return (
       <div className="media-footer">
@@ -138,13 +187,13 @@ class MediaFooter extends React.Component {
         {/* MEDIA CONTROLS CTR */}
         <div className="media-player">
           <audio className="audio-element" src={this.state.songUrl} preload="metadata"></audio>
-          <button onClick={this.playAudio} id="play-pause-btn">
+          <button onClick={this.playAudio} id="play-pause-btn" ref={this.audioEl}>
             <img id="play-pause-icon" src={this.btnPlayPause} alt="play-pause" />  
           </button>
           {/* Track Time */}
           <div className="track-time">
-            <div id="current-track-time" ></div>
-            <input type="range" id="time-range" max="100" value="0"/>
+            <div id="current-track-time">0:00</div> 
+            <input type="range" id="time-range" max="100" value="0" onInput={this.updateRange()} onClick={e => this.clickRange(e)}/>
             <div id="duration" >{duration}</div>
           </div>
         </div>
@@ -164,10 +213,28 @@ class MediaFooter extends React.Component {
 
 export default MediaFooter
 
+// Save constants to refactor?
+// const cEle = {
+//   audio: document.getElementsByClassName("audio-element")[0],
+//   timeRange: document.getElementById('time-range'),
+//   currentTrackTime: document.getElementById('current-track-time'),
+
+// }
+
+
+{/* audio tag */}
+{/* <audio ref={songRef} type="audio/mpeg" preload="true"
+  onTimeUpdate={ e => setCurrentTime(e.target.value) }
+  onCanPlay={ e => setDuration(e.target.duration) }
+  onEnded={ e => next_song(e, allSong.indexOf(currentSong) + 1, state) }
+  src={ currentSong && `${dev_url}${currentSong.id}` }
+/> */}
+
+
 
 // refs: 
+//https://reactjs.org/docs/refs-and-the-dom.html
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState
-
 // https://www.w3.org/2010/05/video/mediaevents.html
 
 
