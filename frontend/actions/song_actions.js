@@ -23,7 +23,7 @@ export const receiveSongs = (songs) => {
 
 // Thunks
 export const fetchSong = id => dispatch => {
-  debugger
+  // debugger
   return (
     SongUtil.fetchSong(id)
       .then(song => dispatch(receiveSong(song)))

@@ -1,6 +1,6 @@
 import React from 'react';
 import MainHeader from '../main_header';
-import Song from '../song/song';
+import Song from '../song/song_container';
 
 // icons
 import playIcon from '../../../../../app/assets/images/media_bar/play-solid.svg';
@@ -12,14 +12,14 @@ class AlbumShow extends React.Component {
     this.state = {
       albumSongs: [],
     }
-    debugger
+    // debugger
   }
 
   componentDidMount() {
     let albumIdStr = this.props.match.params.albumId;
     this.props.fetchAlbum(albumIdStr)
 
-    debugger
+    // debugger
 
   }
 
@@ -28,14 +28,14 @@ class AlbumShow extends React.Component {
       this.setState(this.props.album)
     }
     console.log('in update')
-    debugger
+    // debugger
   }
 
   playAudio() {
     // const audioEl = document.getElementsByClassName
     // ("audio-element")[0];
     const playbackIcon = document.getElementById('play-pause-icon')
-    debugger
+    // debugger
   
     // if (audioEl.paused) {
     //   audioEl.play()
@@ -62,7 +62,7 @@ class AlbumShow extends React.Component {
 
 
     //here!
-    debugger
+    // debugger
     return (
       <div className="album-show">
         {/* <MainHeader />   */}

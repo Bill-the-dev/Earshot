@@ -6,17 +6,16 @@ import mutedIcon from '../../../../app/assets/images/media_bar/volume-xmark-soli
 import volHighIcon from '../../../../app/assets/images/media_bar/volume-high-solid.svg';
 
 
-// QUESTION: how to store const in document?
 
 
 class MediaFooter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      duration: null
-      // formattedDuration: null,
       // currentSong: "",
       // currentAlbum: "",
+      // duration: null,
+      // formattedDuration: null,
     }
     // this.audioEl = React.createRef()
     // this.timeRangeEl = React.createRef()
@@ -26,46 +25,22 @@ class MediaFooter extends React.Component {
     this.formatTime = this.formatTime.bind(this)
     this.updateRange = this.updateRange.bind(this)
   }
-
   
   componentDidMount(){ // accepts (prevProps, prevState) 
-    const audioEl = document.getElementsByClassName("audio-element")[0];
+    
     audioEl.onloadedmetadata = () => {
-      this.setState({ duration: audioEl.duration });
+      this.setState({ duration: audio.duration })
     }
+    // this.props.fetchSongs()
+    // debugger
   }
 
   componentDidUpdate(prevProps){
-    // if(prevProps.currentSong !== this.props.currentSong){
-    //   this.setState(this.props.currentSong)
-    // }
+    if(prevProps.currentSong !== this.props.currentSong){
+      this.setState(this.props.currentSong)
+    }
     // debugger
   }
-  
-  formatTime(seconds) {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
-    return `${mins}:${formatSecs}`;
-  }
-  
-  // audioDuration() {
-  //   // debugger
-  //   const durationEl = document.getElementsByClassName("audio-element")[0];
-  //   // const forceRender = () => { this.forceUpdate() } 
-
-  //   if (durationEl === null) return "0:00";
-  //   // durationEl.addEventListener('loadedmetadata', forceRender)
-    
-  //   if (durationEl.readyState > 0) {
-  //     // durationEl.removeEventListener('loadedmetadata', forceRender)
-  //     this.maxRangeTime();
-  //     return this.state.durationShow
-  //     // return this.formatTime(durationEl.duration)
-  //   } else {
-  //     return "0:00"
-  //   }
-  // }
 
   maxRangeTime() {
     // invoked on audio load duration
@@ -83,7 +58,30 @@ class MediaFooter extends React.Component {
     }
   }
   
+  audioDuration() {
+    // debugger
+    const durationEl = document.getElementsByClassName("audio-element")[0];
+    const forceRender = () => { this.forceUpdate() } 
 
+    if (!durationEl) return "0:00";
+    durationEl.addEventListener('loadedmetadata', forceRender)
+    
+    if (durationEl.readyState > 0) {
+      durationEl.removeEventListener('loadedmetadata', forceRender)
+      this.maxRangeTime();
+      // debugger
+      return this.formatTime(durationEl.duration)
+    } else {
+      return "0:00"
+    }
+  }
+
+  formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
+    return `${mins}:${formatSecs}`;
+  }
 
   
 
@@ -167,15 +165,13 @@ class MediaFooter extends React.Component {
     }
   }
   
-  updateVolume(){
-    // placeholder to clear errors
-  }
+  
 
   render(){
     // debugger
     const audioEl = document.getElementsByClassName("audio-element")[0];
     const timeRange = document.getElementById('time-range');
-    // const duration = this.audioDuration()
+    const duration = this.audioDuration()
     
     if (!this.btnPlayPause) {
       this.btnPlayPause = playIcon;
@@ -201,8 +197,8 @@ class MediaFooter extends React.Component {
           {/* Track Time */}
           <div className="track-time">
             <div id="current-track-time">0:00</div> 
-            <input type="range" id="time-range" max={this.state.duration} defaultValue="0" onInput={this.updateRange()} onClick={e => this.clickRange(e)} />
-            <div id="duration" >{this.props.durationShow}</div>
+            <input type="range" id="time-range" max="100" value="0" onInput={this.updateRange()} onClick={e => this.clickRange(e)}/>
+            <div id="duration" >{duration}</div>
           </div>
         </div>
         {/* MEDIA CONTROLS RIGHT */}
@@ -211,7 +207,7 @@ class MediaFooter extends React.Component {
             <img id="volume-icon" src={volHighIcon} alt="volume-mute" />  
           </button>
           <output id="volume-output">100</output>
-          <input type="range" id="volume-slider" max="100" defaultValue="100" />
+          <input type="range" id="volume-slider" max="100" value="100"/>
           
         </div>
       </div>    

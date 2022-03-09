@@ -4,7 +4,7 @@ import { fetchSong } from "../../../../actions/song_actions";
 import AlbumShow from "./album_show"
 
 const mSTP = (state, ownProps) => {
-  debugger
+  // debugger
   return {
     album: state.entities.albums[ownProps.match.params.albumId],
     currentUser: state.entities.users[state.session.id]
@@ -13,7 +13,7 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = (dispatch) => {
-  debugger
+  // debugger
   return {
     fetchAlbums: () => dispatch(fetchAlbums()),
     fetchAlbum: (albumId) => dispatch(fetchAlbum(albumId)),
