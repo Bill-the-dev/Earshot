@@ -18,11 +18,6 @@ class AlbumShow extends React.Component {
   componentDidMount() {
     let albumIdStr = this.props.match.params.albumId;
     this.props.fetchAlbum(albumIdStr)
-      .then(() => {
-        each > 
-        this.props.fetchSong(i)
-        debugger
-      })
 
     debugger
 
@@ -58,11 +53,15 @@ class AlbumShow extends React.Component {
   }
 
   render() {
+    const {album} = this.props;
+    if (!album) return null;
+
     if (!this.btnPlayPause) {
       this.btnPlayPause = playIcon;
     } 
 
 
+    //here!
     debugger
     return (
       <div className="album-show">
@@ -70,34 +69,50 @@ class AlbumShow extends React.Component {
         <div className="main-header-temp"></div>
         {/* Album Show Header */}
         <div className="album-show-header">
-          <div className="album-sh-art"></div>
+          <div className="album-sh-art">
+            <img src={album.albumArtUrl} alt="album-art" id='album-sh-img'/>
+          </div>
           <div className="album-sh-info">
-            <p>ALBUM</p>
-            <h1>Album Name</h1>
-            <h2>Artist Name | Album Year | #Songs | Duration</h2>    
+            <p className='album-sh-type'>ALBUM</p>
+            <h1>{album.name}</h1>
+            <h2>Artist Name</h2> 
+            <h2>{album.year}| #Songs | Duration</h2>    
           </div>  
         </div>
         {/* Album Play Like */}
         <div className="album-show-play-like">
-          <button className="album-sp-play">
+          <div className="album-sp-play-pause">
             <img id="li-play-pause-icon" src={this.btnPlayPause} alt="play-pause" />    
-          </button>
+          </div>
           <button className="album-sp-like">like</button>
         </div>
         {/* Album Song List */}
         <div className="album-show-list-container">
           <ul className="album-show-list">
-            <Song />
-            <Song />
-            <Song />
-            <Song />
-            <Song />
-            <Song />
+            <ListHeader />
+            {Object.values(album.songs).map((song, index) => <Song song={song} index={index+1} key={song.id}/>)}
           </ul>
         </div>
       </div>
     )
   }
+}
+
+const ListHeader = () => {
+  return (
+    <li className='song-li-header'>
+      <div className="song-li-idx">#</div>
+      <div className="song-li-info-left">
+        <div className="song-li-title">TITLE</div> 
+      </div>
+      <div className="song-li-info-right">
+        <div className="song-li-like"></div>
+        <div className="song-li-duration" id="">
+          clock
+        </div>
+      </div>
+    </li>
+  )
 }
 
 

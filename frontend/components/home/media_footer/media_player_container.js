@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import MediaFooter from "./media_footer";
+import { playSong, pauseSong, fetchCurrentSong } from "../../../actions/media_actions";
 import { fetchSong, fetchSongs } from "../../../actions/song_actions";
 
 
@@ -8,8 +9,8 @@ import { fetchSong, fetchSongs } from "../../../actions/song_actions";
 const mSTP = state => {
   // debugger
   return ( {
-    currentSong: state.entities.songs[1]
-    // place holder:
+    currentSong: state.entities.media.currentSong,
+    playback: state.entities.media.playback
     // when song is clicked, fetch song, pass into mediaplayer as prop. 
   })
 }
@@ -17,8 +18,12 @@ const mSTP = state => {
 const mDTP = (dispatch) => {
   // debugger
   return ({
-    fetchSong: (songId) => dispatch(fetchSong(songId)),
-    fetchSongs: () => dispatch(fetchSongs())
+    fetchCurrentSong: (song) => dispatch(fetchCurrentSong(song)),
+    playSong: () => dispatch(playSong()),
+    pauseSong: () => dispatch(pauseSong()),
+
+    // fetchSong: (songId) => dispatch(fetchSong(songId)),
+    // fetchSongs: () => dispatch(fetchSongs())
   })
 }
 

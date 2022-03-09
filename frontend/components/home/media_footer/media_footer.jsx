@@ -12,10 +12,10 @@ class MediaFooter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentSong: "",
-      currentAlbum: "",
-      duration: null,
-      formattedDuration: null,
+      // currentSong: "",
+      // currentAlbum: "",
+      // duration: null,
+      // formattedDuration: null,
     }
     // this.audioEl = React.createRef()
     // this.timeRangeEl = React.createRef()
@@ -27,7 +27,9 @@ class MediaFooter extends React.Component {
   }
   
   componentDidMount(){ // accepts (prevProps, prevState) 
-    this.props.fetchSongs()
+    
+    
+    // this.props.fetchSongs()
     // debugger
   }
 
