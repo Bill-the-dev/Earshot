@@ -72,6 +72,9 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
         debugger
         this.props.fetchDuration()
       }
+      audioEl.ontimeupdate = () => {
+        this.props.fetchCurrentTime();
+      }
     } 
     if (this.props.currentSong) {
       this.props.playSong()

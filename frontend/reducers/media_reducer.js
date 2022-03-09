@@ -1,5 +1,5 @@
 
-import { FETCH_CURRENT_SONG, FETCH_DURATION, PLAY_SONG, PAUSE_SONG } from "../actions/media_actions";
+import { FETCH_CURRENT_SONG, FETCH_DURATION, PLAY_SONG, PAUSE_SONG, FETCH_CURRENT_TIME } from "../actions/media_actions";
 
 
 // possible to load history, song queue, etc?
@@ -7,7 +7,9 @@ const preloadedState = {
   currentSong: null,
   playback: false,
   duration: null,
-  durationShow: '0:00'
+  durationShow: '0:00',
+  currentTime: null,
+  currentTimeShow: '0:00'
 };
 
 const MediaReducer = (oldState = preloadedState, action) => {
@@ -28,6 +30,17 @@ const MediaReducer = (oldState = preloadedState, action) => {
         const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
         newState.durationShow = `${mins}:${formatSecs}`;
         newState.duration = audioEl.duration;
+        return newState;
+      }
+    case FETCH_CURRENT_TIME: 
+      if (!newState.currentSong) {
+        return newState.currentTime = null;
+      } else {
+        const mins = Math.floor(audioEl.currentTime / 60);
+        const secs = Math.floor(audioEl.currentTime % 60);
+        const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
+        newState.currentTimeShow = `${mins}:${formatSecs}`;
+        newState.currentTime = audioEl.currentTime;
         return newState;
       }
     case PLAY_SONG:

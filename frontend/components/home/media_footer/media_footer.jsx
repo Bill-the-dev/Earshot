@@ -200,7 +200,7 @@ class MediaFooter extends React.Component {
           </button>
           {/* Track Time */}
           <div className="track-time">
-            <div id="current-track-time">0:00</div> 
+            <div id="current-track-time">{this.props.currentTimeShow}</div> 
             <input type="range" id="time-range" max={this.state.duration} defaultValue="0" onInput={this.updateRange()} onClick={e => this.clickRange(e)} />
             <div id="duration" >{this.props.durationShow}</div>
           </div>
