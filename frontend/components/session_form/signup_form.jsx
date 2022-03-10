@@ -10,6 +10,7 @@ class SignupForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update(field) {
@@ -23,6 +24,14 @@ class SignupForm extends React.Component {
     const user = Object.assign({}, this.state);
     this.props.signup(user)
       .then(() => this.props.history.push('/home'))
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    debugger
+    this.props.login({ username: 'KindGuest', password: 'password' })
+      .then(() => this.props.history.push('/home'));
+
   }
 
   //process form update?
@@ -49,6 +58,7 @@ class SignupForm extends React.Component {
         </div>
         <br/>
         <h2 className='sub-h2'> Sign up for free to start listening.</h2>
+        <div className='guest-submit' onClick={this.handleDemo}>Continue as Guest</div>  
         <br/>
         <hr/>
         <h3 className='sub-h3'>Sign up with your email address</h3>

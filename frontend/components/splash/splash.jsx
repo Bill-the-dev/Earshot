@@ -12,12 +12,6 @@ function openLink(url, newTab) {
     : (window.location.href = url);
 }
 
-// function handleDemo(e) {
-//     e.preventDefault();
-//     this.props.login({username: 'KindGuest', password: 'password'})
-//     .then(() => this.props.history.push('/home'))
-    
-// }
 
 const Splash = (props) => {
   

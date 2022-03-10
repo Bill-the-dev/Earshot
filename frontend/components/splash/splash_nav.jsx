@@ -32,21 +32,38 @@ export default class SplashNav extends React.Component {
   
   render() {
     const { currentUser, logout, loginDemo, login } = this.props
+
+    const displayLoginLogout = 
+      !currentUser 
+        ? <ul className="splash-nav">
+            <li onClick={this.handleDemo}>Explore as Guest</li>
+            <li className="disable">|</li>
+            <li>
+              <Link to={"/signup"} className="link-to">Sign Up</Link>
+            </li>
+            <li><Link to={"/login"} className="link-to">Log In</Link></li>
+          </ul>
+        : <ul className="splash-nav">
+            <li onClick={logout}>Log Out</li>
+          </ul>
+
+    
     return (
       <div className="splash-header">
           <div className="splash-logo-container">
             <img src={LogoWhite} alt="logo-white" className='logo-white-splash'/>
             <h1>Earshot</h1>
           </div>
-          <ul className="splash-nav">
+          {displayLoginLogout}
+          {/* <ul className="splash-nav">
             <li onClick={this.handleDemo}>Explore as Guest</li>
-            <li onClick={logout}>Log Out</li>
             <li className="disable">|</li>
             <li>
               <Link to={ "/signup" } className="link-to">Sign Up</Link>
             </li>
             <li><Link to={ "/login" } className="link-to">Log In</Link></li>
-          </ul>
+            <li onClick={logout}>Log Out</li>
+          </ul> */}
         </div>
     )
   }
