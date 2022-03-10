@@ -8,6 +8,8 @@ import { fetchSong, fetchSongs } from "../../../actions/song_actions";
 
 const mSTP = state => {
   // debugger
+  // let AlbId = state.entities.media.currentSong.albumId
+  // currentSong: Object.asssign(state.entities.media.currentSong, { albumUrl: state.entities.albums[].albumArtUrl })
   return ( {
     currentSong: state.entities.media.currentSong,
     playback: state.entities.media.playback,

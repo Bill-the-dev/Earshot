@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+// import pauseIcon from '../../../../../app/assets/images/pause-solid.svg'
+// import playIcon from '../../../../../app/assets/images/play-solid.svg'
 // import { fetchCurrentSong } from '../../../../actions/media_actions';
 
  class Song extends React.Component {
@@ -49,13 +51,17 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
   songPlayback(e) {
     console.log(e.target)
     console.log(this.props.song)
+    // const playbackIcon = document.getElementById('play-pause-icon')
+
     debugger
 
     if (this.props.playback === true) {
       debugger
       this.songPause();
+      // playbackIcon.src = playIcon;
     } else {
       this.songPlay()
+      // playbackIcon.src = pauseIcon;
     }
   }
   
@@ -89,7 +95,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
   }
   
   render() {
-    debugger
+    // debugger
 
     
     const {index, song} = this.props
