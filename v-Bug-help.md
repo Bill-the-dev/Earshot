@@ -10,10 +10,18 @@ Walkthrough numbers correlate to screenshots:
 6. Screenshot of route Util and home container.
 7. Screenshot of app.jsx and home.jsx   
 
+---
 
 
+[UNRESOLVED] 
 
+Good morning, I'm having trouble with some jbuilder syntax.
 
+Goal: When I fetch a song, it can also fetch it's associated album's attached image from s3.  
 
+What works: I can extract `@song, :id, :title, :album_id` and it's attached `songUrl`.
+What is making me go grey(er): I can't get the `album_art` url through the `song.album` association. 
 
-VX9zY6RdooS^tw
+Model hierarchy: `song` > *belongs_to* > `album` > *belongs_to* > `artist` > *belongs_to* > `genre`
+
+Thanks in advance for your help!

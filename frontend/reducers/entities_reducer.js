@@ -5,7 +5,7 @@ import albumsReducer from './albums_reducer';
 import artistsReducer from './artists_reducers';
 import mediaReducer from './media_reducer';
 
-const entitiesReducer = combineReducers({
+const entitiesReducer = combineReducers({ 
   users: usersReducer,
   songs: songsReducer,
   albums: albumsReducer,

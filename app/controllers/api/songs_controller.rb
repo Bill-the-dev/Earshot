@@ -1,10 +1,12 @@
 class Api::SongsController < ApplicationController
   def index
+    debugger
     @songs = Song.all
     render :index
   end
 
   def show
+    debugger
     @song = Song.find(params[:id])
     render :show
   end
@@ -21,7 +23,7 @@ class Api::SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title, :album_id, :song_file, :albumArtUrl)
+    params.require(:song).permit(:title, :album_id, :song_file, :album_Art)
   end
   
 

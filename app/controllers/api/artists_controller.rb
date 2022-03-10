@@ -24,4 +24,3 @@ class Api::ArtistsController < ApplicationController
     params.require(:artist).permit(:name, :genre_id, :artist_img)
   end
 end
-end

@@ -1,0 +1,128 @@
+.artist-show {
+  background: rgb(86, 21, 15);
+  background: linear-gradient(180deg, rgba(86, 21, 15, 1)10%, rgba(19, 18, 18, 1)50%);
+  grid-column: 2 / 2;
+  // padding: 2.5rem;
+  overflow-y: auto;
+
+}
+
+.main-header-temp {
+  display: flex;
+  box-sizing: border-box;
+  height: 3em;
+  width: 100%;
+  border: solid 1px grey;
+  padding-left: 40px;
+  align-items: center;
+  justify-content: right;
+  padding-right: 3em;
+  position: fixed;
+  top: 0;
+
+}
+
+.artist-show-header {
+  display: flex;
+  box-sizing: border-box;
+  height: 10em;
+  width: 100%;
+  // border: solid 1px grey;
+  margin-top: 4em;
+  margin-left: 1em;
+}
+
+.artist-sh-art {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  // border: solid 1px grey;
+}
+
+#artist-sh-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artist-sh-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1em;
+  margin-top: 1.7em;
+  justify-content: space-around;
+}
+
+
+.artist-sh-info p {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+ }
+
+.artist-sh-info h1{
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: white;
+}
+.artist-sh-info h2{
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+}
+
+
+.artist-show-play-like {
+  display: flex;
+  box-sizing: border-box;
+  height: 4em;
+  width: 100%;
+  // border: solid 1px grey;
+  padding: 1em;
+}
+
+.artist-sp-play-pause{
+  display: flex;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  background-color: var(--green);
+  justify-content: center;
+  align-items: center;
+  margin-right: 1em;
+}
+
+.artist-sp-play-pause:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.1);
+  background-color: var(--lt-green);
+}
+
+
+.artist-show-list-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: auto;
+  width: 100%;
+  // border: solid 1px grey;
+  padding: 1em;
+  margin-bottom: 3em;
+}
+
+#artist-pop-releases{
+  color: white;
+  font-weight: 600;
+  width: 100%;
+  margin-bottom: 1.5em;
+}
+
+.artist-show-list {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: auto;
+  width: 100%;
+  overflow-y: auto;
+  margin-bottom: 3em;
+}

@@ -36,32 +36,15 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
     return `${mins}:${formatSecs}`;
   }
 
-  // getAudioContext() { 
-  //   // const forceRender = () => { this.forceUpdate() } 
-  //   let audio = document.createElement('audio');   
-  //   audio.src = this.props.song.songUrl;
-  //   audio.addEventListener('loadedmetadata', () => {
-  //     const durationEl = document.getElementById(`song-li-${this.props.index}`)
-  //     let duration = this.formatTime(audio.duration);
-  //     durationEl.innerHTML = duration
-  //     forceRender()
-  //   })    
-  // }
-
   songPlayback(e) {
     console.log(e.target)
     console.log(this.props.song)
-    // const playbackIcon = document.getElementById('play-pause-icon')
-
-    debugger
 
     if (this.props.playback === true) {
       debugger
       this.songPause();
-      // playbackIcon.src = playIcon;
     } else {
       this.songPlay()
-      // playbackIcon.src = pauseIcon;
     }
   }
   

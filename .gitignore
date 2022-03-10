@@ -36,3 +36,4 @@ npm-debug.log
 # Draft copies:
 frontend/components/home/media_footer/media_playerX.jsx
 frontend/components/home/media_footer/media_playerY.jsx
+frontend/components/home/media_footer/media_footer_old.jsx

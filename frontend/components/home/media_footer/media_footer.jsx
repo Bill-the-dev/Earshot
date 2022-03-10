@@ -130,31 +130,32 @@ class MediaFooter extends React.Component {
     }
       
 
-    // const currentSongDetails = this.props.currentSong 
-    //   ? <div className="current-track">
-    //       <div className="ct-art">
-    //         <img src={this.props.currentSong.album.albumArtUrl} alt="" />
-    //       </div>
-    //       <div className="ct-track-info">
-    //         <div className="ct-title">{this.props.currentSong.title}</div>
-    //         <div className="ct-artist">ct-Artist</div>
-    //       </div>
-    //       <div className="ct-like">{'<3'}</div>
-    //     </div>
-
-    return (
-      <div className="media-footer">
-        {/* TRACK */}
-        <div className="current-track">
+    const currentSongDetails = this.props.currentSong 
+      ? (<div className="current-track">
           <div className="ct-art">
-            <img src="" alt="" />  
+            <img id="ct-image" src={this.props.currentSong.albumArtUrl} alt="" />
+          </div>
+          <div className="ct-track-info">
+            <div className="ct-title">{this.props.currentSong.title}</div>
+            <div className="ct-artist">ct-Artist</div>
+          </div>
+          <div className="ct-like">{''}</div>
+        </div>)
+      : <div className="current-track">
+          <div className="ct-art">
+            <img src="" alt="" />
           </div>
           <div className="ct-track-info">
             <div className="ct-title"></div>
             <div className="ct-artist"></div>
           </div>
-          <div className="ct-like">{'<3'}</div>      
+          <div className="ct-like">{''}</div>
         </div>
+
+    return (
+      <div className="media-footer">
+        {/* TRACK */}
+        {currentSongDetails}
         {/* MEDIA CONTROLS CTR */}
         <div className="media-player">
           <audio className="audio-element" src={this.state.songUrl} preload="metadata"></audio>
@@ -174,7 +175,7 @@ class MediaFooter extends React.Component {
             <img id="volume-icon" src={volHighIcon} alt="volume-mute" />  
           </button>
           <output id="volume-output"></output>
-          <input type="range" id="volume-slider" step='10' max="100" defaultValue="100" onChange={e => this.updateVolume(e)} />
+          <input type="range" id="volume-slider" step='10' max="100" defaultValue="50" onChange={e => this.updateVolume(e)} />
           
         </div>
       </div>    

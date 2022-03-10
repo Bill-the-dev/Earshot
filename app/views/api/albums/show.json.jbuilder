@@ -4,6 +4,7 @@ json.songs do  # sets
     json.set! song.id do
       json.extract! song, :id, :title, :album_id
       json.songUrl url_for(song.song_file)
+      json.albumArtUrl url_for(@album.album_art)
     end
   end
 end

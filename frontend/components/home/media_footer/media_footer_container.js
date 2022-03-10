@@ -9,9 +9,10 @@ import { fetchSong, fetchSongs } from "../../../actions/song_actions";
 const mSTP = state => {
   // debugger
   // let AlbId = state.entities.media.currentSong.albumId
-  // currentSong: Object.asssign(state.entities.media.currentSong, { albumUrl: state.entities.albums[].albumArtUrl })
+  // currentSong: Object.asssign(state.entities.media.currentSong, { albumUrl: state.entities.albums[AlbId].albumArtUrl })
   return ( {
     currentSong: state.entities.media.currentSong,
+    //currentAlbum: st ent albums[albId] (then later call albArt)
     playback: state.entities.media.playback,
     duration: state.entities.media.duration,
     durationShow: state.entities.media.durationShow,

@@ -1,4 +1,4 @@
-import { fetchArtist, fetchArtists } from "../util/artist_util";
+import * as ArtistUtil from "../util/artist_util";
 
 export const RECEIVE_ARTIST = 'RECEIVE_ARTIST';
 export const RECEIVE_ARTISTS = 'RECEIVE_ARTISTS';
@@ -19,14 +19,14 @@ const receiveArtists = (artists) => {
 
 export const fetchArtist = (id) => dispatch => {
   return (
-    fetchArtist(id)
+    ArtistUtil.fetchArtist(id)
     .then(artist => dispatch(receiveArtist(artist)))
   )
 };
 
 export const fetchArtists = () => dispatch => {
   return ( 
-    fetchArtists()
+    ArtistUtil.fetchArtists()
     .then(artists => dispatch(receiveArtists(artists)))
   )
 };

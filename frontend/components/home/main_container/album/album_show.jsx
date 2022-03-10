@@ -84,7 +84,7 @@ class AlbumShow extends React.Component {
           <div className="album-sp-play-pause">
             <img id="li-play-pause-icon" src={this.btnPlayPause} alt="play-pause" />    
           </div>
-          <button className="album-sp-like">like</button>
+          <button className="album-sp-like"></button>
         </div>
         {/* Album Song List */}
         <div className="album-show-list-container">
