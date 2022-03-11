@@ -3,6 +3,7 @@ import { fetchSong, fetchSongs } from "../../../actions/song_actions";
 import { fetchAlbum, fetchAlbums } from "../../../actions/album_actions";
 import { fetchArtist, fetchArtists } from "../../../actions/artist_actions";
 import MainPage from "./main_page";
+import { withRouter } from "react-router-dom";
 
 const mSTP = (state) => {
   return {
@@ -22,4 +23,4 @@ const mDTP = (dispatch) => {
   };
 };
 
-export default connect(mSTP, mDTP)(MainPage);
+export default withRouter(connect(mSTP, mDTP)(MainPage));

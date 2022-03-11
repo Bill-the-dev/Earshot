@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { logout } from "../../../actions/session_actions"
 import MainHeader from "./main_header";
+
 
 const mSTP = (state) => {
   // debugger
@@ -16,4 +18,4 @@ const mDTP = (dispatch) => {
 };
 
 
-export default connect(mSTP, mDTP)(MainHeader);
+export default withRouter(connect(mSTP, mDTP)(MainHeader));

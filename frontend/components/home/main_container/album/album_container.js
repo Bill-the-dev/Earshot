@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { fetchAlbums, fetchAlbum } from "../../../../actions/album_actions";
 import { fetchSong } from "../../../../actions/song_actions";
 import AlbumShow from "./album_show"
+import { withRouter } from "react-router-dom";
 
 const mSTP = (state, ownProps) => {
   // debugger
@@ -22,4 +23,4 @@ const mDTP = (dispatch) => {
 };
 
 // export default connect(mSTP, mDTP)(AlbumShow);
-export default connect(mSTP, mDTP)(AlbumShow);
+export default withRouter(connect(mSTP, mDTP)(AlbumShow));

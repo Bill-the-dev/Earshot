@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import MediaFooter from "./media_footer";
 import { playSong, pauseSong, fetchCurrentSong, fetchDuration, fetchCurrentTime } from "../../../actions/media_actions";
 import { fetchSong, fetchSongs } from "../../../actions/song_actions";
+import { withRouter } from "react-router-dom";
+
 
 
 
@@ -34,4 +36,4 @@ const mDTP = (dispatch) => {
   })
 }
 
-export default connect(mSTP, mDTP)(MediaFooter)
+export default withRouter(connect(mSTP, mDTP)(MediaFooter))
