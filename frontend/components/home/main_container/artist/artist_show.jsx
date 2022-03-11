@@ -31,23 +31,14 @@ class ArtistShow extends React.Component {
     const { artist } = this.props;
     if (!artist) return null;
 
-    if (artist) {
-      debugger
-      // console.log(this.props)
-    }
-
     if (!this.btnPlayPause) {
       this.btnPlayPause = playIcon;
     } 
 
-    // randomNum = () => {
-    //   Math.floor(Math.random(100))
-    // }
-
     debugger
     return(
       <div className='artist-show'>
-        <div className="main-header-temp"></div>
+        {/* <div className="main-header-temp"></div> */}
         {/* artist Show Header */}
         <div className="artist-show-header">
           <div className="artist-sh-art">

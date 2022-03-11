@@ -25,9 +25,9 @@ const Home = () => {
     <LeftMenuBar />
     <MainHeader />
     <Switch >
-      <Route exact path='/home/albums/:albumId' component={AlbumShow} />
-      <Route exact path='/home/artists/:artistId' component={ArtistShow} />
-      <Route exact path='/home' component={MainPage} />
+      <Route path='/home/albums/:albumId' component={AlbumShow} />
+      <Route path='/home/artists/:artistId' component={ArtistShow} />
+      <Route path='/home' component={MainPage} />
     </Switch>
     <MediaFooter /> 
   </div>

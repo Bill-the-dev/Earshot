@@ -66,7 +66,7 @@ class AlbumShow extends React.Component {
     return (
       <div className="album-show">
         {/* <MainHeader />   */}
-        <div className="main-header-temp"></div>
+        {/* <div className="main-header-temp"></div> */}
         {/* Album Show Header */}
         <div className="album-show-header">
           <div className="album-sh-art">
