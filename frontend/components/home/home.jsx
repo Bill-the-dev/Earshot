@@ -6,6 +6,7 @@ import MainPage from "./main_container/main_page_container";
 import MediaFooter from "./media_footer/media_footer_container";
 import AlbumShow from "./main_container/album/album_container";
 import ArtistShow from "./main_container/artist/artist_container";
+import MainHeader from "./main_container/main_header_container";
 
 // NOTE: export at bottom looks like: 
 // export default Home
@@ -22,6 +23,7 @@ const Home = () => {
   return (
   <div className="home-container">
     <LeftMenuBar />
+    <MainHeader />
     <Switch >
       <Route exact path='/home/albums/:albumId' component={AlbumShow} />
       <Route exact path='/home/artists/:artistId' component={ArtistShow} />
@@ -47,10 +49,9 @@ const LeftMenuBar = () => {
         <ul className="nav-small">
           <li className="nav-sm-item">Create Playlist</li>
           <li className="nav-sm-item">Liked Songs</li>
-          <li className="nav-sm-item">Your Episodes</li>
         </ul>
       </div>
-      <hr /> 
+      <div className="border-line"></div>
       <div className="playlists">
         <ul className="pl-list">
           <li className="pl-item">Playlist 1</li>

@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { fetchSong, fetchSongs } from "../../../actions/song_actions";
-import { fetchAlbum, fetchAlbums } from "../../../util/album_util";
+import { fetchAlbum, fetchAlbums } from "../../../actions/album_actions";
+import { fetchArtist, fetchArtists } from "../../../actions/artist_actions";
 import MainPage from "./main_page";
 
 const mSTP = (state) => {
@@ -13,9 +14,11 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
   return {
     fetchSongs: () => dispatch(fetchSongs()),
-    fetchSong: () => dispatch(fetchSong()),
+    fetchSong: (id) => dispatch(fetchSong(id)),
     fetchAlbums: () => dispatch(fetchAlbums()),
-    fetchAlbum: () => dispatch(fetchAlbum())
+    fetchAlbum: (id) => dispatch(fetchAlbum(id)),
+    fetchArtists: () => dispatch(fetchArtists()),
+    fetchArtist: (id) => dispatch(fetchArtist(id))
   };
 };
 
