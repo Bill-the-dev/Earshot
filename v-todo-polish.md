@@ -143,6 +143,96 @@
     filename: "chulahoma.jpeg"
   )
 
+  alb_the_greatest_hits = Album.create(
+    name: 'The Greatest Hits',
+    year: 2007,
+    artist: a_bob_marley
+  )
+  alb_the_greatest_hits.album_art.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/album-art/bob_marley_cover.jpeg"),
+    filename: "bob_marley_cover.jpeg"
+  )
+
+  alb_sound_and_color = Album.create(
+    name: 'Sound & Color',
+    year: 2015,
+    artist: a_alabama_shakes
+  )
+  alb_sound_and_color.album_art.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/album-art/sound_and_color.jpg"),
+    filename: "sound_and_color.jpg"
+  )
+
+  alb_ella_and_louis_again = Album.create(
+    name: 'Ella and Louis Again',
+    year: 2019,
+    artist: a_ella_fitzgerald
+  )
+  alb_ella_and_louis_again.album_art.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/album-art/artist_ellaandlouis.jpg"),
+    filename: "artist_ellaandlouis.jpg"
+  )
+
+  alb_dreamland = Album.create(
+    name: 'Dreamland',
+    year: 2020,
+    artist: a_glass_animals
+  )
+  alb_dreamland.album_art.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/album-art/dreamland.jpg"),
+    filename: "dreamland.jpg"
+  )
+
+  alb_american_teen = Album.create(
+    name: 'American Teen',
+    year: 2017,
+    artist: a_khalid
+  )
+  alb_american_teen.album_art.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/album-art/alb_american_teen.jpeg"),
+    filename: "alb_american_teen.jpeg"
+  )
+
+  alb_free_spirit = Album.create(
+    name: 'Free Spirit',
+    year: 2019,
+    artist: a_khalid
+  )
+  alb_free_spirit.album_art.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/album-art/alb_free_spirit.jpeg"),
+    filename: "alb_free_spirit.jpeg"
+  )
+
+  alb_brothers = Album.create(
+    name: 'Brothers',
+    year: 2010,
+    artist: a_the_black_keys
+  )
+  alb_brothers.album_art.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/album-art/alb_brothers.jpeg"),
+    filename: "alb_brothers.jpeg"
+  )
+
+  alb_essentials = Album.create(
+    name: 'Essentials',
+    year: 2021,
+    artist: a_the_rolling_stones
+  )
+  alb_alb_essentials.album_art.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/album-art/alb_essentials.jpg"),
+    filename: "alb_essentials.jpg"
+  )
+
+  alb_father_of_the_bride = Album.create(
+    name: 'Father of the Bride',
+    year: 2019,
+    artist: a_vampire_weekend
+  )
+  alb_father_of_the_bride.album_art.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/album-art/father_of_the_bride.jpeg"),
+    filename: "father_of_the_bride.jpeg"
+  )
+
 # Song
 
 
@@ -227,6 +317,78 @@
   s_juniors_instrumental.song_file.attach(
     io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_chulahoma/08+Junior's+Instrumental.m4a"),
     filename: "08+Junior's+Instrumental.m4a"
+  )
+
+  s_sound_and_color = Song.create(
+    title: 'Sound & Color',
+    album: alb_sound_and_color
+  )
+  s_sound_and_color.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/sound_and_color/01+Sound+%26+Color.mp3"),
+    filename: "01+Sound+%26+Color.mp3"
+  )
+
+  s_these_foolish_things = Song.create(
+    title: 'These Foolish Things',
+    album: alb_ella_and_louis_again
+  )
+  s_these_foolish_things.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_ella_and_louis/2+-++These+Foolish+Things+(Remind+Me+Of+You).mp3"),
+    filename: "2+-++These+Foolish+Things+(Remind+Me+Of+You).mp3"
+  )
+
+  s_heat_waves = Song.create(
+    title: 'Heat Waves',
+    album: alb_alb_dreamland
+  )
+  s_heat_waves.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_dreamland/14.+Heat+Waves.mp3"),
+    filename: "14.+Heat+Waves.mp3"
+  )
+
+  s_location = Song.create(
+    title: 'American Teen',
+    album: alb_american_teen
+  )
+  s_location.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_american_teen/03.+Location.mp3"),
+    filename: "03.+Location.mp3"
+  )
+
+  s_talk = Song.create(
+    title: 'Talk',
+    album: alb_free_spirit
+  )
+  s_talk.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_free_spirit/05.+Talk.mp3"),
+    filename: "05.+Talk.mp3"
+  )
+
+  s_sinister_kid = Song.create(
+    title: 'Sinister Kid',
+    album: alb_brothers
+  )
+  s_sinister_kid.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_brothers/10+Sinister+Kid.m4a"),
+    filename: "10+Sinister+Kid.m4a"
+  )
+
+  s_gimme_shelter = Song.create(
+    title: 'Gimme Shelter',
+    album: alb_essentials
+  )
+  s_gimme_shelter.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_essentials/02.+Gimme+Shelter+(Remastered+2019).mp3"),
+    filename: "02.+Gimme+Shelter+(Remastered+2019).mp3"
+  )
+
+  s_harmony_hall = Song.create(
+    title: 'Harmony Hall',
+    album: alb_father_of_the_bride
+  )
+  s_harmony_hall.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_father_of_the_bride/02.+Harmony+Hall.mp3"),
+    filename: "02.+Harmony+Hall.mp3"
   )
 
 
