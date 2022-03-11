@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Switch, Route } from "react-router-dom";
+import {AuthRoute} from "../../util/route_util"
 import LogoWhite from '../../../app/assets/images/ear-listen-solid-white.svg';
 
 import MainPage from "./main_container/main_page_container";
@@ -25,9 +26,9 @@ const Home = () => {
     <LeftMenuBar />
     <MainHeader />
     <Switch >
-      <Route path='/home/albums/:albumId' component={AlbumShow} />
-      <Route path='/home/artists/:artistId' component={ArtistShow} />
-      <Route path='/home' component={MainPage} />
+      <AuthRoute path='/home/albums/:albumId' component={AlbumShow} />
+      <AuthRoute path='/home/artists/:artistId' component={ArtistShow} />
+      <AuthRoute path='/home' component={MainPage} />
     </Switch>
     <MediaFooter /> 
   </div>
@@ -42,7 +43,8 @@ const LeftMenuBar = () => {
           <p className="logo-text">Earshot</p>
         </div >
         <ul className="nav-large">
-          <li className="nav-lg-item active" >Home</li>
+          <li className="nav-lg-item active" >
+            <Link className='home-link' to={'/home'}>Home</Link></li>
           <li className="nav-lg-item">Search</li>
           <li className="nav-lg-item">Library</li>
         </ul>

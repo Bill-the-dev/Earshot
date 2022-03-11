@@ -56,7 +56,7 @@ class ArtistShow extends React.Component {
           <div className="artist-sp-play-pause">
             <img id="li-play-pause-icon" src={this.btnPlayPause} alt="play-pause" />
           </div>
-          <button className="artist-sp-like"></button>
+          {/* <button className="artist-sp-like"></button> */}
         </div>
         {/* artist album List */}
         <div className="artist-show-list-container">

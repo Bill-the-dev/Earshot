@@ -228,7 +228,7 @@ User.create(
     year: 2021,
     artist: a_the_rolling_stones
   )
-  alb_alb_essentials.album_art.attach(
+  alb_essentials.album_art.attach(
     io: open("https://earshot-dev.s3.amazonaws.com/album-art/alb_essentials.jpg"),
     filename: "alb_essentials.jpg"
   )
@@ -349,7 +349,7 @@ User.create(
 
   s_heat_waves = Song.create(
     title: 'Heat Waves',
-    album: alb_alb_dreamland
+    album: alb_dreamland
   )
   s_heat_waves.song_file.attach(
     io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_dreamland/14.+Heat+Waves.mp3"),

@@ -37,19 +37,6 @@ class AlbumShow extends React.Component {
     const playbackIcon = document.getElementById('play-pause-icon')
     // debugger
   
-    // if (audioEl.paused) {
-    //   audioEl.play()
-    //   playbackIcon.src = pauseIcon;
-    //   audioEl.addEventListener('timeupdate', e => {
-    //     this.currentRangeTime()
-    //   })
-    //   // playState ?
-    // } else {
-    //   audioEl.pause()     
-    //   playbackIcon.src = playIcon;
-    //   this.currentRangeTime()
-    //   // playState ?
-    // }
   }
 
   render() {
@@ -60,7 +47,11 @@ class AlbumShow extends React.Component {
       this.btnPlayPause = playIcon;
     } 
 
-
+    // if (this.props.artists) {
+    //   let artist = this.props.artists[album.artist_id].name
+    // } else {
+    //   let artist = null
+    // }
     //here!
     // debugger
     return (
@@ -75,8 +66,9 @@ class AlbumShow extends React.Component {
           <div className="album-sh-info">
             <p className='album-sh-type'>ALBUM</p>
             <h1>{album.name}</h1>
-            <h2>Artist Name</h2> 
-            <h2>{album.year}| #Songs | Duration</h2>    
+            {/* <h2>{artist}</h2>  */}
+            <h2>{album.year}</h2>    
+            {/* <h2>{album.year}| #Songs | Duration</h2>     */}
           </div>  
         </div>
         {/* Album Play Like */}
@@ -84,7 +76,7 @@ class AlbumShow extends React.Component {
           <div className="album-sp-play-pause">
             <img id="li-play-pause-icon" src={this.btnPlayPause} alt="play-pause" />    
           </div>
-          <button className="album-sp-like"></button>
+          {/* <button className="album-sp-like"></button> */}
         </div>
         {/* Album Song List */}
         <div className="album-show-list-container">
@@ -108,7 +100,7 @@ const ListHeader = () => {
       <div className="song-li-info-right">
         <div className="song-li-like"></div>
         <div className="song-li-duration" id="">
-          clock
+          
         </div>
       </div>
     </li>

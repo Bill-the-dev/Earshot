@@ -96,7 +96,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
           <Link className="song-li-artist">Artist</Link>  
         </div>
         <div className="song-li-info-right">
-          <div className="song-li-like">liked</div>
+          <div className="song-li-like"></div>
           <div className="song-li-duration" id={`song-li-${index}`}></div>
         </div>
       </li>

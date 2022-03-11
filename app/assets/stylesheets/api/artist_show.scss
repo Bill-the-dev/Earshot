@@ -119,7 +119,8 @@
 
 .artist-show-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   box-sizing: border-box;
   height: auto;
   width: 100%;

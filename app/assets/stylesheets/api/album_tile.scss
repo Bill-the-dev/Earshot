@@ -2,8 +2,10 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width:100%;
+  width:30%;
   height: 100%;
+  margin-top: 1em;
+  // margin-bottom: 1em;
   // border: 1px solid white;
   align-content: space-between;
 }
@@ -47,6 +49,7 @@
   font-weight: 500;
   margin-left: 1em;
   margin-bottom: 0.2em;
+  text-decoration: none;
 }
 .at-artist-name{
   color: white;
