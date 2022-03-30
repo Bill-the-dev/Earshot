@@ -41,7 +41,7 @@ class AlbumShow extends React.Component {
 
   render() {
     const { album } = this.props;
-    if (!album) return null;
+    if (!album || !album.songs || !album.name || !album.year ) return null;
 
     if (!this.btnPlayPause) {
       this.btnPlayPause = playIcon;

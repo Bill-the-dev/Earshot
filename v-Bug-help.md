@@ -2,7 +2,8 @@
   - hover li causes type error.  
   - without settimeout full page crash
 
-
+`media_reducer.js`
+  - fetch_current_time fetches much more often than necessary
 
 
 [UNRESOLVED]
