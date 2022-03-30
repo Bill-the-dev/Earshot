@@ -130,7 +130,7 @@ class MediaFooter extends React.Component {
       // ctTrackTitle.value = this.props.currentSong.title
     }
 
-    debugger
+    // debugger
     return (
       <div className="media-footer">
         {/* TRACK */}

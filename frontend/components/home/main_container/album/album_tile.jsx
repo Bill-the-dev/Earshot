@@ -7,15 +7,10 @@ class AlbumTile extends React.Component {
   }
 
   componentDidMount() {
-    debugger
-    console.log(this.props)
+    // debugger
+    // console.log(this.props)
   }
 
-  testing() {
-    debugger 
-    console.log('maybe here?')
-  }
-  // onClick = {() => history.push(`/home/albums/${this.props.album.id}`)}
   render() {
     
     return (

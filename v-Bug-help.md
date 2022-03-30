@@ -1,3 +1,10 @@
+`song.jsx` 
+  - hover li causes type error.  
+  - without settimeout full page crash
+
+
+
+
 [UNRESOLVED]
 Redirect to home is not working on successful login.
 
@@ -25,3 +32,6 @@ What is making me go grey(er): I can't get the `album_art` url through the `song
 Model hierarchy: `song` > *belongs_to* > `album` > *belongs_to* > `artist` > *belongs_to* > `genre`
 
 Thanks in advance for your help!
+
+
+

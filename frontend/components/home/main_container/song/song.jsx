@@ -1,31 +1,29 @@
 import React from 'react'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
-// import pauseIcon from '../../../../../app/assets/images/pause-solid.svg'
-// import playIcon from '../../../../../app/assets/images/play-solid.svg'
-// import { fetchCurrentSong } from '../../../../actions/media_actions';
+import playSolidWhite from '../../../../../app/assets/images/media_bar/play-solid-white.svg'
+import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-solid-white.svg'
 
  class Song extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       song: this.props.song,
+      hover: false,
       duration: null
     }
 
     this.songPlayback = this.songPlayback.bind(this)
     this.formatTime = this.formatTime.bind(this)
+    this.toggleHover = this.toggleHover.bind(this)
   }
   
   componentDidMount() {
-    // this.getAudioContext()
     let audio = document.createElement('audio');   
     audio.src = this.props.song.songUrl;
     audio.onloadedmetadata = () => {
       const durationEl = document.getElementById(`song-li-${this.props.index}`)
       let duration = this.formatTime(audio.duration);
-      // this.setState(duration)
       durationEl.innerHTML = duration
-      // forceRender()
     }    
   }
   
@@ -41,7 +39,6 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
     console.log(this.props.song)
 
     if (this.props.playback === true) {
-      // debugger
       this.songPause();
     } else {
       this.songPlay()
@@ -76,30 +73,71 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
     this.props.pauseSong()
     audioEl.pause()
   }
+
+  toggleHover(e) { 
+    (!this.state.hover)
+      ? this.setState({ hover: true })
+      : this.setState({ hover: false })
+    // e.currentTarget.innerHTML = this.liHoverTrue
+      
+  }
   
   render() {
-    // debugger
-
-    
-    const {index, song, album, artist} = this.props
+    // CONSTANTS
+    const { index, song, album, artist } = this.props;  
     if (!index || !song) return null;
-    const audio = document.createElement('audio')
-    audio.src = song.songUrl
-    let duration = audio.duration
-    
-    debugger
+    const liPlayPause = document.getElementById('li-play-pause');
+    const audio = document.createElement('audio');
+    audio.src = song.songUrl;
+
+    // PLAYING COLOR
+    const activeSong = (this.props.currentSong?.id === this.props.song?.id)
+      ? { color: 'var(--green)'}
+      : {color: 'white'}
+
+    // HOVER 
+    if (this.props.playback === true && this.state.hover === true) {
+      setTimeout(() => {
+        liPlayPause.src = pauseSolidWhite;
+      }, 100);
+    } else if (this.props.playback === false && this.state.hover === true) {
+      setTimeout(() => {
+        liPlayPause.src = playSolidWhite;
+      }, 100);
+    }
+
+
     return (
-      <li className='song-li'>
-        <div className="song-li-idx" onClick={e => this.songPlayback(e)} id={`song-${index}`} >{index}</div>
+      <li 
+        className='song-li' 
+        onMouseEnter={() => this.toggleHover()} 
+        onMouseLeave={() => this.toggleHover()}>
+          {(!this.state.hover)
+          ? <div 
+              className="song-li-idx" 
+              onClick={e => this.songPlayback(e)} 
+              id={`song-${index}`}
+              style={activeSong} 
+            >{index}</div>
+          : <div 
+              className="song-li-idx" 
+              onClick={e => this.songPlayback(e)} 
+              id={`song-${index}`}
+              style={activeSong}   
+            >
+              <img id="li-play-pause" src={playSolidWhite} alt="play-pause" />
+            </div>
+        }
+        
         <div className="song-li-info-left">
-          <div className="song-li-title">{song.title}</div>
+          <div className="song-li-title" style={activeSong} >{song.title}</div>
           <Link to={`/home/artists/${artist.id}`} className="song-li-artist">
             <p>{artist.name}</p>
           </Link>  
         </div>
         <div className="song-li-info-right">
           <div className="song-li-like"></div>
-          <div className="song-li-duration" id={`song-li-${index}`}></div>
+          <div className="song-li-duration" id={`song-li-${index}`} style={activeSong} ></div>
         </div>
       </li>
     )

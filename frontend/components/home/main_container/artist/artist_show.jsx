@@ -29,7 +29,7 @@ class ArtistShow extends React.Component {
 
   render(){
     const { artist } = this.props;
-    if (!artist) return null;
+    if (!artist || !artist.albums) return null;
 
     if (!this.btnPlayPause) {
       this.btnPlayPause = playIcon;

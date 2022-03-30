@@ -95,11 +95,7 @@ Link {
   margin-right: 1em;
 }
 
-#li-play-pause-icon {
-  height:1.5em;
-  width: 1.5em;
-  object-fit:fill
-}
+
 
 .album-sp-play-pause:hover {
   -webkit-transform: scale(1.2);
@@ -158,8 +154,6 @@ Link {
 }
 
 
-// .song-li:
-
 .song-li-idx {
   display: flex;
   height: 100%;
@@ -167,6 +161,16 @@ Link {
   align-items: center;
   justify-content: center;
   // border: solid 1px grey;
+  #li-play-pause{
+    height:1rem;
+    width: 1rem;
+    object-fit:fill
+  }
+}
+#li-play-pause-icon {
+  height:1.5em;
+  width: 1.5em;
+  object-fit:fill
 }
 
 .song-li-info-left {
