@@ -53,7 +53,7 @@ class AlbumShow extends React.Component {
     //   let artist = null
     // }
     //here!
-    // debugger
+    debugger
     return (
       <div className="album-show">
         {/* <MainHeader />   */}
@@ -82,7 +82,7 @@ class AlbumShow extends React.Component {
         <div className="album-show-list-container">
           <ul className="album-show-list">
             <ListHeader />
-            {Object.values(album.songs).map((song, index) => <Song song={song} index={index + 1} albumArt={album.albumArtUrl} key={song.id} />)}
+            {Object.values(album.songs).map((song, index) => <Song song={song} album={this.props.album.name} artist={this.props.album.artist} index={index + 1} albumArt={album.albumArtUrl} key={song.id} />)}
           </ul>
         </div>
       </div>

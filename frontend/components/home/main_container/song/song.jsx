@@ -81,19 +81,21 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
     // debugger
 
     
-    const {index, song} = this.props
+    const {index, song, album, artist} = this.props
     if (!index || !song) return null;
     const audio = document.createElement('audio')
     audio.src = song.songUrl
     let duration = audio.duration
     
-
+    debugger
     return (
       <li className='song-li'>
         <div className="song-li-idx" onClick={e => this.songPlayback(e)} id={`song-${index}`} >{index}</div>
         <div className="song-li-info-left">
           <div className="song-li-title">{song.title}</div>
-          <Link className="song-li-artist">Artist</Link>  
+          <Link to={`/home/artists/${artist.id}`} className="song-li-artist">
+            <p>{artist.name}</p>
+          </Link>  
         </div>
         <div className="song-li-info-right">
           <div className="song-li-like"></div>

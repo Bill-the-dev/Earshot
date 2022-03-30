@@ -13,7 +13,8 @@ class MediaFooter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      duration: null
+      duration: null,
+      currentArtist: null
     }
     
     this.songPlayback = this.songPlayback.bind(this)
@@ -128,29 +129,6 @@ class MediaFooter extends React.Component {
     if (this.props.currentSong) {
       // ctTrackTitle.value = this.props.currentSong.title
     }
-      
-    const currentSongDetails = () => {
-      return (
-        (this.props.currentSong)
-        ? <div className="current-track">
-            <div className="ct-art"></div>
-            <div className="ct-track-info">
-              <div className="ct-title">ct-Title</div>
-              <div className="ct-artist">ct-Artist</div>
-            </div>
-            <div className="ct-like">{'<3'}</div>
-          </div>
-
-        : <div className="current-track">
-            <div className="ct-art"></div>
-            <div className="ct-track-info">
-              <div className="ct-title">ct-Title</div>
-              <div className="ct-artist">ct-Artist</div>
-            </div>
-            <div className="ct-like">{'<3'}</div>
-          </div>
-      )
-    }
 
     debugger
     return (
@@ -159,13 +137,15 @@ class MediaFooter extends React.Component {
         {
         (this.props.currentSong)
         ? <div className="current-track">
-          <div className="ct-art"></div>
-          <div className="ct-track-info">
-            <div className="ct-title">ct-Title</div>
-            <div className="ct-artist">ct-Artist</div>
+            <div className="ct-art">
+              <img src={this.props.currentSong.albumArtUrl} alt="album-art" id='album-sh-img' />  
+            </div>
+            <div className="ct-track-info">
+              <div className="ct-title">{this.props.currentSong.title}</div>
+              <div className="ct-artist">{}</div>
+            </div>
+            <div className="ct-like">{'<3'}</div>
           </div>
-          <div className="ct-like">{'<3'}</div>
-        </div>
         : <div className="current-track">
           <div className="ct-art"></div>
           <div className="ct-track-info">
