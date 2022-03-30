@@ -66,8 +66,15 @@ class AlbumShow extends React.Component {
           <div className="album-sh-info">
             <p className='album-sh-type'>ALBUM</p>
             <h1>{album.name}</h1>
-            {/* <h2>{artist}</h2>  */}
-            <h2>{album.year}</h2>
+            <h2>
+              {album.artist.name} &#8226; 
+              {` ${album.year}`} &#8226; 
+              {(Object.values(album.songs)?.length > 1)
+                ? ` ${Object.values(album.songs)?.length} songs`
+                : ` ${Object.values(album.songs)?.length} song`
+              } </h2> 
+            {/* <h2>{album.year}</h2>
+            <h2>{Object.values(album.songs)?.length}</h2> */}
             {/* <h2>{album.year}| #Songs | Duration</h2>     */}
           </div>
         </div>

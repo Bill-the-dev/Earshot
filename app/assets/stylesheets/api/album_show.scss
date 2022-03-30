@@ -175,6 +175,7 @@ Link {
   height: 100%;
   width: 75%;
   padding-left: 0.2em;
+  padding: 0.2em;
   // border: solid 1px grey;
 }
   .song-li-title {
@@ -187,6 +188,9 @@ Link {
     font-size: 0.8rem;
     text-decoration: none;
     color: var(--lt-gray-b);
+    & p:hover {
+      text-decoration: underline;
+    }
   }
 
 
