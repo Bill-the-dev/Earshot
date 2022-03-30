@@ -42,10 +42,10 @@ class MediaFooter extends React.Component {
     console.log(this.props.song);
     const playbackIcon = document.getElementById('play-pause-icon')
 
-    debugger;
+    // debugger;
 
     if (this.props.currentSong && this.props.playback === true) {
-      debugger;
+      // debugger;
       this.songPause();
       playbackIcon.src = playIcon;
     } 
@@ -58,7 +58,7 @@ class MediaFooter extends React.Component {
     const audioEl = document.getElementsByClassName("audio-element")[0];
     this.props.playSong()
     audioEl.play()
-    debugger
+    // debugger
     audioEl.ontimeupdate = () => {
       this.props.fetchCurrentTime();
     }
@@ -129,33 +129,52 @@ class MediaFooter extends React.Component {
       // ctTrackTitle.value = this.props.currentSong.title
     }
       
-
-    const currentSongDetails = this.props.currentSong 
-      ? (<div className="current-track">
-          <div className="ct-art">
-            <img id="ct-image" src={this.props.currentSong.albumArtUrl} alt="" />
+    const currentSongDetails = () => {
+      return (
+        (this.props.currentSong)
+        ? <div className="current-track">
+            <div className="ct-art"></div>
+            <div className="ct-track-info">
+              <div className="ct-title">ct-Title</div>
+              <div className="ct-artist">ct-Artist</div>
+            </div>
+            <div className="ct-like">{'<3'}</div>
           </div>
+
+        : <div className="current-track">
+            <div className="ct-art"></div>
+            <div className="ct-track-info">
+              <div className="ct-title">ct-Title</div>
+              <div className="ct-artist">ct-Artist</div>
+            </div>
+            <div className="ct-like">{'<3'}</div>
+          </div>
+      )
+    }
+
+    debugger
+    return (
+      <div className="media-footer">
+        {/* TRACK */}
+        {
+        (this.props.currentSong)
+        ? <div className="current-track">
+          <div className="ct-art"></div>
           <div className="ct-track-info">
-            <div className="ct-title">{this.props.currentSong.title}</div>
+            <div className="ct-title">ct-Title</div>
             <div className="ct-artist">ct-Artist</div>
           </div>
-          <div className="ct-like">{''}</div>
-        </div>)
-      : <div className="current-track">
-          <div className="ct-art">
-            <img src="" alt="" />
-          </div>
+          <div className="ct-like">{'<3'}</div>
+        </div>
+        : <div className="current-track">
+          <div className="ct-art"></div>
           <div className="ct-track-info">
             <div className="ct-title"></div>
             <div className="ct-artist"></div>
           </div>
-          <div className="ct-like">{''}</div>
+          <div className="ct-like">{'<3'}</div>
         </div>
-
-    return (
-      <div className="media-footer">
-        {/* TRACK */}
-        {currentSongDetails}
+        }
         {/* MEDIA CONTROLS CTR */}
         <div className="media-player">
           <audio className="audio-element" src={this.state.songUrl} preload="metadata"></audio>

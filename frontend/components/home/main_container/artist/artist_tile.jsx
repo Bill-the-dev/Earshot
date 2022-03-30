@@ -10,7 +10,7 @@ class ArtistTile extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
+    // debugger;
     console.log(this.props);
   }
 

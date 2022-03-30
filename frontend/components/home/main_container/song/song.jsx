@@ -41,7 +41,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
     console.log(this.props.song)
 
     if (this.props.playback === true) {
-      debugger
+      // debugger
       this.songPause();
     } else {
       this.songPlay()
@@ -58,7 +58,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
       audioEl.src = this.props.song.songUrl
       audioEl.play()
       audioEl.onloadedmetadata = () => {
-        debugger
+        // debugger
         this.props.fetchDuration()
       }
       audioEl.ontimeupdate = () => {

@@ -5,7 +5,7 @@ json.set! @song.id do
 end
 # THIS ONE DOESN'T WORK
 # this line doesn't change anything:
-debugger
+# debugger
 json.albumArtUrl url_for(@song.album.album_art)
 
 #I've also tried nesting it within the @song.id do block above

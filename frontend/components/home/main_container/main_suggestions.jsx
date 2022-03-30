@@ -2,7 +2,7 @@ import React from 'react'
 import AlbumSuggestionTile from './album/album_suggestion_tile';
 
 const MainSuggestions = ({ artists, albums }) => {
-  debugger
+  // debugger
   return (
     <div className="m-suggestions">
       <p className="s-title">Albums you might like</p>
