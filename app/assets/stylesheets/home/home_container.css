@@ -58,9 +58,15 @@
     align-items: flex-start;
     margin: 8px;
   }
-  home-link{
+  .home-link{
+    display: flex;
     text-decoration: none;
     color: white;
+    align-items: center;
+  }
+
+  #menu-home-icon{
+    transform: scale(0.4);
   }
 
   .nav-large .active{
@@ -69,6 +75,7 @@
   }
   
   .nav-lg-item {
+    display: flex;
     font-size: 1rem;
     padding-top: 5px;
     cursor: pointer;
@@ -193,7 +200,8 @@
     /* object-fit: contain; */
     align-self: center;
   }
-  library-artist-link{
+  
+  #library-artist-link{
     display: flex;
     text-decoration: none;
   }
@@ -205,7 +213,7 @@
   }
 
 
-  .l-tile-title {
+  #l-tile-title {
     font-size: 1em;
     padding-left: 1em;
     color: var(--white);

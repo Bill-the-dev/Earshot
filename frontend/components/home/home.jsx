@@ -2,6 +2,12 @@ import React from "react";
 import { Link, Switch, Route } from "react-router-dom";
 import {AuthRoute} from "../../util/route_util"
 import LogoWhite from '../../../app/assets/images/ear-listen-solid-white.svg';
+// import menuHut from '../../../app/assets/images/left_menu_bar/menu-hut.svg';
+
+// import menuHut from '../../../app/assets/images/left_menu_bar/menu-hut';
+// import menuLoupe from '../../../app/assets/images/left_menu_bar/menu-Loupe';
+// import menuLibrary from '../../../app/assets/images/left_menu_bar/menu-library';
+import menuHome from '../../../app/assets/images/left_menu_bar/menu-home.svg';
 
 import MainPage from "./main_container/main_page_container";
 import MediaFooter from "./media_footer/media_footer_container";
@@ -9,8 +15,6 @@ import AlbumShow from "./main_container/album/album_container";
 import ArtistShow from "./main_container/artist/artist_container";
 import MainHeader from "./main_container/main_header_container";
 
-// NOTE: export at bottom looks like: 
-// export default Home
 
 function openLink(url, newTab) {
   newTab
@@ -44,8 +48,13 @@ const LeftMenuBar = () => {
         </div >
         <ul className="nav-large">
           <li className="nav-lg-item active" >
-            <Link className='home-link' to={'/home'}>Home</Link></li>
-          <li className="nav-lg-item">Search</li>
+            <Link className='home-link' to={'/home'}>
+              <img id="menu-home-icon" src={menuHome} alt="home" />
+              <p>Home</p>
+            </Link></li>
+          <li className="nav-lg-item">
+            {/* <img src={menuHut} alt="home" /> */}
+          Search</li>
           <li className="nav-lg-item">Library</li>
         </ul>
         <ul className="nav-small">

@@ -26,7 +26,7 @@ class ArtistTile extends React.Component {
           <img className='lt-art' src={this.props.artist.artistImgUrl} alt="" />  
         </div>
         <Link to={`/home/artists/${this.props.artist.id}`} id='library-artist-link'>
-          <p className="l-tile-title">{this.props.artist.name}</p>
+          <p id="l-tile-title">{this.props.artist.name}</p>
         </Link>
       </li>
     )

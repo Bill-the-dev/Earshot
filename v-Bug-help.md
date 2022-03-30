@@ -5,6 +5,15 @@
 `media_reducer.js`
   - fetch_current_time fetches much more often than necessary
 
+`media-footer.js`
+  - paused for too long... won't start again?
+
+`seed-data`
+  - duplicated in AWS?
+
+`library`
+  - tiles should resize based on screen width
+
 
 [UNRESOLVED]
 Redirect to home is not working on successful login.
