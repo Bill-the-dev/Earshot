@@ -194,7 +194,7 @@ class MediaFooter extends React.Component {
             <img id="volume-icon" src={volHighIcon} alt="volume-mute" />  
           </button>
           <output id="volume-output"></output>
-          <input type="range" id="volume-slider" step='10' max="100" defaultValue="50" onChange={e => this.updateVolume(e)} />
+          <input type="range" id="volume-slider" step='1' max="100" defaultValue="50" onChange={e => this.updateVolume(e)} />
           
         </div>
       </div>    
