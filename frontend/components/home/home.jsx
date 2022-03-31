@@ -1,11 +1,7 @@
 import React from "react";
 import { Link, Switch, Route } from "react-router-dom";
 import {AuthRoute} from "../../util/route_util"
-import LogoWhite from '../../../app/assets/images/ear-listen-solid-white.svg';
-// import menuHut from '../../../app/assets/images/left_menu_bar/menu-hut.svg';
-
-// import menuHut from '../../../app/assets/images/left_menu_bar/menu-hut';
-// import menuLoupe from '../../../app/assets/images/left_menu_bar/menu-Loupe';
+import logoWhite from '../../../app/assets/images/ear-listen-solid-white.svg';
 import menuLibrary from '../../../app/assets/images/left_menu_bar/noun-library-3139956.svg';
 import menuHome from '../../../app/assets/images/left_menu_bar/menu-home.svg';
 import menuSearch from '../../../app/assets/images/left_menu_bar/noun-search-4032795.svg';
@@ -44,7 +40,7 @@ const LeftMenuBar = () => {
     <div className="left-container">
       <div className="home-nav">
         <div className="logo">
-          <img src={LogoWhite} alt="logo-white" className='logo-white'/>
+          <img src={logoWhite} alt="logo-white" className='logo-white'/>
           <p className="logo-text">Earshot</p>
         </div >
         <ul className="nav-large">

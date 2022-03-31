@@ -1,11 +1,13 @@
 
-import { FETCH_CURRENT_SONG, FETCH_DURATION, PLAY_SONG, PAUSE_SONG, FETCH_CURRENT_TIME } from "../actions/media_actions";
+import { FETCH_CURRENT_SONG, FETCH_DURATION, PLAY_SONG, PAUSE_SONG, FETCH_CURRENT_TIME, RECEIVE_QUEUE } from "../actions/media_actions";
 
 
 // possible to load history, song queue, etc?
 const preloadedState = {
   currentSong: null,
   playback: false,
+  queue: [],
+  // possible second array for history? Or all in one
   duration: null,
   durationShow: '0:00',
   currentTime: null,
@@ -43,6 +45,14 @@ const MediaReducer = (oldState = preloadedState, action) => {
         newState.currentTime = audioEl.currentTime;
         return newState;
       }
+    case RECEIVE_QUEUE:
+      const songs = Object.values(action.songs);
+      songs.forEach(song => {
+        if (!newState.queue.includes(song)) {
+          newState.queue.push(song);
+        }
+      });
+      return newState
     case PLAY_SONG:
       newState.playback = true;
       return newState;

@@ -2,6 +2,7 @@
 export const FETCH_CURRENT_SONG = 'FETCH_CURRENT_SONG';
 export const FETCH_DURATION = 'FETCH_DURATION';
 export const FETCH_CURRENT_TIME = 'FETCH_CURRENT_TIME';
+export const RECEIVE_QUEUE = "RECEIVE_QUEUE";
 export const PLAY_SONG = 'PLAY_SONG';
 export const PAUSE_SONG = 'PAUSE_SONG';
 export const PREV_SONG = 'PREV_SONG';
@@ -28,6 +29,13 @@ export const fetchCurrentTime = () => {
     type: FETCH_CURRENT_TIME
   };
 };
+
+export const receiveQueue = (songs) => {
+  return {
+    type: RECEIVE_QUEUE,
+    songs
+  }
+}
 
 export const playSong = () => {
   return {

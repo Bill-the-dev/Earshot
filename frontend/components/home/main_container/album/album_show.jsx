@@ -47,6 +47,8 @@ class AlbumShow extends React.Component {
       this.btnPlayPause = playIcon;
     }
 
+    this.props.receiveQueue(album.songs)
+
     // if (this.props.artists) {
     //   let artist = this.props.artists[album.artist_id].name
     // } else {
@@ -73,14 +75,11 @@ class AlbumShow extends React.Component {
                 ? ` ${Object.values(album.songs)?.length} songs`
                 : ` ${Object.values(album.songs)?.length} song`
               } </h2> 
-            {/* <h2>{album.year}</h2>
-            <h2>{Object.values(album.songs)?.length}</h2> */}
-            {/* <h2>{album.year}| #Songs | Duration</h2>     */}
           </div>
         </div>
         {/* Album Play Like */}
         <div className="album-show-play-like">
-          <div className="album-sp-play-pause">
+          <div className="album-sp-play-pause" >
             <img id="li-play-pause-icon" src={this.btnPlayPause} alt="play-pause" />
           </div>
           {/* <button className="album-sp-like"></button> */}
