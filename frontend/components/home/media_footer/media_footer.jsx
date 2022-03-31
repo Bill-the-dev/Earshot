@@ -19,7 +19,7 @@ class MediaFooter extends React.Component {
     
     this.songPlayback = this.songPlayback.bind(this)
     this.formatTime = this.formatTime.bind(this)
-    this.updateRange = this.updateRange.bind(this)
+    // this.updateRange = this.updateRange.bind(this)
   }
 
   
@@ -72,16 +72,16 @@ class MediaFooter extends React.Component {
     audioEl.pause();
   }
 
-  updateRange() {
-    // debugger
-    const currentTrackTime = document.getElementById('current-track-time');
-    const timeRange = document.getElementById('time-range');
-    const audioEl = document.getElementsByClassName("audio-element")[0];
-    if (!audioEl) return null
-    if (audioEl.readyState > 0){
-      timeRange.value = Math.floor(audioEl.currentTime)
-    }
-  }
+  // updateRange() {
+  //   // debugger
+  //   const currentTrackTime = document.getElementById('current-track-time');
+  //   const timeRange = document.getElementById('time-range');
+  //   const audioEl = document.getElementsByClassName("audio-element")[0];
+  //   if (!audioEl) return null
+  //   if (audioEl.readyState > 0){
+  //     timeRange.value = Math.floor(audioEl.currentTime)
+  //   }
+  // }
 
   seekRange(e) {
     const currentTrackTime = document.getElementById('current-track-time');

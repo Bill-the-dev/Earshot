@@ -7,6 +7,7 @@
 
 `media-footer.js`
   - paused for too long... won't start again?
+  - reuse constant for getelebyclassname
 
 `seed-data`
   - duplicated in AWS?
