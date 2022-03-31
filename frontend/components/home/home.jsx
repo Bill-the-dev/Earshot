@@ -6,8 +6,9 @@ import LogoWhite from '../../../app/assets/images/ear-listen-solid-white.svg';
 
 // import menuHut from '../../../app/assets/images/left_menu_bar/menu-hut';
 // import menuLoupe from '../../../app/assets/images/left_menu_bar/menu-Loupe';
-// import menuLibrary from '../../../app/assets/images/left_menu_bar/menu-library';
+import menuLibrary from '../../../app/assets/images/left_menu_bar/noun-library-3139956.svg';
 import menuHome from '../../../app/assets/images/left_menu_bar/menu-home.svg';
+import menuSearch from '../../../app/assets/images/left_menu_bar/noun-search-4032795.svg';
 
 import MainPage from "./main_container/main_page_container";
 import MediaFooter from "./media_footer/media_footer_container";
@@ -51,11 +52,20 @@ const LeftMenuBar = () => {
             <Link className='home-link' to={'/home'}>
               <img id="menu-home-icon" src={menuHome} alt="home" />
               <p>Home</p>
-            </Link></li>
+            </Link>
+          </li>
           <li className="nav-lg-item">
-            {/* <img src={menuHut} alt="home" /> */}
-          Search</li>
-          <li className="nav-lg-item">Library</li>
+            <Link className='home-link' to={'/home'}>
+              <img id="menu-home-icon" src={menuSearch} alt="search" /> 
+              <p>Search</p>
+            </Link>
+          </li>
+          <li className="nav-lg-item">
+            <Link className='home-link' to={'/home'}>
+              <img id="menu-home-icon" src={menuLibrary} alt="search" />
+              <p>Library</p>
+            </Link>
+          </li>
         </ul>
         <ul className="nav-small">
           <li className="nav-sm-item">Create Playlist</li>
