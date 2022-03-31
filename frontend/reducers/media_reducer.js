@@ -1,5 +1,13 @@
 
-import { FETCH_CURRENT_SONG, FETCH_DURATION, PLAY_SONG, PAUSE_SONG, FETCH_CURRENT_TIME, RECEIVE_QUEUE } from "../actions/media_actions";
+import { 
+  FETCH_CURRENT_SONG, 
+  FETCH_DURATION, 
+  PLAY_SONG, 
+  PAUSE_SONG,
+  NEXT_SONG, 
+  FETCH_CURRENT_TIME, 
+  RECEIVE_QUEUE 
+} from "../actions/media_actions";
 
 
 // possible to load history, song queue, etc?
@@ -59,6 +67,10 @@ const MediaReducer = (oldState = preloadedState, action) => {
     case PAUSE_SONG:
       newState.playback = false;
       return newState;
+    case NEXT_SONG:
+      newState.queue.unshift(action.song);
+      // unshift or shift? check back
+      return newState;      
     default:
       return oldState;
   }

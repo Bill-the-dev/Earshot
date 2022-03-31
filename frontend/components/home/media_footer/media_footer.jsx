@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 // icons
 import playIcon from '../../../../app/assets/images/media_bar/play-solid.svg';
 import pauseIcon from '../../../../app/assets/images/media_bar/pause-solid.svg';
@@ -15,33 +15,34 @@ class MediaFooter extends React.Component {
     this.state = {
       duration: null,
       currentArtist: null
-    }
-    
-    this.songPlayback = this.songPlayback.bind(this)
-    this.formatTime = this.formatTime.bind(this)
+    };
+
+    this.songPlayback = this.songPlayback.bind(this);
+    this.formatTime = this.formatTime.bind(this);
+    this.songNext = this.songNext.bind(this);
     // this.updateRange = this.updateRange.bind(this)
   }
 
-  
-  componentDidMount(){ // accepts (prevProps, prevState) 
+
+  componentDidMount() { // accepts (prevProps, prevState) 
     const audioEl = document.getElementsByClassName("audio-element")[0];
     audioEl.onloadedmetadata = () => {
       this.setState({ duration: audioEl.duration });
-    }
+    };
   }
-  
+
   formatTime(seconds) {
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
     const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
     return `${mins}:${formatSecs}`;
   }
-  
+
 
   songPlayback(e) {
     console.log(e.target);
     console.log(this.props.song);
-    const playbackIcon = document.getElementById('play-pause-icon')
+    const playbackIcon = document.getElementById('play-pause-icon');
 
     // debugger;
 
@@ -49,7 +50,7 @@ class MediaFooter extends React.Component {
       // debugger;
       this.songPause();
       playbackIcon.src = playIcon;
-    } 
+    }
     if (this.props.currentSong && this.props.playback === false) {
       this.songPlay();
       playbackIcon.src = pauseIcon;
@@ -57,12 +58,12 @@ class MediaFooter extends React.Component {
   }
   songPlay() {
     const audioEl = document.getElementsByClassName("audio-element")[0];
-    this.props.playSong()
-    audioEl.play()
+    this.props.playSong();
+    audioEl.play();
     // debugger
     audioEl.ontimeupdate = () => {
       this.props.fetchCurrentTime();
-    }
+    };
 
   }
 
@@ -70,6 +71,16 @@ class MediaFooter extends React.Component {
     const audioEl = document.getElementsByClassName("audio-element")[0];
     this.props.pauseSong();
     audioEl.pause();
+  }
+
+  songNext() {
+    const audioEl = document.getElementsByClassName("audio-element")[0];
+    let currentIdx = this.props.queue.indexOf(this.props.currentSong);
+    if (this.props.queue[currentIdx + 1]) {
+      // fetch song at that queue position
+      // audioEl.src = newly fetched
+      // audioEl.play()
+    }
   }
 
   // updateRange() {
@@ -87,8 +98,8 @@ class MediaFooter extends React.Component {
     const currentTrackTime = document.getElementById('current-track-time');
     const timeRange = document.getElementById('time-range');
     const audioEl = document.getElementsByClassName("audio-element")[0];
-    if (!audioEl) return null
-    audioEl.currentTime = (e.target.value * .001) * this.props.duration
+    if (!audioEl) return null;
+    audioEl.currentTime = (e.target.value * .001) * this.props.duration;
   }
 
   muteAudio() {
@@ -104,20 +115,20 @@ class MediaFooter extends React.Component {
       // muteState ?
     }
   }
-  
-  updateVolume(e){
+
+  updateVolume(e) {
     const audioEl = document.getElementsByClassName("audio-element")[0];
-    audioEl.volume = (e.target.value * .01)
+    audioEl.volume = (e.target.value * .01);
     // placeholder to clear errors
   }
 
-  render(){
+  render() {
     // debugger
     const audioEl = document.getElementsByClassName("audio-element")[0];
     const playbackIcon = document.getElementById('play-pause-icon');
     const ctTrackTitle = document.getElementById('ct-title');
     // const duration = this.audioDuration()
-    
+
     if (!this.btnPlayPause) {
       this.btnPlayPause = playIcon;
     } else if (this.props.playback === true) {
@@ -135,35 +146,35 @@ class MediaFooter extends React.Component {
       <div className="media-footer">
         {/* TRACK */}
         {
-        (this.props.currentSong)
-        ? <div className="current-track">
-            <div className="ct-art">
-              <img src={this.props.currentSong.albumArtUrl} alt="album-art" id='album-sh-img' />  
+          (this.props.currentSong)
+            ? <div className="current-track">
+              <div className="ct-art">
+                <img src={this.props.currentSong.albumArtUrl} alt="album-art" id='album-sh-img' />
+              </div>
+              <div className="ct-track-info">
+                <div className="ct-title">{this.props.currentSong.title}</div>
+                <div className="ct-artist">{ }</div>
+              </div>
+              <div className="ct-like">{'<3'}</div>
             </div>
-            <div className="ct-track-info">
-              <div className="ct-title">{this.props.currentSong.title}</div>
-              <div className="ct-artist">{}</div>
+            : <div className="current-track">
+              <div className="ct-art"></div>
+              <div className="ct-track-info">
+                <div className="ct-title"></div>
+                <div className="ct-artist"></div>
+              </div>
+              <div className="ct-like">{'<3'}</div>
             </div>
-            <div className="ct-like">{'<3'}</div>
-          </div>
-        : <div className="current-track">
-          <div className="ct-art"></div>
-          <div className="ct-track-info">
-            <div className="ct-title"></div>
-            <div className="ct-artist"></div>
-          </div>
-          <div className="ct-like">{'<3'}</div>
-        </div>
         }
         {/* MEDIA CONTROLS CTR */}
         <div className="media-player">
           <audio className="audio-element" src={this.state.songUrl} preload="metadata"></audio>
           <button onClick={e => this.songPlayback(e)} id="play-pause-btn">
-            <img id="play-pause-icon" src={this.btnPlayPause} alt="play-pause" />  
+            <img id="play-pause-icon" src={this.btnPlayPause} alt="play-pause" />
           </button>
           {/* Track Time */}
           <div className="track-time">
-            <div id="current-track-time">{this.props.currentTimeShow}</div> 
+            <div id="current-track-time">{this.props.currentTimeShow}</div>
             <input type="range" id="time-range" max={this.props.duration} defaultValue="0" onClick={e => this.seekRange(e)} />
             <div id="duration" >{this.props.durationShow}</div>
           </div>
@@ -171,18 +182,18 @@ class MediaFooter extends React.Component {
         {/* MEDIA CONTROLS RIGHT */}
         <div className="media-controls">
           <button id="volume-button" onClick={this.muteAudio}>
-            <img id="volume-icon" src={volHighIcon} alt="volume-mute" />  
+            <img id="volume-icon" src={volHighIcon} alt="volume-mute" />
           </button>
           <output id="volume-output"></output>
           <input type="range" id="volume-slider" step='1' max="100" defaultValue="50" onChange={e => this.updateVolume(e)} />
-          
+
         </div>
-      </div>    
-    )
+      </div>
+    );
   }
 }
 
-export default MediaFooter
+export default MediaFooter;
 
 
 

@@ -9,8 +9,6 @@ export const PREV_SONG = 'PREV_SONG';
 export const NEXT_SONG = 'NEXT_SONG';
 
 
-
-
 export const fetchCurrentSong = (song) => {
   return {
     type: FETCH_CURRENT_SONG,
@@ -55,9 +53,10 @@ export const prevSong = () => {
   };
 };
 
-export const nextSong = () => {
+export const nextSong = (song) => {
   return {
-    type: NEXT_SONG
+    type: NEXT_SONG,
+    song
   };
 };
 
