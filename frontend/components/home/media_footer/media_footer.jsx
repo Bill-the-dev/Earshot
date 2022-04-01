@@ -22,6 +22,7 @@ class MediaFooter extends React.Component {
     this.songPlayback = this.songPlayback.bind(this);
     this.formatTime = this.formatTime.bind(this);
     this.songNext = this.songNext.bind(this);
+    this.songPrev = this.songPrev.bind(this);
     // this.updateRange = this.updateRange.bind(this)
   }
 
@@ -81,6 +82,23 @@ class MediaFooter extends React.Component {
     // returns -1, will this mess it up?
     if (this.props.queue[currentIdx + 1]) {
       let newSong = this.props.queue[currentIdx + 1]
+      // fetch song at that queue position
+      this.props.fetchCurrentSong(newSong)
+      // audioEl.src = newly fetched
+      audioEl.src = newSong.songUrl  
+      this.songPlay()
+      playbackIcon.src = playIcon;
+    }
+    // what to do with the old song?
+  }
+
+  songPrev() {
+    const audioEl = document.getElementsByClassName("audio-element")[0];
+    const playbackIcon = document.getElementById('play-pause-icon');
+    let currentIdx = this.props.queue.indexOf(this.props.currentSong);
+    // returns -1, will this mess it up?
+    if (this.props.queue[currentIdx - 1]) {
+      let newSong = this.props.queue[currentIdx - 1]
       // fetch song at that queue position
       this.props.fetchCurrentSong(newSong)
       // audioEl.src = newly fetched
@@ -180,7 +198,7 @@ class MediaFooter extends React.Component {
           {/* MEDIA BUTTONS CTR */}
           <span className="media-controls">
             {/* PREV (next placeholder) */}
-            <button onClick={e => this.songNext(e)} id="prev-btn">
+            <button onClick={e => this.songPrev(e)} id="prev-btn">
               <img id="prev-icon" src={prevIcon} alt="prev" />
             </button>
             {/* PLAY / PAUSE */}
