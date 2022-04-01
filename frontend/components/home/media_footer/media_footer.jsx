@@ -76,6 +76,7 @@ class MediaFooter extends React.Component {
 
   songNext() {
     const audioEl = document.getElementsByClassName("audio-element")[0];
+    const playbackIcon = document.getElementById('play-pause-icon');
     let currentIdx = this.props.queue.indexOf(this.props.currentSong);
     // returns -1, will this mess it up?
     if (this.props.queue[currentIdx + 1]) {
@@ -84,7 +85,8 @@ class MediaFooter extends React.Component {
       this.props.fetchCurrentSong(newSong)
       // audioEl.src = newly fetched
       audioEl.src = newSong.songUrl  
-      audioEl.play()
+      this.songPlay()
+      playbackIcon.src = playIcon;
     }
     // what to do with the old song?
   }

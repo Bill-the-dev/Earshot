@@ -54,6 +54,7 @@ const MediaReducer = (oldState = preloadedState, action) => {
         return newState;
       }
     case RECEIVE_QUEUE:
+      debugger
       const songs = Object.values(action.songs);
       songs.forEach(song => {
         if (!newState.queue.includes(song)) {

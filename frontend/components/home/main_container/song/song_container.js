@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Song from './song';
-import { playSong, pauseSong, fetchCurrentSong, fetchDuration, fetchCurrentTime } from '../../../../actions/media_actions'
+import { playSong, pauseSong, fetchCurrentSong, fetchDuration, fetchCurrentTime, receiveQueue } from '../../../../actions/media_actions'
 
 const mSTP = (state, ownProps) => {
   // debugger
@@ -18,6 +18,7 @@ const mDTP = (dispatch) => {
     fetchCurrentTime: () => dispatch(fetchCurrentTime()),
     playSong: () => dispatch(playSong()),
     pauseSong: () => dispatch(pauseSong()),
+    receiveQueue: (songs) => dispatch(receiveQueue(songs))
   }
 }
 

@@ -36,23 +36,10 @@ class AlbumShow extends React.Component {
 
   albumQueue() {
     debugger
-    // grabs first album song
     const firstSong = document.getElementsByClassName("song-li-idx")[1];
-    // queues alb objects
-    this.props.receiveQueue(this.props.album.songs) 
+    // this.props.receiveQueue(this.props.album.songs) 
     this.simulateMouseClick(firstSong)
-
-
-    // this.props.fetchCurrentSong(this.props.album[0]);
   }
-
-  // playAudio() {
-  //   // const audioEl = document.getElementsByClassName
-  //   // ("audio-element")[0];
-  //   const playbackIcon = document.getElementById('play-pause-icon');
-  //   // debugger
-
-  // }
 
   simulateMouseClick(element) {
     const mouseClickEvents = ['mousedown', 'click', 'mouseup'];
@@ -66,9 +53,7 @@ class AlbumShow extends React.Component {
         })
       )
     );
-    debugger
   }
-
 
 
   render() {
@@ -79,16 +64,6 @@ class AlbumShow extends React.Component {
       this.btnPlayPause = playIcon;
     }
 
-    // QUEUE
-    // this puts it in state for the player:
-    // this.props.receiveQueue(album.songs)
-
-    // if (this.props.artists) {
-    //   let artist = this.props.artists[album.artist_id].name
-    // } else {
-    //   let artist = null
-    // }
-    //here!
     debugger
     return (
       <div className="album-show">
@@ -122,7 +97,7 @@ class AlbumShow extends React.Component {
         <div className="album-show-list-container">
           <ul className="album-show-list">
             <ListHeader />
-            {Object.values(album.songs).map((song, index) => <Song song={song} album={this.props.album.name} artist={this.props.album.artist} index={index} albumSongs={album.songs} albumArt={album.albumArtUrl} key={song.id} />)}
+            {Object.values(album.songs).map((song, index) => <Song song={song} album={this.props.album} artist={this.props.album.artist} index={index} albumSongs={album.songs} albumArt={album.albumArtUrl} key={song.id} />)}
           </ul>
         </div>
       </div>

@@ -37,6 +37,9 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
   songPlayback(e) {
     console.log(e.target)
     console.log(this.props.song)
+    debugger
+    let queueSongs = this.props.album.songs
+    this.props.receiveQueue(queueSongs);
 
     if (this.props.playback === true) {
       this.songPause();
@@ -51,11 +54,11 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
     if (!this.props.song || this.props.currentSong !== this.props.song) {  
       // if target is empty or not current song, assign and play it! 
       this.props.fetchCurrentSong(this.props.song);
+      // this.props.receiveQueue(this.props.album.songs);
       this.props.playSong()
       audioEl.src = this.props.song.songUrl
       audioEl.play()
       audioEl.onloadedmetadata = () => {
-        // debugger
         this.props.fetchDuration()
       }
       audioEl.ontimeupdate = () => {
@@ -84,8 +87,8 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
   
   render() {
     // CONSTANTS
-    const { index, song, album, artist } = this.props;  
-    if (!index || !song) return null;
+    const { index, song, albumSongs, artist } = this.props;  
+    if (!index || !song || !artist || !albumSongs) return null;
     const liPlayPause = document.getElementById('li-play-pause');
     const audio = document.createElement('audio');
     audio.src = song.songUrl;

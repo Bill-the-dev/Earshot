@@ -20,6 +20,7 @@ const mSTP = state => {
     durationShow: state.entities.media.durationShow,
     currentTime: state.entities.media.currentTime,
     currentTimeShow: state.entities.media.currentTimeShow,
+    queue: state.entities.media.queue
   })
 }
 
