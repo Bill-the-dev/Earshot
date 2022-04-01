@@ -8,6 +8,11 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  has_many :playlists,
+  foreign_key: :user_id,
+  class_name: :Playlist
+
+
   def self.find_by_credentials(username, password)  
     user = User.find_by(username: username)
     if user && user.check_password?(password) 
