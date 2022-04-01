@@ -8,6 +8,7 @@ class Playlist < ApplicationRecord
     class_name: :User
 
   has_many :songs,
-    through: :playlists_songs
+    through: :playlists_songs,
+    source: :song
 
 end
