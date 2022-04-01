@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import { fetchAlbums, fetchAlbum } from "../../../../actions/album_actions";
 import { fetchSong } from "../../../../actions/song_actions";
-import { receiveQueue } from "../../../../actions/media_actions";
-import AlbumShow from "./album_show"
+import { receiveQueue, playSong, pauseSong, fetchCurrentSong, } from "../../../../actions/media_actions";
+import AlbumShow from "./album_show";
 import { withRouter } from "react-router-dom";
 
 const mSTP = (state, ownProps) => {
@@ -19,7 +19,10 @@ const mDTP = (dispatch) => {
     fetchAlbums: () => dispatch(fetchAlbums()),
     fetchAlbum: (albumId) => dispatch(fetchAlbum(albumId)),
     fetchSong: (songId) => dispatch(fetchSong(songId)),
-    receiveQueue: (songs) => dispatch(receiveQueue(songs)) 
+    receiveQueue: (songs) => dispatch(receiveQueue(songs)),
+    fetchCurrentSong: (song) => dispatch(fetchCurrentSong(song)),
+    playSong: () => dispatch(playSong()),
+    pauseSong: () => dispatch(pauseSong()), 
   };
 };
 

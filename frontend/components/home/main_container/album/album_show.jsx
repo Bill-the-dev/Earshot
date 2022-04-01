@@ -11,43 +11,77 @@ class AlbumShow extends React.Component {
     super(props);
     this.state = {
       albumSongs: [],
+      // array of song ids to send to player
     };
-    // debugger
+    this.albumQueue = this.albumQueue.bind(this)
+    this.simulateMouseClick = this.simulateMouseClick.bind(this)
   }
 
   componentDidMount() {
     let albumIdStr = this.props.match.params.albumId;
     this.props.fetchAlbum(albumIdStr);
-
-    // debugger
-
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.album !== this.props.album) {
       this.setState(this.props.album);
+      let albumArr = Object.values(this.props.album.songs).map((song) => {
+        return song.id
+      })
+      this.setState({
+        albumSongs: albumArr 
+      })
     }
-    console.log('in update');
-    // debugger
   }
 
-  playAudio() {
-    // const audioEl = document.getElementsByClassName
-    // ("audio-element")[0];
-    const playbackIcon = document.getElementById('play-pause-icon');
-    // debugger
+  albumQueue() {
+    debugger
+    // grabs first album song
+    const firstSong = document.getElementsByClassName("song-li-idx")[1];
+    // queues alb objects
+    this.props.receiveQueue(this.props.album.songs) 
+    this.simulateMouseClick(firstSong)
 
+
+    // this.props.fetchCurrentSong(this.props.album[0]);
   }
+
+  // playAudio() {
+  //   // const audioEl = document.getElementsByClassName
+  //   // ("audio-element")[0];
+  //   const playbackIcon = document.getElementById('play-pause-icon');
+  //   // debugger
+
+  // }
+
+  simulateMouseClick(element) {
+    const mouseClickEvents = ['mousedown', 'click', 'mouseup'];
+    mouseClickEvents.forEach(mouseEventType =>
+      element?.dispatchEvent(
+        new MouseEvent(mouseEventType, {
+          view: window,
+          bubbles: true,
+          cancelable: true,
+          buttons: 1
+        })
+      )
+    );
+    debugger
+  }
+
+
 
   render() {
-    const { album } = this.props;
+    const { album, albumSongs } = this.props;
     if (!album || !album.songs || !album.name || !album.year ) return null;
 
     if (!this.btnPlayPause) {
       this.btnPlayPause = playIcon;
     }
 
-    this.props.receiveQueue(album.songs)
+    // QUEUE
+    // this puts it in state for the player:
+    // this.props.receiveQueue(album.songs)
 
     // if (this.props.artists) {
     //   let artist = this.props.artists[album.artist_id].name
@@ -79,7 +113,7 @@ class AlbumShow extends React.Component {
         </div>
         {/* Album Play Like */}
         <div className="album-show-play-like">
-          <div className="album-sp-play-pause" >
+          <div className="album-sp-play-pause" onClick={() => this.albumQueue()}>
             <img id="li-play-pause-icon" src={this.btnPlayPause} alt="play-pause" />
           </div>
           {/* <button className="album-sp-like"></button> */}
@@ -88,7 +122,7 @@ class AlbumShow extends React.Component {
         <div className="album-show-list-container">
           <ul className="album-show-list">
             <ListHeader />
-            {Object.values(album.songs).map((song, index) => <Song song={song} album={this.props.album.name} artist={this.props.album.artist} index={index + 1} albumArt={album.albumArtUrl} key={song.id} />)}
+            {Object.values(album.songs).map((song, index) => <Song song={song} album={this.props.album.name} artist={this.props.album.artist} index={index} albumSongs={album.songs} albumArt={album.albumArtUrl} key={song.id} />)}
           </ul>
         </div>
       </div>

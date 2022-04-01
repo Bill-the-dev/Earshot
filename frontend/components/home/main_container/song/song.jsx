@@ -47,7 +47,7 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
   
   songPlay() {
     const audioEl = document.getElementsByClassName("audio-element")[0];
-
+    debugger
     if (!this.props.song || this.props.currentSong !== this.props.song) {  
       // if target is empty or not current song, assign and play it! 
       this.props.fetchCurrentSong(this.props.song);
@@ -116,7 +116,7 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
           ? <div 
               className="song-li-idx" 
               onClick={e => this.songPlayback(e)} 
-              id={`song-${index}`}
+              id={`song-${index + 1}`}
               style={activeSong} 
             >{index}</div>
           : <div 

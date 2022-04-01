@@ -2,6 +2,8 @@ import React from 'react';
 // icons
 import playIcon from '../../../../app/assets/images/media_bar/play-solid.svg';
 import pauseIcon from '../../../../app/assets/images/media_bar/pause-solid.svg';
+import nextIcon from '../../../../app/assets/images/media_bar/forward-step-solid.svg';
+import prevIcon from '../../../../app/assets/images/media_bar/backward-step-solid.svg';
 import mutedIcon from '../../../../app/assets/images/media_bar/volume-xmark-solid.svg';
 import volHighIcon from '../../../../app/assets/images/media_bar/volume-high-solid.svg';
 
@@ -64,7 +66,6 @@ class MediaFooter extends React.Component {
     audioEl.ontimeupdate = () => {
       this.props.fetchCurrentTime();
     };
-
   }
 
   songPause() {
@@ -76,11 +77,16 @@ class MediaFooter extends React.Component {
   songNext() {
     const audioEl = document.getElementsByClassName("audio-element")[0];
     let currentIdx = this.props.queue.indexOf(this.props.currentSong);
+    // returns -1, will this mess it up?
     if (this.props.queue[currentIdx + 1]) {
+      let newSong = this.props.queue[currentIdx + 1]
       // fetch song at that queue position
+      this.props.fetchCurrentSong(newSong)
       // audioEl.src = newly fetched
-      // audioEl.play()
+      audioEl.src = newSong.songUrl  
+      audioEl.play()
     }
+    // what to do with the old song?
   }
 
   // updateRange() {
@@ -123,7 +129,7 @@ class MediaFooter extends React.Component {
   }
 
   render() {
-    // debugger
+    debugger
     const audioEl = document.getElementsByClassName("audio-element")[0];
     const playbackIcon = document.getElementById('play-pause-icon');
     const ctTrackTitle = document.getElementById('ct-title');
@@ -137,9 +143,9 @@ class MediaFooter extends React.Component {
       playbackIcon.src = playIcon;
     }
 
-    if (this.props.currentSong) {
-      // ctTrackTitle.value = this.props.currentSong.title
-    }
+    // if (this.props.currentSong) {
+    //   // ctTrackTitle.value = this.props.currentSong.title
+    // }
 
     // debugger
     return (
@@ -169,9 +175,21 @@ class MediaFooter extends React.Component {
         {/* MEDIA CONTROLS CTR */}
         <div className="media-player">
           <audio className="audio-element" src={this.state.songUrl} preload="metadata"></audio>
-          <button onClick={e => this.songPlayback(e)} id="play-pause-btn">
-            <img id="play-pause-icon" src={this.btnPlayPause} alt="play-pause" />
-          </button>
+          {/* MEDIA BUTTONS CTR */}
+          <span className="media-controls">
+            {/* PREV (next placeholder) */}
+            <button onClick={e => this.songNext(e)} id="prev-btn">
+              <img id="prev-icon" src={prevIcon} alt="prev" />
+            </button>
+            {/* PLAY / PAUSE */}
+            <button onClick={e => this.songPlayback(e)} id="play-pause-btn">
+              <img id="play-pause-icon" src={this.btnPlayPause} alt="play-pause" />
+            </button>
+            {/* NEXT */}
+            <button onClick={e => this.songNext(e)} id="next-btn">
+              <img id="next-icon" src={nextIcon} alt="next" />
+            </button>
+          </span>
           {/* Track Time */}
           <div className="track-time">
             <div id="current-track-time">{this.props.currentTimeShow}</div>
