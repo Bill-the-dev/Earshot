@@ -179,7 +179,7 @@ class MediaFooter extends React.Component {
               </div>
               <div className="ct-track-info">
                 <div className="ct-title">{this.props.currentSong.title}</div>
-                <div className="ct-artist">{ }</div>
+                <div className="ct-artist">{this.props.currentSong.artist.name}</div>
               </div>
               <div className="ct-like">{'<3'}</div>
             </div>

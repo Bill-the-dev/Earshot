@@ -5,3 +5,7 @@ json.set! @song.id do
 end
 json.albumArtUrl url_for(@song.album.album_art)
 
+json.artist do 
+  json.extract! @song.artist, :id, :name
+end
+
