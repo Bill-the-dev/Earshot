@@ -17,16 +17,15 @@ export const fetchPlaylist = (id) => {
     method: 'GET'
   })
 }
-// export const addPlaylistSong = (playlistId, songId) => {
+export const addPlaylistSong = (playlistId, songId) => {
+  return $.ajax({
+    url: `/api/playlists/${playlistId}/addsong/${songId}`,
+    method: 'POST'
+  })
+}
+// export const removePlaylistSong = (playlistId, songId) => {
 //   return $.ajax({
 //     url: `/api/playlists/`,
-//     method: '',
-//     data: {}
-//   })
-// }
-// export const createPlaylist = (playlist) => {
-//   return $.ajax({
-//     url: ``,
 //     method: '',
 //     data: {}
 //   })

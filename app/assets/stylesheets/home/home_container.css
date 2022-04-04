@@ -106,7 +106,7 @@
 
   }
 
-  .playlists {
+  .left-playlists-container {
     margin-left: 0.5rem;
   }
   
@@ -116,6 +116,10 @@
     align-items: flex-start;
     margin: 8px;
     overflow-y: auto;
+  }
+
+  .playlist-item-link{
+    
   }
 
   .pl-item {

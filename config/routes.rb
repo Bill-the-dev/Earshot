@@ -5,8 +5,11 @@ Rails.application.routes.draw do
     resources :songs, only: [:index, :show, :create, :destroy]
     resources :albums, only: [:index, :show]
     resources :artists, only: [:index, :show]
-    resources :playlists, only: [:index, :show, :create, :update, :destroy]
-      # add and remove playlist song?
+    resources :playlists, only: [:index, :show, :create, :update, :destroy] do
+      post "/addsong/:song_id", to: "playlists#add_playlist_song"
+    end
+      # add and remove playlist song? custom route 
+    
   end
   
   root to: 'static_pages#root'
