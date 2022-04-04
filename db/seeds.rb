@@ -4,7 +4,7 @@
 # need a destroy all at the start?
 # find ||= create update find or create by name and updates the info
 
-# ActiveRecord::Base.transaction do
+
 require 'open-uri'
 
 Song.destroy_all
@@ -402,17 +402,89 @@ User.create(
     filename: "02.+Harmony+Hall.mp3"
   )
 
-
-# PLAYLISTS
-  everything1 = demo_user.playlists.create(
-    title: 'Bit of Everything'  
+  s_is_this_love = Song.create(
+    title: 'Is This Love',
+    album: alb_the_greatest_hits  
+  )
+  s_is_this_love.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_bob_marley_greatest_hits/01.+Is+This+Love.mp3"),
+    filename: "01.+Is+This+Love.mp3"
   )
 
-  everything1.songs.push(
-    s_harmony_hall,
-    s_talk,
-    s_heat_waves,
-    s_sound_and_color,
-    s_sinister_kid,
-    s_gimme_shelter
+  s_jamming = Song.create(
+    title: 'Jamming',
+    album: alb_the_greatest_hits
   )
+  s_jamming.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_bob_marley_greatest_hits/02.+Jamming.mp3"),
+    filename: "02.+Jamming.mp3"
+  )
+
+  s_stir_it_up = Song.create(
+    title: 'Stir It Up',
+    album: alb_the_greatest_hits
+  )
+  s_stir_it_up.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_bob_marley_greatest_hits/04.+Stir+It+Up.mp3"),
+    filename: "04.+Stir+It+Up.mp3"
+  )
+
+  s_no_woman_no_cry_live = Song.create(
+    title: 'No Woman, No Cry (Live)',
+    album: alb_the_greatest_hits
+  )
+  s_no_woman_no_cry_live.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_bob_marley_greatest_hits/05.+No+Woman%2C+No+Cry+(Live+At+The+Lyceum%2C+London-1975).mp3"),
+    filename: "05.+No+Woman%2C+No+Cry+(Live+At+The+Lyceum%2C+London-1975).mp3"
+  )
+
+  s_i_shot_the_sheriff = Song.create(
+    title: 'I Shot The Sheriff',
+    album: alb_the_greatest_hits
+  )
+  s_i_shot_the_sheriff.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_bob_marley_greatest_hits/08.+I+Shot+The+Sheriff.mp3"),
+    filename: "08.+I+Shot+The+Sheriff.mp3"
+  )
+
+  s_could_you_be_loved = Song.create(
+    title: 'Could You Be Loved',
+    album: alb_the_greatest_hits
+  )
+  s_could_you_be_loved.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_bob_marley_greatest_hits/09.+Could+You+Be+Loved.mp3"),
+    filename: "09.+Could+You+Be+Loved.mp3"
+  )
+
+  s_waiting_in_vain = Song.create(
+    title: 'Waiting In Vain',
+    album: alb_the_greatest_hits
+  )
+  s_waiting_in_vain.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_bob_marley_greatest_hits/12.+Waiting+In+Vain.mp3"),
+    filename: "12.+Waiting+In+Vain.mp3"
+  )
+
+  s_satisfy_my_soul = Song.create(
+    title: 'Satisfy My Soul',
+    album: alb_the_greatest_hits
+  )
+  s_satisfy_my_soul.song_file.attach(
+    io: open("https://earshot-dev.s3.amazonaws.com/songs/alb_bob_marley_greatest_hits/14.+Satisfy+My+Soul.mp3"),
+    filename: "14.+Satisfy+My+Soul.mp3"
+  )
+
+
+# # PLAYLISTS
+#   everything1 = demo_user.playlists.create(
+#     title: 'Bit of Everything'  
+#   )
+
+#   everything1.songs.push(
+#     s_harmony_hall,
+#     s_talk,
+#     s_heat_waves,
+#     s_sound_and_color,
+#     s_sinister_kid,
+#     s_gimme_shelter
+#   )
