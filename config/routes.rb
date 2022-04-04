@@ -10,7 +10,6 @@ Rails.application.routes.draw do
       delete "/removesong/:song_id", to: "playlists#remove_playlist_song", as: "remove_song"
     end
       # add and remove playlist song? custom route 
-    
   end
   
   root to: 'static_pages#root'

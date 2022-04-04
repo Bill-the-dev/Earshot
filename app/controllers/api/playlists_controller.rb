@@ -1,6 +1,6 @@
 class Api::PlaylistsController < ApplicationController
 
-  before_action: :ensure_logged_in
+  # before_action :ensure_logged_in
 
   def index
     # current user only? or keep public
