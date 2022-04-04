@@ -23,13 +23,12 @@ export const addPlaylistSong = (playlistId, songId) => {
     method: 'POST'
   })
 }
-// export const removePlaylistSong = (playlistId, songId) => {
-//   return $.ajax({
-//     url: `/api/playlists/`,
-//     method: '',
-//     data: {}
-//   })
-// }
+export const removePlaylistSong = (playlistId, songId) => {
+  return $.ajax({
+    url: `/api/playlists/${playlistId}/addsong/${songId}`,
+    method: 'DELETE'
+  })
+}
 // export const createPlaylist = (playlist) => {
 //   return $.ajax({
 //     url: ``,

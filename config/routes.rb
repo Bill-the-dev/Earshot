@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     resources :albums, only: [:index, :show]
     resources :artists, only: [:index, :show]
     resources :playlists, only: [:index, :show, :create, :update, :destroy] do
-      post "/addsong/:song_id", to: "playlists#add_playlist_song"
+      post "/addsong/:song_id", to: "playlists#add_playlist_song", as: "add_song"
+      delete "/removesong/:song_id", to: "playlists#remove_playlist_song", as: "remove_song"
     end
       # add and remove playlist song? custom route 
     
