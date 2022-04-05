@@ -6,7 +6,7 @@ import menuLibrary from '../../../app/assets/images/left_menu_bar/noun-library-3
 import menuHome from '../../../app/assets/images/left_menu_bar/menu-home.svg';
 import menuSearch from '../../../app/assets/images/left_menu_bar/noun-search-4032795.svg';
 import createPlaylistIcon from '../../../app/assets/images/left_menu_bar/noun-plus-box.svg'
-// import likedSongsIcon from '../../../app/assets/images/left_menu_bar/noun-heart-box.svg'
+import likedSongsIcon from '../../../app/assets/images/left_menu_bar/noun-heart-box.svg'
 
 import MainPage from "./main_container/main_page_container";
 import MediaFooter from "./media_footer/media_footer_container";
@@ -74,7 +74,7 @@ const LeftMenuBar = () => {
             <li className="nav-sm-item">Create Playlist</li>
           </Link>
           <Link className="nav-small-link">
-            {/* <img id="liked-songs-icon" src={likedSongsIcon} alt="liked-songs" /> */}
+            <img id="create-pl-icon" src={likedSongsIcon} alt="liked-songs" />
             <li className="nav-sm-item">Liked Songs</li>
           </Link>
         </ul>
