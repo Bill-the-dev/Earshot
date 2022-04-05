@@ -10,18 +10,13 @@ import {
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
-import GreetingContainer from './greeting/greeting_container';
 import SplashContainer from './splash/splash_container';
 import HomeContainer from './home/home_container';
-// import MediaPlayer3 from './home/media_footer/media_player_container';
 import AlbumContainer from './home/main_container/album/album_container';
 
 const App = () => (
   <div className='app-container'>
-    <header>
-        {/* <h1>Earshot</h1> */}
-        {/* <GreetingContainer /> */}
-    </header>
+    <header></header>
     <Switch>
       <Route exact path="/" component={SplashContainer}/>
       <Route exact path="/login" component={LogInFormContainer} /> 

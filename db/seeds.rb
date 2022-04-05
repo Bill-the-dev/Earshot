@@ -474,9 +474,9 @@ User.create(
     filename: "14.+Satisfy+My+Soul.mp3"
   )
 
-
+# ! for loud error
 # # PLAYLISTS
-#   everything1 = demo_user.playlists.create(
+#   everything1 = demo_user.playlists.create!(
 #     title: 'Bit of Everything'  
 #   )
 

@@ -97,7 +97,7 @@ class AlbumShow extends React.Component {
         <div className="album-show-list-container">
           <ul className="album-show-list">
             <ListHeader />
-            {Object.values(album.songs).map((song, index) => <Song song={song} album={this.props.album} artist={this.props.album.artist} index={index} albumSongs={album.songs} albumArt={album.albumArtUrl} key={song.id} />)}
+            {Object.values(album.songs).map((song, index) => <Song song={song} album={this.props.album} artist={this.props.album.artist} index={index + 1} albumSongs={album.songs} albumArt={album.albumArtUrl} key={song.id} />)}
           </ul>
         </div>
       </div>

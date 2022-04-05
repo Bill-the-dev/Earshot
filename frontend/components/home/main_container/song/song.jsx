@@ -21,9 +21,11 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
     let audio = document.createElement('audio');   
     audio.src = this.props.song.songUrl;
     audio.onloadedmetadata = () => {
+      debugger
       const durationEl = document.getElementById(`song-li-${this.props.index}`)
-      let duration = this.formatTime(audio.duration);
-      durationEl.innerHTML = duration
+      let audioDuration = this.formatTime(audio.duration);
+      durationEl.innerHTML = audioDuration
+      // this.setState({ duration: audioDuration })
     }    
   }
   

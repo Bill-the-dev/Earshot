@@ -84,6 +84,7 @@
   }
   
   .nav-small {
+    // box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -91,10 +92,32 @@
     list-style: none;
   }
 
+  .nav-small-link {
+    // box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    &:hover{
+      text-decoration: underline;
+      color: white;
+    }
+    #create-pl-icon{
+      width: 20%;
+      transform: scale(0.5);
+    }
+
+  }
+
   .nav-sm-item {
-    font-size: 0.8rem;
+
+    font-size: 1rem;
     padding-top: 5px;
     cursor: pointer;
+
+    // width: 6rem
   }
 
   .border-line{
