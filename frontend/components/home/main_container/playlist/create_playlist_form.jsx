@@ -188,19 +188,19 @@ const ListHeader = () => {
 };
 
 
-const Search = () => {
-  <form action="/" method="get">
-    <label htmlFor="pl-create-search">
-      <span className="visually-hidden">Search for songs</span>
-    </label>
-    <input
-      type="text"
-      name="s"
-      id="pl-create-search-input"
-      placeholder='Search for songs'
-    />
-    <img src={searchIcon} alt="search" />
-    {/* no buttons, onUpdate */}
-  </form>;
-};
+// const Search = () => {
+//   <form action="/" method="get">
+//     <label htmlFor="pl-create-search">
+//       <span className="visually-hidden">Search for songs</span>
+//     </label>
+//     <input
+//       type="text"
+//       name="s"
+//       id="pl-create-search-input"
+//       placeholder='Search for songs'
+//     />
+//     <img src={searchIcon} alt="search" />
+//     {/* no buttons, onUpdate */}
+//   </form>;
+// };
 

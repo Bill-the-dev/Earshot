@@ -1,6 +1,6 @@
 .pl-create-container {
   background: rgb(79, 79, 79);
-  background: linear-gradient(180deg, rgba(79, 79, 79, 1)10%, rgba(19, 18, 18, 1)45%);
+  background: linear-gradient(180deg, rgb(79, 79, 79) 10%, rgb(19, 18, 18) 45%);
   grid-column: 2 / 2;
   // padding: 2.5rem;
   overflow-y: auto;
@@ -89,8 +89,8 @@
       #pl-create-search-input {
         width: 100%;
         background-color: var(--md-gray);
-        
-        -webkit-appearance:     none;
+        // doesn't work
+        // -webkit-appearance:     none;
         // -moz-appearance:        none;
         // -ms-appearance:         none;
         // -o-appearance:          none;
