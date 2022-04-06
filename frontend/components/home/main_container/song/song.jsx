@@ -10,7 +10,8 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
       song: this.props.song,
       hover: false,
       duration: null,
-      parentEl: null
+      parentEl: null,
+      queueSongs: []
     }
 
     this.songPlayback = this.songPlayback.bind(this)
@@ -41,7 +42,8 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
     console.log(e.target)
     console.log(this.props.song)
     debugger
-    let queueSongs = this.props.album.songs
+    // let queueSongs = this.props.album.songs
+    let queueSongs = this.props.queueSongs
     this.props.receiveQueue(queueSongs);
 
     if (this.props.playback === true) {
@@ -89,7 +91,7 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
   }
   
   render() {
-    debugger
+    // debugger
     // CONSTANTS
     const { index, song, albumSongs, artist } = this.props;  
     if (!index || !song || !artist) return null;
@@ -113,7 +115,7 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
       }, 100);
     }
 
-    debugger
+    // debugger
     return (
       (this.props.parentEl === 'album')
       ? <li 

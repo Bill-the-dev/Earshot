@@ -103,7 +103,8 @@ class AlbumShow extends React.Component {
                 album={this.props.album} 
                 artist={this.props.album.artist} 
                 index={index + 1} 
-                albumSongs={album.songs} 
+                queueSongs={album.songs} 
+                // may need Object.values(album.songs)) and change line58 media reducer, line45 song.jsx
                 albumArt={album.albumArtUrl} 
                 key={song.id} 
                 parentEl='album'
