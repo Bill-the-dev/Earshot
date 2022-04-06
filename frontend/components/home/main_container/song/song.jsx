@@ -9,7 +9,8 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
     this.state = {
       song: this.props.song,
       hover: false,
-      duration: null
+      duration: null,
+      parentEl: null
     }
 
     this.songPlayback = this.songPlayback.bind(this)
@@ -24,7 +25,7 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
       debugger
       const durationEl = document.getElementById(`song-li-${this.props.index}`)
       let audioDuration = this.formatTime(audio.duration);
-      durationEl.innerHTML = audioDuration
+      // durationEl.innerHTML = audioDuration
       // this.setState({ duration: audioDuration })
     }    
   }
@@ -88,9 +89,10 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
   }
   
   render() {
+    debugger
     // CONSTANTS
     const { index, song, albumSongs, artist } = this.props;  
-    if (!index || !song || !artist || !albumSongs) return null;
+    if (!index || !song || !artist) return null;
     const liPlayPause = document.getElementById('li-play-pause');
     const audio = document.createElement('audio');
     audio.src = song.songUrl;
@@ -111,40 +113,77 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
       }, 100);
     }
 
-
+    debugger
     return (
-      <li 
-        className='song-li' 
-        onMouseEnter={() => this.toggleHover()} 
-        onMouseLeave={() => this.toggleHover()}>
-          {(!this.state.hover)
-          ? <div 
-              className="song-li-idx" 
-              onClick={e => this.songPlayback(e)} 
-              id={`song-${index + 1}`}
-              style={activeSong} 
-            >{index}</div>
-          : <div 
-              className="song-li-idx" 
-              onClick={e => this.songPlayback(e)} 
-              id={`song-${index}`}
-              style={activeSong}   
-            >
-              <img id="li-play-pause" src={playSolidWhite} alt="play-pause" />
-            </div>
-        }
+      (this.props.parentEl === 'album')
+      ? <li 
+          className='song-li' 
+          onMouseEnter={() => this.toggleHover()} 
+          onMouseLeave={() => this.toggleHover()}>
+            {(!this.state.hover)
+            ? <div 
+                className="song-li-idx" 
+                onClick={e => this.songPlayback(e)} 
+                id={`song-${index + 1}`}
+                style={activeSong} 
+              >{index}</div>
+            : <div 
+                className="song-li-idx" 
+                onClick={e => this.songPlayback(e)} 
+                id={`song-${index}`}
+                style={activeSong}   
+              >
+                <img id="li-play-pause" src={playSolidWhite} alt="play-pause" />
+              </div>
+          }
+          
+          <div className="song-li-info-left">
+            <div className="song-li-title" style={activeSong} >{song.title}</div>
+            <Link to={`/home/artists/${artist.id}`} className="song-li-artist">
+              <p>{artist.name}</p>
+            </Link>  
+          </div>
+          <div className="song-li-info-right">
+            <div className="song-li-like"></div>
+            <div className="song-li-duration" id={`song-li-${index}`} style={activeSong} ></div>
+          </div>
+        </li>
+      : 
+        //<li>{`${console.log('in li')} ${song.title}`}</li>
         
-        <div className="song-li-info-left">
-          <div className="song-li-title" style={activeSong} >{song.title}</div>
-          <Link to={`/home/artists/${artist.id}`} className="song-li-artist">
-            <p>{artist.name}</p>
-          </Link>  
-        </div>
-        <div className="song-li-info-right">
-          <div className="song-li-like"></div>
-          <div className="song-li-duration" id={`song-li-${index}`} style={activeSong} ></div>
-        </div>
-      </li>
+        <li
+          className='song-li'
+          onMouseEnter={() => this.toggleHover()}
+          onMouseLeave={() => this.toggleHover()}>
+          {(!this.state.hover)
+            ? <div
+                className="song-li-idx"
+                onClick={e => this.songPlayback(e)}
+                id={`song-${index + 1}`}
+                style={activeSong}
+              ></div>
+            : <div
+                className="song-li-idx"
+                onClick={e => this.songPlayback(e)}
+                id={`song-${index}`}
+                style={activeSong}
+              >
+                <img id="li-play-pause" src={playSolidWhite} alt="play-pause" />
+              </div>
+          }
+
+          <div className="song-li-info-left">
+            <div className="song-li-title" style={activeSong} >{song.title}</div>
+            <Link to={`/home/artists/${artist.id}`} className="song-li-artist">
+              <p>{artist.name}</p>
+            </Link>
+          </div>
+          <div className="song-li-info-right">
+            <div className="song-li-like"></div>
+            <div className="song-li-duration" id={`song-li-${index}`} style={activeSong} ></div>
+            <button className="btn-pl-add">ADD</button>
+          </div>
+        </li>
     )
   }
 }

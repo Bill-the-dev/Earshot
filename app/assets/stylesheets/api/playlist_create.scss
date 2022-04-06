@@ -79,15 +79,26 @@
       display: flex;
       background-color: var(--md-gray);
       height: 2rem;
-      width: 39%;
+      width: 26rem;
       img {     
         transform: scale(0.4);
         // aspect-ratio: 1 / 1;
       }
       #pl-create-search-input {
         background-color: var(--md-gray);
-        
+
       }
      
     }
+    // hides label
+    .visually-hidden {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
   }
+
