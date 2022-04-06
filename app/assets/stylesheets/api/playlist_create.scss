@@ -4,6 +4,8 @@
   grid-column: 2 / 2;
   // padding: 2.5rem;
   overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 6rem;
 }
 
 // HEADER
@@ -85,9 +87,16 @@
         // aspect-ratio: 1 / 1;
       }
       #pl-create-search-input {
+        width: 100%;
         background-color: var(--md-gray);
-
+        
+        -webkit-appearance:     none;
+        // -moz-appearance:        none;
+        // -ms-appearance:         none;
+        // -o-appearance:          none;
+        // appearance:             none;
       }
+
      
     }
     // hides label

@@ -78,36 +78,36 @@ class CreatePlaylistForm extends React.Component {
     // this.state.songs.title
     // this.state.songs.artist.name
 
-    const resultsList = () => {
-      debugger
-      const filterSongs = this.state.filterSongs
-      return (
-        (filterSongs && filterSongs.length > 1)
+    // const resultsList = () => {
+    //   debugger
+    //   const filterSongs = this.state.filterSongs
+    //   return (
+    //     (filterSongs && filterSongs.length > 1)
 
-          ? < ul className="plc-create-results" >
-            {filterSongs.map((song, index) => {
-              debugger 
-              return(
-                <Song 
-                  song={song} 
-                  album={song.album} 
-                  artist={song.artist} 
-                  index={index + 1} 
-                  // albumArt={album.albumArtUrl} 
-                  key={song.id}
-                  parentEl='search'
-                />
+    //       ? < ul className="plc-create-results" >
+    //         {filterSongs.map((song, index) => {
+    //           debugger 
+    //           return(
+    //             <Song 
+    //               song={song} 
+    //               album={song.album} 
+    //               artist={song.artist} 
+    //               index={index + 1} 
+    //               // albumArt={album.albumArtUrl} 
+    //               key={song.id}
+    //               parentEl='search'
+    //             />
 
-              )})
-            }
-            </ul >
+    //           )})
+    //         }
+    //         </ul >
             
             
-          : < ul className="plc-create-results" >
-              <li>False</li>       
-            </ul>
-      )
-    }
+    //       : < ul className="plc-create-results" >
+    //           <li>False</li>       
+    //         </ul>
+    //   )
+    // }
 
     return (
       <div className="pl-create-container">
@@ -158,7 +158,7 @@ class CreatePlaylistForm extends React.Component {
                 </ul >
 
               : < ul className="plc-create-results" >
-                  <li>False</li>
+                  <li></li>
                 </ul>
             } 
           </div>
@@ -173,7 +173,7 @@ export default CreatePlaylistForm;
 const ListHeader = () => {
   return (
     <li className='song-li-header'>
-      <div className="song-li-idx">#</div>
+      {/* <div className="song-li-idx"></div> */}
       <div className="song-li-info-left">
         <div className="song-li-title">TITLE</div>
       </div>

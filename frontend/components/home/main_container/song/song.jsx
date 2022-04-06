@@ -178,6 +178,7 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
               <p>{artist.name}</p>
             </Link>
           </div>
+          <div className="song-li-info-mid">{this.props.album.name}</div>
           <div className="song-li-info-right">
             <div className="song-li-like"></div>
             <div className="song-li-duration" id={`song-li-${index}`} style={activeSong} ></div>
