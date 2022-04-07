@@ -149,7 +149,7 @@ class MediaFooter extends React.Component {
   }
 
   render() {
-    debugger
+    // debugger
     const audioEl = document.getElementsByClassName("audio-element")[0];
     const playbackIcon = document.getElementById('play-pause-icon');
     const ctTrackTitle = document.getElementById('ct-title');

@@ -68,12 +68,12 @@ class PlaylistShow extends React.Component {
   }
 
   render() {
-    // debugger;
+    debugger;
     const { playlists, currentUser, songs } = this.props;
-    const filterSongs = this.state.filterSongs
-    const playlistId = this.props.match.params.playlistId;
     if (!playlists || !currentUser) return null;
-
+    const filterSongs = this.state.filterSongs
+    const playlistIdx = Object.values(this.props.playlists).length - 1
+    const playlist = Object.values(this.props.playlists)[playlistIdx];
     // this.state.songs.title
     // this.state.songs.artist.name
     // debugger
@@ -87,7 +87,7 @@ class PlaylistShow extends React.Component {
           <div className="pl-create-info">  
           {/* onClick open modal to edit pl info, save and delete button? */}
             <p className='pl-create-type'>PLAYLIST</p>
-            <h1>{`My Playlist #${playlistId}`}</h1>
+            <h1>{`My Playlist #${playlist.id}`}</h1>
             <h2>{currentUser.username}</h2>
           </div>
         </div>

@@ -43,7 +43,7 @@ class Home extends React.Component {
         <LeftMenuBar />
         <MainHeader />
         <Switch >
-          <AuthRoute path={`/home/playlists/u${userId}p${playlistId}`} component={PlaylistShow} />
+          <AuthRoute path={`/home/playlists/u${userId}p${playlistId - 1}`} component={PlaylistShow} />
           <AuthRoute path='/home/albums/:albumId' component={AlbumShow} />
           <AuthRoute path='/home/artists/:artistId' component={ArtistShow} />
           <AuthRoute path='/home' component={MainPage} />
