@@ -2,7 +2,7 @@
   .main-header {
     display: flex;
     box-sizing: border-box;
-    height: 3em;
+    height: 3rem;
     width: 100%;
     /* border: solid 1px grey; */
     padding-left: 40px;
@@ -19,14 +19,18 @@
     display: flex;
     box-sizing: border-box;
     cursor: pointer;
-    width: 8em;
+    width: 8rem;
+    height: 1.8rem;
     border-radius: 1rem;
     /* border: 1px solid grey; */
     position: fixed;
     right: 0;
     padding: 5px;
     margin-right: 2.5rem;
-    font-size: 0.7rem;
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
     align-items: center; 
     justify-content: center;
     z-index: 1;  
@@ -39,6 +43,7 @@
     position: relative;
     user-select: none;
     width: 100%;
+    // width: 50vw;
     align-items: center;
     justify-content: center;
   }
@@ -58,13 +63,13 @@
     display: flex;
     position: absolute;
     background-color: var(--md-dk-gray);
-    top: 160%;
-    // right: 0%;
+    top: 185%;
+    left: -0.8rem;
     width: 115%;
     height: 3em;
     align-items: center;
     justify-content: center;
-    // justify-self: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
     
   }
   

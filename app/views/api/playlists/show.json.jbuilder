@@ -1,4 +1,4 @@
-json.extract! @playlist, :id, :name, :creator_id
+json.extract! @playlist, :id, :title, :creator_id, :creator
 
 if @playlist.songs.empty? 
   json.set! :songs, {}

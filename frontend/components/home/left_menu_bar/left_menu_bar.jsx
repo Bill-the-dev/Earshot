@@ -22,12 +22,16 @@ class LeftMenuBar extends React.Component {
   handleCreatePlaylist(e) {
     debugger;
     e.preventDefault();
-    const playlistId = this.props.playlists.length + 1;
+    const userId = this.props.currentUser.id
+    const playlistsLength = Object.values(this.props.playlists).length
+    const playlistId = playlistsLength ? (playlistsLength + 1) : (1);
     this.props.createPlaylist({
       title: `My playlist #${playlistId}`,
-      creator_id: this.props.currentUser.id
+      creator_id: userId
+      // creator: this.props.currentUser
     })
       .then(() => this.props.history.push(`/playlists/${playlistId}`));
+      // push string ensures no user overlap
   }
 
   render() {

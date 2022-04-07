@@ -31,13 +31,18 @@ class Home extends React.Component {
   }
   
   render() {
+    const playlistsLength = Object.values(this.props.playlists).length;
+    const playlistId = playlistsLength ? (playlistsLength + 1) : (1);
+
+
+
     debugger
     return (
       <div className="home-container">
         <LeftMenuBar />
         <MainHeader />
         <Switch >
-          <AuthRoute path='/home/playlists/:playlistId' component={PlaylistShow} />
+          <AuthRoute path={`/home/playlists/${playlistId}`} component={PlaylistShow} />
           <AuthRoute path='/home/albums/:albumId' component={AlbumShow} />
           <AuthRoute path='/home/artists/:artistId' component={ArtistShow} />
           <AuthRoute path='/home' component={MainPage} />

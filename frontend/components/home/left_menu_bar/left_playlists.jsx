@@ -9,60 +9,73 @@ class LeftMenuPlaylists extends React.Component {
       currentPlaylists: [],
       currentPlaylist: ''
     };
+    this.updateUserPlaylists = this.updateUserPlaylists.bind(this)
   }
 
   componentDidMount() {
-    debugger
+    // debugger
     this.props.fetchPlaylists()
-      // .then(() => {
-      //   const userPlaylists = [];
-      //   const currentUserId = this.props.currentUser.id;
-      //   Object.values(this.props.playlists).forEach((playlist) => {
-      //     if (playlist.creator.id === currentUserId) {
-      //       userPlaylists.push(playlist);
-      //     }
-      //   });
-      //   debugger
-      //   this.setState({
-      //     currentPlaylists: userPlaylists
-      //     // currentPlaylists: Object.values(this.props.playlists)
-      //   });
-      // });
   }
 
   componentDidUpdate(prevProps) {
+    debugger
     if (prevProps.playlists !== this.props.playlists) {
       debugger
-      const userPlaylists = [];
-      const currentUserId = this.props.currentUser.id;
-      Object.values(this.props.playlists).forEach((playlist) => {
-        if (playlist.creator.id === currentUserId) {
-          userPlaylists.push(playlist);
-        }
-      });
-      this.setState({
-        currentPlaylists: userPlaylists
-      })
+      this.updateUserPlaylists()
+      // const userPlaylists = [];
+      // const currentUserId = this.props.currentUser?.id;
+      // const creatorId = (playlist.creator.id) ? playlist.creator.id : playlist.creatorId
+      // // creatorId is being passed in differently on create Playlist, data mismatch? Potential issue, temporary solution with turnery
+      // Object.values(this.props.playlists).forEach((playlist) => {
+      //   debugger
+      //   if (creatorId === currentUserId) {
+      //     userPlaylists.push(playlist)
+      //   } 
+      // });
+      // this.setState({
+      //   currentPlaylists: userPlaylists
+      // })
     }
   }
+
+  updateUserPlaylists() {
+    const userPlaylists = [];
+    const currentUserId = this.props.currentUser.id;
+    // creatorId is being passed in differently on create Playlist, data mismatch? Potential issue, temporary solution with turnery
+    Object.values(this.props.playlists).forEach((playlist) => {
+      debugger
+      // const creatorId = (!playlist.creator.id) ? playlist.creatorId : playlist.creator.id 
+      const creatorId = playlist.creator.id
+      debugger;
+      if (creatorId === currentUserId) {
+        userPlaylists.push(playlist);
+      }
+    });
+    this.setState({
+      currentPlaylists: userPlaylists
+    })
+  }
+
 
   render() {
     const { playlists, currentUser } = this.props;
     if (!playlists || !currentUser || !this.state.currentPlaylists) return null;
-    debugger
+    // debugger
     return (
-      <div className="playlists">
+      <div className="left-playlists-container">
         <ul className="pl-list">
           {this.state.currentPlaylists.map((userPlaylist) => {
             debugger
             return(
-              <li className='pl-item' key={userPlaylist.id}>{userPlaylist.title}</li>
+              <Link to={`/home/playlists/${userPlaylist.id}`} className='pl-item-link'>
+                <li className='pl-item' key={userPlaylist.id}>{userPlaylist.title}</li>
+              </Link>
             )
           })}
-          <li className="pl-item">Playlist 1</li>
+          {/* <li className="pl-item">Playlist 1</li>
           <li className="pl-item">Playlist 2</li>
           <li className="pl-item">Playlist 3</li>
-          <li className="pl-item">Playlist 4</li>
+          <li className="pl-item">Playlist 4</li> */}
         </ul>
       </div>
     );

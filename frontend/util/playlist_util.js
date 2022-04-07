@@ -5,6 +5,17 @@ export const createPlaylist = (playlist) => {
     data: {playlist}
   })
 }
+
+export const deletePlaylist = (id) => {
+  return(
+    $.ajax({
+      url: `/api/playlists/${id}`,
+      method: "DELETE"
+    })
+  )
+}
+
+
 export const fetchPlaylists = () => {
   return $.ajax({
     url: `/api/playlists`,
@@ -17,6 +28,8 @@ export const fetchPlaylist = (id) => {
     method: 'GET'
   })
 }
+
+
 export const addPlaylistSong = (playlistId, songId) => {
   return $.ajax({
     url: `/api/playlists/${playlistId}/addsong/${songId}`,

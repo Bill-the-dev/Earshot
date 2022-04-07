@@ -11,12 +11,14 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
       hover: false,
       duration: null,
       parentEl: null,
+      parentPlaylistId: null,
       queueSongs: []
     }
 
     this.songPlayback = this.songPlayback.bind(this)
     this.formatTime = this.formatTime.bind(this)
     this.toggleHover = this.toggleHover.bind(this)
+    this.handleAdd = this.handleAdd.bind(this)
   }
   
   componentDidMount() {
@@ -89,6 +91,20 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
     // e.currentTarget.innerHTML = this.liHoverTrue
       
   }
+
+  handleAdd(e) {
+    // console.log(e.currentTarget.parentNode.parentNode)
+    console.log(this.props)
+
+    const playlistId = this.props.parentPlaylistId
+    const songId = this.props.song.id
+    if(playlistId && songId) {
+      debugger
+      console.log('valid')
+      this.props.addPlaylistSong(playlistId, songId)
+    }
+
+  }
   
   render() {
     // debugger
@@ -150,14 +166,13 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
             <div className="song-li-duration" id={`song-li-${index}`} style={activeSong} ></div>
           </div>
         </li>
-      : 
-        //<li>{`${console.log('in li')} ${song.title}`}</li>
-        
-        <li
+
+        // parent NOT album  
+      : <li
           className='song-li'
           onMouseEnter={() => this.toggleHover()}
           onMouseLeave={() => this.toggleHover()}>
-          {(!this.state.hover)
+          { (!this.state.hover)
             ? <div
                 className="song-li-idx"
                 onClick={e => this.songPlayback(e)}
@@ -184,7 +199,8 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
           <div className="song-li-info-right">
             <div className="song-li-like"></div>
             <div className="song-li-duration" id={`song-li-${index}`} style={activeSong} ></div>
-            <button className="btn-pl-add">ADD</button>
+            <button className="btn-pl-add" onClick={(e) => this.handleAdd(e)}>ADD</button>
+            {/* <button className="btn-pl-add" onClick={() => console.log(this.props.parentPlaylistId)}>ADD</button> */}
           </div>
         </li>
     )

@@ -71,11 +71,12 @@ class PlaylistShow extends React.Component {
     debugger;
     const { playlists, currentUser, songs } = this.props;
     const filterSongs = this.state.filterSongs
+    const playlistId = this.props.match.params.playlistId;
     if (!playlists || !currentUser) return null;
 
     // this.state.songs.title
     // this.state.songs.artist.name
-
+    debugger
     return (
       <div className="pl-create-container">
         {/* PLAYLIST CREATE HEADER */}
@@ -86,7 +87,7 @@ class PlaylistShow extends React.Component {
           <div className="pl-create-info">  
           {/* onClick open modal to edit pl info, save and delete button? */}
             <p className='pl-create-type'>PLAYLIST</p>
-            <h1>My Playlist #001</h1>
+            <h1>{`My Playlist #${playlistId}`}</h1>
             <h2>{currentUser.username}</h2>
           </div>
         </div>
@@ -123,6 +124,7 @@ class PlaylistShow extends React.Component {
                       // albumArt={album.albumArtUrl} 
                       key={song.id}
                       parentEl='search'
+                      parentPlaylistId={playlistId}
                     /> )
                   })}
                 </ul >
@@ -146,7 +148,6 @@ const PlaylistSongs = () => {
       {(playlist.length > 0)
         ? <>
             <PlaylistHeader />
-
           </>
         : <></>
 
