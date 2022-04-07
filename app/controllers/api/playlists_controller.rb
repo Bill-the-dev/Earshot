@@ -14,7 +14,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def create
-    debugger
+    # debugger
     # @playlist = current_user.playlists.new(playlist_params)
     # changed to instance.new and association takes care of the rest.  Also added creator_id to params
     # also required a change to add @creator and assign

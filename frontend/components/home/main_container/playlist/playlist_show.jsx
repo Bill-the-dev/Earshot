@@ -18,7 +18,7 @@ class PlaylistShow extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
+    // debugger;
     this.props.fetchSongs()
       .then(() => this.setState({
         allSongs: Object.values(this.props.songs)
@@ -68,7 +68,7 @@ class PlaylistShow extends React.Component {
   }
 
   render() {
-    debugger;
+    // debugger;
     const { playlists, currentUser, songs } = this.props;
     const filterSongs = this.state.filterSongs
     const playlistId = this.props.match.params.playlistId;
@@ -76,7 +76,7 @@ class PlaylistShow extends React.Component {
 
     // this.state.songs.title
     // this.state.songs.artist.name
-    debugger
+    // debugger
     return (
       <div className="pl-create-container">
         {/* PLAYLIST CREATE HEADER */}
@@ -113,7 +113,7 @@ class PlaylistShow extends React.Component {
               ? < ul className="plc-create-results" >
                   <ResultHeader />
                   {Object.values(filterSongs).map((song, index) => {
-                    debugger
+                    // debugger
                     return (
                     <Song
                       song={song}
