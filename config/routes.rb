@@ -24,11 +24,15 @@ end
 # api_session DELETE /api/session(.:format)        api/sessions#destroy {:default=>{:format=>JSON}}
             # POST   /api/session(.:format)        api/sessions#create {:default=>{:format=>JSON}}
 
+# api_playlist_add_song    POST     /api/playlists/:playlist_id/addsong/:song_id(.:format)                      
+#                                                           api/playlists#add_playlist_song {:format=>:json}
 
+# api_playlist_remove_song DELETE   /api/playlists/:playlist_id/removesong/:song_id(.:format)  
+#                                                           api/playlists#remove_playlist_song {:format=>:json}
 
-# api_playlists GET    /api/playlists(.:format)     api/playlists#index {:format=>:json}
-#               POST   /api/playlists(.:format)     api/playlists#create {:format=>:json}
-# api_playlist  GET    /api/playlists/:id(.:format) api/playlists#show {:format=>:json}
-#               PATCH  /api/playlists/:id(.:format) api/playlists#update {:format=>:json}
-#               PUT    /api/playlists/:id(.:format) api/playlists#update {:format=>:json}
-#               DELETE /api/playlists/:id(.:format) api/playlists#destroy {:format=>:json}
+# api_playlists         GET    /api/playlists(.:format)     api/playlists#index {:format=>:json}
+#                       POST   /api/playlists(.:format)     api/playlists#create {:format=>:json}
+# api_playlist          GET    /api/playlists/:id(.:format) api/playlists#show {:format=>:json}
+#                       PATCH  /api/playlists/:id(.:format) api/playlists#update {:format=>:json}
+#                       PUT    /api/playlists/:id(.:format) api/playlists#update {:format=>:json}
+#                       DELETE /api/playlists/:id(.:format) api/playlists#destroy {:format=>:json}

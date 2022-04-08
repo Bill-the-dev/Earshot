@@ -45,4 +45,66 @@ Model hierarchy: `song` > *belongs_to* > `album` > *belongs_to* > `artist` > *be
 Thanks in advance for your help!
 
 
+[RESOLVED]
+
+Rails server hangs, on restart "already in use"
+To resolve:
+  - delete `project_name/tmp` `pid` file.
+  - use `lsof -wni tcp:3000` to see which process is using tcp:3000 (pid #)
+  - `kill -9 59780` with `59780` replaced with found PID number
+  - https://stackoverflow.com/questions/31039998/rails-address-already-in-use-bind2-errnoeaddrinuse
+
+[UNRESOLVED]
+
+playlists broke when add song added.  playlist jbuilder.index undefined 'empty?' even though the code commented out. 
+
+INDEX
+```Ruby
+@playlists.each do |playlist|
+  json.set! playlist.id do 
+    json.extract! playlist, :id, :title, :creator, :songs
+    json.songs do 
+      # @playlist.songs.each do |song|
+      json.array! playlist.songs.each do |song|
+        json.extract! song, :id, :title, :album_id, :album, :artist
+        json.songUrl url_for(song.song_file)
+        json.album do 
+          json.extract! song.album, :id, :name, :year
+          # json.albumArtUrl url_for(@album.album_art)
+        end
+        json.artist do 
+          json.extract! song.artist, :id, :name 
+        end
+      end
+    end
+  end
+
+end
+```
+
+
+SHOW
+```Ruby 
+# if @playlist.songs.empty?
+# if !@playlist.songs
+if @playlist.songs && @playlist.songs.empty?
+  json.set! :songs, {}
+else 
+  json.songs do 
+    @playlist.songs.each do |song|
+      json.set! song.id do 
+        json.extract! song, :id, :title, :album_id, :artist, :album
+        json.songUrl url_for(song.song_file)
+        json.album do 
+          json.extract! song.album, :id, :name, :year
+          # json.albumArtUrl url_for(@album.album_art)
+        end
+        json.artist do 
+          json.extract! song.artist, :id, :name 
+        end
+      end
+    end
+  end
+end
+```
 
