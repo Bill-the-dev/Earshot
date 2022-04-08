@@ -13,7 +13,7 @@ class PlaylistShow extends React.Component {
       allSongs: [],
       filterSongs: [],
       filterArtists: [],
-      playlistSongs: {}
+      playlistSongs: []
     };
     this.searchUpdate = this.searchUpdate.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
@@ -46,28 +46,39 @@ class PlaylistShow extends React.Component {
   setPlaylistSongs(song, index) {
     const playlistIdx = this.props.match.params.id;
     const playlist = this.props.playlists[playlistIdx];
-    // const playlistSongArr = [];
-    let playlistSongObjs = this.state.playlistSongs
-    debugger
-    if (Object.values(playlistSongObjs).length !== playlist.songs.length){
-      let newSongObjs = Object.assign({}, playlistSongObjs, song)
-      
-      this.setState({
-        playlistSongs: newSongObjs
-      }) 
-    // } else {  
-      
-    //   this.setState({
-    //     playlistSongs: playlistSongObjs
-    //   });
-    }
-  
 
+    let playlistSongsArr = this.state.playlistSongs
+    if (playlistSongsArr[index] !== song) {
+      playlistSongsArr.push(song)
+      this.setState({
+        playlistSongs: playlistSongsArr
+      }) 
+    }
+
+
+
+    
+    
     console.log('in set playlist, props:')
     console.log(this.props)
     console.log(this.state)
   }
-
+  // const playlistSongArr = [];
+  // let playlistSongObjs = this.state.playlistSongs
+  // debugger
+  // if (Object.values(playlistSongObjs).length !== playlist.songs.length){
+  //   let newSongObjs = Object.assign({}, playlistSongObjs, song)
+    
+  //   this.setState({
+  //     playlistSongs: newSongObjs
+  //   }) 
+  // } else {  
+    
+  //   this.setState({
+  //     playlistSongs: playlistSongObjs
+  //   });
+  // }
+  
   // componentDidUpdate(prevProps){
   //   if (prevProps.songs !== this.props.songs)
   //   this.setState()
