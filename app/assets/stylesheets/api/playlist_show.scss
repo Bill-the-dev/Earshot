@@ -76,41 +76,51 @@
       font-weight: 600;
       color: white;
     }
+  }
 
-    .pl-create-search {
+  // PLAYLIST SONGS
+  .pl-songs-container {
+    margin-top: 3rem;
+  }
+
+
+
+  // SEARCH
+  .pl-create-search {
+    display: flex;
+    box-sizing: content-box;
+    background-color: var(--md-gray);
+    height: 2.3rem;
+    width: 26rem;
+    margin-bottom: 1rem;
+    align-items: center;
+  
+    label {
       display: flex;
-      box-sizing: content-box;
-      background-color: var(--md-gray);
-      height: 2.3rem;
-      width: 26rem;
-      margin-bottom: 1rem;
-      align-items: center;
-      label {
-        display: flex;
+      width: 100%;
+  
+      img {
+        transform: scale(0.45);
+        height: 2.1rem;
+        width: 2.1rem;
+        // aspect-ratio: 1 / 1;
+      }
+  
+      #pl-create-search-input {
         width: 100%;
-        img {     
-          transform: scale(0.45);
-          height: 2.1rem;
-          width: 2.1rem;
-          // aspect-ratio: 1 / 1;
-        }
-
-        #pl-create-search-input {
-          width: 100%;
-          // height: 1.2rem;
-          background-color: var(--md-gray);
-          border-style: none;
-          padding: 0.4rem;
-          font-size: 1rem;
-          color: var(--lt-gray-a);
-          &:focus {
-            outline: none;
-          }
+        // height: 1.2rem;
+        background-color: var(--md-gray);
+        border-style: none;
+        padding: 0.4rem;
+        font-size: 1rem;
+        color: var(--lt-gray-a);
+  
+        &:focus {
+          outline: none;
         }
       }
-
-     
     }
+  
     // hides label
     .visually-hidden {
       clip: rect(0 0 0 0);

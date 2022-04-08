@@ -14,10 +14,6 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def create
-    # debugger
-    # @playlist = current_user.playlists.new(playlist_params)
-    # changed to instance.new and association takes care of the rest.  Also added creator_id to params
-    # also required a change to add @creator and assign
     @creator = User.find(params[:playlist][:creator_id])
     @playlist = Playlist.new(playlist_params)
     @playlist.creator = @creator
@@ -31,16 +27,15 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def add_playlist_song
-    debugger
+    # debugger
     @song = Song.find(params[:song_id])
     @playlist = Playlist.find(params[:playlist_id])
-    #check save create
     @playlist_song = @playlist.playlists_songs.new(song_id: @song.id)
     if @playlist_song.save
-      debugger
+      # debugger
       render 'api/playlists/show'
     else
-      debugger
+      # debugger
       render json: @playlist_song.errors.full_messages, status: 422
     end
   end

@@ -13,7 +13,7 @@ class PlaylistShow extends React.Component {
       allSongs: [],
       filterSongs: [],
       filterArtists: [],
-      playlistSongs: []
+      playlistSongs: {}
     };
     this.searchUpdate = this.searchUpdate.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
@@ -22,9 +22,50 @@ class PlaylistShow extends React.Component {
   componentDidMount() {
     // debugger;
     this.props.fetchSongs()
-      .then(() => this.setState({
-        allSongs: Object.values(this.props.songs)
-      }));
+      .then(() => {
+        // const playlistIdx = this.props.match.params.id;
+        // const playlist = this.props.playlists[playlistIdx];
+        // const playlistSongArr = []
+        // const playlistSongObjs = {}
+        // if (Object.values(this.props.songs).length && playlist.songs.length > 0) {
+        //   playlist.songs.map((song) => {
+        //     playlistSongArr.push(this.props.songs[song.id])
+        //   })
+        // }
+        // Object.assign(playlistSongObjs, {playlistSongArr})
+        // console.log(this.state)
+        // console.log(playlistSongObjs)
+
+        this.setState({
+          allSongs: Object.values(this.props.songs), 
+          // playlistSongs: playlistSongObjs
+        }) 
+      })
+  }
+
+  setPlaylistSongs(song, index) {
+    const playlistIdx = this.props.match.params.id;
+    const playlist = this.props.playlists[playlistIdx];
+    // const playlistSongArr = [];
+    let playlistSongObjs = this.state.playlistSongs
+    debugger
+    if (Object.values(playlistSongObjs).length !== playlist.songs.length){
+      let newSongObjs = Object.assign({}, playlistSongObjs, song)
+      
+      this.setState({
+        playlistSongs: newSongObjs
+      }) 
+    // } else {  
+      
+    //   this.setState({
+    //     playlistSongs: playlistSongObjs
+    //   });
+    }
+  
+
+    console.log('in set playlist, props:')
+    console.log(this.props)
+    console.log(this.state)
   }
 
   // componentDidUpdate(prevProps){
@@ -81,7 +122,7 @@ class PlaylistShow extends React.Component {
     const playlistIdx = this.props.match.params.id
     const playlist = this.props.playlists[playlistIdx];
     const { playlists, currentUser, songs } = this.props;
-    if (!playlists || !currentUser || !playlist) return null;
+    if (!playlists || !currentUser || !playlist || !songs ) return null;
     // const playlistIdx = Object.values(this.props.playlists).length - 1
     // const playlist = Object.values(this.props.playlists)[playlistIdx];
 
@@ -100,12 +141,46 @@ class PlaylistShow extends React.Component {
             <button className="pl-btn-delete"onClick={() => this.handleDelete()}>Delete</button>
           </div>
         </div>
-        {/* PLAYLIST SONGS */}
-        {/* <PlaylistSongs /> */}
+
+        
         {/* PLAYLIST CREATE CONTENT */}
         <div className="pl-create-content">
-          <h2>Let's find something for your playlist</h2>
+          {/* PLAYLIST SONGS */}
+          {/* <PlaylistSongs playlist={playlist} songs={songs} /> */}
+          <div className='pl-songs-container'>
+            {(Object.values(songs).length && playlist.songs.length > 0)
+              ? <ul className="pl-songs-list">
+                <PlaylistHeader />
+                {playlist.songs.map((song, index) => {
+                  debugger;
+                  let songObj = songs[song.id]
+                  this.setPlaylistSongs(songObj, index)
+                  return (
+                    // <li>{` ${index} - ${song.title}`}</li>
+                    <Song 
+                      song={songObj}
+                      album={songObj.album}
+                      artist={songObj.artist}
+                      index={index + 1}
+                      queueSongs={[]}
+                      // queueSongs={playlist.songs}
+                      // albumArt={album.albumArtUrl} 
+                      key={songObj.id}
+                      parentEl='playlist'
+                      parentPlaylistId={playlist.id}
+                    />
+                  );
+                })}
+                {/* {this.setPlaylistSongs()} */}
+              </ul>
+              : <></>
+
+            }
+          </div>
+
+
           {/* <Search /> */}
+          <h2>Let's find something for your playlist</h2>
           <div className="pl-create-search" >
             {/* <i class="fa-solid fa-magnifying-glass"></i> */}
             {/* <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /> */}
@@ -136,10 +211,10 @@ class PlaylistShow extends React.Component {
                       album={song.album}
                       artist={song.artist}
                       index={index + 1}
-                      queueSongs={[]}
+                      queueSongs={this.state.playlistSongs}
                       // albumArt={album.albumArtUrl} 
                       key={song.id}
-                      parentEl='search'
+                      parentEl='playlist-add'
                       parentPlaylistId={playlist.id}
                     /> )
                   })}
@@ -158,18 +233,43 @@ class PlaylistShow extends React.Component {
 
 export default withRouter(PlaylistShow);
 
-const PlaylistSongs = () => {
-  return (
-    <div className='pl-songs-container'>
-      {(playlist.length > 0)
-        ? <>
-            <PlaylistHeader />
-          </>
-        : <></>
+class PlaylistSongs extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
-      }
-    </div>
-  );
+  render() {
+    debugger
+    return (
+      <div className='pl-songs-container'>
+        {(this.props.playlist && this.props.playlist.songs.length > 0)
+          ? <ul className="pl-songs-list">
+              <PlaylistHeader />
+              {this.props.playlist.songs.map((song, index) => {
+                debugger
+                // let songObj = this.props.songs[song.id]
+                return(
+                  <li>{` ${index} - ${song.title}`}</li>
+                  // <Song 
+                  //   // song={songObj}
+                  //   // album={songObj.album}
+                  //   // artist={songObj.artist}
+                  //   // index={index + 1}
+                  //   // queueSongs={this.props.playlist.songs}
+                  //   // // albumArt={album.albumArtUrl} 
+                  //   // key={songObj.id}
+                  //   // parentEl='playlist'
+                  //   // parentPlaylistId={playlist.id}
+                  // />
+                )
+              })}
+            </ul>
+          : <></>
+  
+        }
+      </div>
+    )
+  }
 }
 
 const ResultHeader = () => {
