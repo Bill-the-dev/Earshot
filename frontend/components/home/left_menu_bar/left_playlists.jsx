@@ -67,15 +67,11 @@ class LeftMenuPlaylists extends React.Component {
           {this.state.currentPlaylists.map((userPlaylist) => {
             // debugger
             return(
-              <Link to={`/home/playlists/u${currentUser.id}p${userPlaylist.id }`} className='pl-item-link'>
+              <Link to={`/home/playlists/u${currentUser.id}/${userPlaylist.id }`} className='pl-item-link'>
                 <li className='pl-item' key={userPlaylist.id}>{userPlaylist.title}</li>
               </Link>
             )
           })}
-          {/* <li className="pl-item">Playlist 1</li>
-          <li className="pl-item">Playlist 2</li>
-          <li className="pl-item">Playlist 3</li>
-          <li className="pl-item">Playlist 4</li> */}
         </ul>
       </div>
     );

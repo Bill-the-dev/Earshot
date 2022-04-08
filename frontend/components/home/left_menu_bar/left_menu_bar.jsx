@@ -19,9 +19,9 @@ class LeftMenuBar extends React.Component {
     this.handleCreatePlaylist = this.handleCreatePlaylist.bind(this);
   }
 
-  handleCreatePlaylist(e) {
+  handleCreatePlaylist() {
     debugger;
-    e.preventDefault();
+    // e.preventDefault();
     const userId = this.props.currentUser.id
     const playlistsLength = Object.values(this.props.playlists).length
     const playlistId = playlistsLength ? (playlistsLength + 1) : (1);
@@ -29,7 +29,7 @@ class LeftMenuBar extends React.Component {
       title: `My playlist #${playlistId}`,
       creator_id: userId
     })
-      .then(() => this.props.history.push(`home/playlists/u${userId}p${playlistId}`));
+      .then((playlist) => this.props.history.push(`/home/playlists/u${userId}/${playlist.id}`));
       // push string ensures no user/pl overlap
   }
 
@@ -64,7 +64,7 @@ class LeftMenuBar extends React.Component {
           </ul>
           {/* NAV-SMALL */}
           <ul className="nav-small">
-            <Link to={'/home/playlists'} onClick={(e) => this.handleCreatePlaylist(e)} className="nav-small-link">
+            <Link to={'/home/playlists'} onClick={(e) => this.handleCreatePlaylist()} className="nav-small-link">
               <img id="create-pl-icon" src={createPlaylistIcon} alt="create-playlist" />
               <li className="nav-sm-item">Create Playlist</li>
             </Link>
@@ -72,7 +72,7 @@ class LeftMenuBar extends React.Component {
               <img id="create-pl-icon" src={createPlaylistIcon} alt="create-playlist" />
               <li className="nav-sm-item">Create Playlist</li>
             </Link> */}
-            <Link className="nav-small-link">
+            <Link className="nav-small-link" to="/home">
               <img id="create-pl-icon" src={likedSongsIcon} alt="liked-songs" />
               <li className="nav-sm-item">Liked Songs</li>
             </Link>

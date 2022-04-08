@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PlaylistShow from './playlist_show' 
-import { createPlaylist, fetchPlaylist, fetchPlaylists } from '../../../../actions/playlist_actions';
+import { createPlaylist, deletePlaylist, fetchPlaylist, fetchPlaylists } from '../../../../actions/playlist_actions';
 import { fetchSongs } from '../../../../actions/song_actions';
 
 const mSTP = (state) => {
@@ -17,6 +17,7 @@ const mDTP = (dispatch) => {
   // debugger
   return {
     createPlaylist: (playlist) => dispatch(createPlaylist(playlist)),
+    deletePlaylist: (playlistId) => dispatch(deletePlaylist(playlistId)),
     fetchPlaylists: () => dispatch(fetchPlaylists()),
     fetchPlaylist: (playlistId) => dispatch(fetchPlaylist(playlistId)),
     fetchSongs: () => dispatch(fetchSongs())

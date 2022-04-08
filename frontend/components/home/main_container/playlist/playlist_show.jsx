@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, withRouter } from 'react-router-dom';
 import musicNoteIcon from '../../../../../app/assets/images/music-note-pl.svg';
 import searchIcon from '../../../../../app/assets/images/search-playlist.svg';
 import Song from '../song/song_container';
+
 
 
 class PlaylistShow extends React.Component {
@@ -15,6 +16,7 @@ class PlaylistShow extends React.Component {
       playlistSongs: []
     };
     this.searchUpdate = this.searchUpdate.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentDidMount() {
@@ -58,8 +60,8 @@ class PlaylistShow extends React.Component {
         resArtists.push(songObj.artist)
       }
     }
-    console.log(resSongs)
-    console.log(resArtists)
+    // console.log(resSongs)
+    // console.log(resArtists)
 
     this.setState({
       filterSongs: resSongs,
@@ -67,16 +69,22 @@ class PlaylistShow extends React.Component {
     })
   }
 
+  handleDelete() {
+    debugger
+    this.props.deletePlaylist(this.props.match.params.id)
+      .then(this.props.history.push(`/home`))
+  }
+
   render() {
     debugger;
-    const { playlists, currentUser, songs } = this.props;
-    if (!playlists || !currentUser) return null;
     const filterSongs = this.state.filterSongs
-    const playlistIdx = Object.values(this.props.playlists).length - 1
-    const playlist = Object.values(this.props.playlists)[playlistIdx];
-    // this.state.songs.title
-    // this.state.songs.artist.name
-    // debugger
+    const playlistIdx = this.props.match.params.id
+    const playlist = this.props.playlists[playlistIdx];
+    const { playlists, currentUser, songs } = this.props;
+    if (!playlists || !currentUser || !playlist) return null;
+    // const playlistIdx = Object.values(this.props.playlists).length - 1
+    // const playlist = Object.values(this.props.playlists)[playlistIdx];
+
     return (
       <div className="pl-create-container">
         {/* PLAYLIST CREATE HEADER */}
@@ -87,8 +95,9 @@ class PlaylistShow extends React.Component {
           <div className="pl-create-info">  
           {/* onClick open modal to edit pl info, save and delete button? */}
             <p className='pl-create-type'>PLAYLIST</p>
-            <h1>{`My Playlist #${playlist.id}`}</h1>
+            <h1>{playlist.title}</h1>
             <h2>{currentUser.username}</h2>
+            <button className="pl-btn-delete"onClick={() => this.handleDelete()}>Delete</button>
           </div>
         </div>
         {/* PLAYLIST SONGS */}
@@ -98,14 +107,21 @@ class PlaylistShow extends React.Component {
           <h2>Let's find something for your playlist</h2>
           {/* <Search /> */}
           <div className="pl-create-search" >
-            {/* <img src={searchIcon} alt="search" /> */}
-            <input
+            {/* <i class="fa-solid fa-magnifying-glass"></i> */}
+            {/* <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /> */}
+            {/* <div>&#f002;</div> */}
+            <label>
+              <img src={searchIcon} alt="" />
+              <input
               type="text"
               name="s"
               id="pl-create-search-input"
-              placeholder='Search for songs'
+              // placeholder="&#f002;"
+              placeholder="Search for songs"
+              autocomplete="off"
               onChange={() => this.searchUpdate()}
-            />
+              />
+            </label>
           </div>
           <div className="plc-results-container">
             {/* {resultsList()} */}
@@ -124,7 +140,7 @@ class PlaylistShow extends React.Component {
                       // albumArt={album.albumArtUrl} 
                       key={song.id}
                       parentEl='search'
-                      parentPlaylistId={playlistId}
+                      parentPlaylistId={playlist.id}
                     /> )
                   })}
                 </ul >
@@ -140,7 +156,7 @@ class PlaylistShow extends React.Component {
   }
 }
 
-export default PlaylistShow;
+export default withRouter(PlaylistShow);
 
 const PlaylistSongs = () => {
   return (
