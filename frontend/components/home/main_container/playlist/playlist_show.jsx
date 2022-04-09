@@ -35,7 +35,7 @@ class PlaylistShow extends React.Component {
     const playlist = this.props.playlists[playlistIdx];
 
     let playlistSongsArr = this.state.playlistSongs
-    if (playlistSongsArr[index] !== song && this.state.playlistSongs.length < playlist.length) {
+    if (playlistSongsArr[index] !== song && this.state.playlistSongs.length < playlist.songs.length) {
       playlistSongsArr.push(song)
       this.setState({
         playlistSongs: playlistSongsArr
@@ -48,8 +48,8 @@ class PlaylistShow extends React.Component {
     // debugger
   }
   
-  componentDidUpdate(prevProps){
-    debugger
+  // componentDidUpdate(prevProps){
+  //   debugger
     // const playlistIdx = this.props.match.params.id;
     // const playlist = this.props.playlists[playlistIdx];
 
@@ -58,18 +58,6 @@ class PlaylistShow extends React.Component {
     //     playlistLength: playlist.length
     //   })
     // }
-  }
-
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.album !== this.props.album) {
-  //     this.setState(this.props.album);
-  //     let albumArr = Object.values(this.props.album.songs).map((song) => {
-  //       return song.id;
-  //     });
-  //     this.setState({
-  //       albumSongs: albumArr
-  //     });
-  //   }
   // }
 
   searchUpdate() {
