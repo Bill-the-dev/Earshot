@@ -33,7 +33,12 @@ export const fetchPlaylist = (id) => {
 export const addPlaylistSong = (playlistId, songId) => {
   return $.ajax({
     url: `/api/playlists/${playlistId}/addsong/${songId}`,
-    method: 'POST'
+    method: 'POST',
+    // implied? No change whenn below included
+    // data: {
+    //   playlist_id: playlistId, 
+    //   song_id: songId
+    // }
   })
 }
 export const removePlaylistSong = (playlistId, songId) => {

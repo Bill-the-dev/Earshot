@@ -103,6 +103,7 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
       // debugger
       console.log('valid')
       this.props.addPlaylistSong(playlistId, songId)
+      .then(() => this.props.fetchPlaylists())
     }
 
   }

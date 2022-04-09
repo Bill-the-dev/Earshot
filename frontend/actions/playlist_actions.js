@@ -22,7 +22,7 @@ const receivePlaylists = (playlists) => {
 export const fetchPlaylist = id => dispatch => {
   return (
     PlaylistUtil.fetchPlaylist(id)
-      .then(playlist => dispatch(receiveAlbum(playlist)))
+      .then(playlist => dispatch(receivePlaylist(playlist)))
   );
 };
 

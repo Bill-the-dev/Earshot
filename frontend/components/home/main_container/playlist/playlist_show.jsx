@@ -13,7 +13,8 @@ class PlaylistShow extends React.Component {
       allSongs: [],
       filterSongs: [],
       filterArtists: [],
-      playlistSongs: []
+      playlistSongs: [],
+      playlistLength: null
     };
     this.searchUpdate = this.searchUpdate.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
@@ -41,20 +42,23 @@ class PlaylistShow extends React.Component {
       }) 
     }
 
-
-
-    
-    
     console.log('in set playlist, props:')
     console.log(this.props)
     console.log(this.state)
-    debugger
+    // debugger
   }
   
-  // componentDidUpdate(prevProps){
-  //   if (prevProps.songs !== this.props.songs)
-  //   this.setState()
-  // }
+  componentDidUpdate(prevProps){
+    debugger
+    // const playlistIdx = this.props.match.params.id;
+    // const playlist = this.props.playlists[playlistIdx];
+
+    // if (prevProps.playlists[playlistIdx] !== playlist){
+    //   this.setState({
+    //     playlistLength: playlist.length
+    //   })
+    // }
+  }
 
   // componentDidUpdate(prevProps) {
   //   if (prevProps.album !== this.props.album) {
@@ -100,15 +104,14 @@ class PlaylistShow extends React.Component {
   }
 
   render() {
-    debugger;
+    // debugger;
     const filterSongs = this.state.filterSongs
     const playlistIdx = this.props.match.params.id
     const playlist = this.props.playlists[playlistIdx];
     const { playlists, currentUser, songs } = this.props;
     if (!playlists || !currentUser || !playlist || !songs ) return null;
-    // const playlistIdx = Object.values(this.props.playlists).length - 1
-    // const playlist = Object.values(this.props.playlists)[playlistIdx];
 
+    debugger
     return (
       <div className="pl-create-container">
         {/* PLAYLIST CREATE HEADER */}
@@ -131,6 +134,7 @@ class PlaylistShow extends React.Component {
           {/* PLAYLIST SONGS */}
           {/* <PlaylistSongs playlist={playlist} songs={songs} /> */}
           <div className='pl-songs-container'>
+            {/* {(Object.values(songs).length && Object.values(playlist.songs).length > 0) */}
             {(Object.values(songs).length && playlist.songs.length > 0)
               ? <ul className="pl-songs-list">
                 <PlaylistHeader />
@@ -148,7 +152,7 @@ class PlaylistShow extends React.Component {
                       // queueSongs={[]}
                       queueSongs={Object.assign({}, { ...this.state.playlistSongs }) }
                       // albumArt={album.albumArtUrl} 
-                      key={songObj.id}
+                      key={`${index}${songObj.id}`}
                       parentEl='playlist'
                       parentPlaylistId={playlist.id}
                     />
@@ -176,7 +180,7 @@ class PlaylistShow extends React.Component {
               id="pl-create-search-input"
               // placeholder="&#f002;"
               placeholder="Search for songs"
-              autocomplete="off"
+              autoComplete="off"
               onChange={() => this.searchUpdate()}
               />
             </label>

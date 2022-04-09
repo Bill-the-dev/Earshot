@@ -30,7 +30,8 @@ class Api::PlaylistsController < ApplicationController
     # debugger
     @song = Song.find(params[:song_id])
     @playlist = Playlist.find(params[:playlist_id])
-    @playlist_song = @playlist.playlists_songs.new(song_id: @song.id)
+    @playlist_song = PlaylistSong.new(playlist_id: @playlist.id, song_id: @song.id)
+    # @playlist_song = @playlist.playlists_songs.new(song_id: @song.id)
     if @playlist_song.save
       # debugger
       render 'api/playlists/show'
