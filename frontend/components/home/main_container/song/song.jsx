@@ -19,6 +19,7 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
     this.formatTime = this.formatTime.bind(this)
     this.toggleHover = this.toggleHover.bind(this)
     this.handleAdd = this.handleAdd.bind(this)
+    this.handleRemove = this.handleRemove.bind(this)
     this.renderSwitch = this.renderSwitch.bind(this)
   }
   
@@ -105,7 +106,17 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
       this.props.addPlaylistSong(playlistId, songId)
       .then(() => this.props.fetchPlaylists())
     }
+  }
 
+  handleRemove(e) {
+    const playlistId = this.props.parentPlaylistId;
+    const songId = this.props.song.id;
+    if (playlistId && songId) {
+      // debugger
+      console.log('valid');
+      this.props.removePlaylistSong(playlistId, songId)
+        .then(() => this.props.fetchPlaylists());
+    }
   }
 
   renderSwitch(props, activeSong) {
@@ -183,7 +194,8 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
             <div className="song-li-info-right">
               <div className="song-li-like"></div>
               <div className="song-li-duration" id={`song-li-${props.index}`} style={activeSong} ></div>
-              <button className="btn-pl-remove" onClick={(e) => console.log(e.currentTarget)}>X</button>
+              <button className="btn-pl-remove" onClick={(e) => this.handleRemove(e)}>X</button>
+              {/* <button className="btn-pl-remove" onClick={(e) => console.log(e.currentTarget)}>X</button> */}
             </div>
           </li>
         )

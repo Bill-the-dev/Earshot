@@ -56,3 +56,10 @@ export const addPlaylistSong = (playlistId, songId) => dispatch => {
       .then(playlist => dispatch(receivePlaylist(playlist)))
   )
 }
+
+export const removePlaylistSong = (playlistId, songId) => dispatch => {
+  return (
+    PlaylistUtil.removePlaylistSong(playlistId, songId)
+      // .then(playlist => dispatch(receivePlaylist(playlist)))
+  )
+}

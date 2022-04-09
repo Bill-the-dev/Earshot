@@ -27,24 +27,22 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def add_playlist_song
-    # debugger
     @song = Song.find(params[:song_id])
     @playlist = Playlist.find(params[:playlist_id])
     @playlist_song = PlaylistSong.new(playlist_id: @playlist.id, song_id: @song.id)
     # @playlist_song = @playlist.playlists_songs.new(song_id: @song.id)
     if @playlist_song.save
-      # debugger
       render 'api/playlists/show'
     else
-      # debugger
       render json: @playlist_song.errors.full_messages, status: 422
     end
   end
 
   def remove_playlist_song
+    # debugger
     @song = Song.find(params[:song_id])
     @playlist = Playlist.find(params[:playlist_id])
-    @playlist_song = @playlist.playlist_songs.find_by(song_id: @song.id)
+    @playlist_song = @playlist.playlists_songs.find_by(song_id: @song.id)
     @playlist_song.destroy
     if @playlist.save
       render 'api/playlists/show'

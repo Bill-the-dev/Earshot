@@ -42,10 +42,9 @@ class PlaylistShow extends React.Component {
       }) 
     }
 
-    console.log('in set playlist, props:')
-    console.log(this.props)
-    console.log(this.state)
-    // debugger
+    // console.log('in set playlist, props:')
+    // console.log(this.props)
+    // console.log(this.state)
   }
   
   // componentDidUpdate(prevProps){
