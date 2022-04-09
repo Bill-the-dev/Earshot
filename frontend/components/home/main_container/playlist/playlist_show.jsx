@@ -87,6 +87,7 @@ class PlaylistShow extends React.Component {
   handleDelete() {
     debugger
     this.props.deletePlaylist(this.props.match.params.id)
+      .then(() => this.props.fetchPlaylists())
       .then(this.props.history.push(`/home`))
   }
 

@@ -59,22 +59,22 @@
       font-weight: 600;
       color: white;
     }
-    .pl-btn-delete {
-      background-color: var(--dk-gray);
-      color: gray;
-      border: 1px solid var(--md-gray);
-      border-radius: 12px;
-      padding: 0.3rem;
-      &:hover:after{
-        cursor: pointer;
-        font-weight: 600;
-        color: white;
-        background-color: rgb(86, 21, 15);
-      
-      }
+  }
+  
+  .pl-btn-delete {
+    background-color: var(--dk-gray);
+    color: gray;
+    border: 1px solid var(--md-gray);
+    border-radius: 12px;
+    padding: 0.3rem;
+    &:hover{
+      cursor: pointer;
+      font-weight: 600;
+      color: white;
+      background-color: rgb(86, 21, 15);
+    
     }
   }
-
 // CONTENT
 
   .pl-create-content{
