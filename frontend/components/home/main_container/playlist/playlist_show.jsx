@@ -62,6 +62,7 @@ class PlaylistShow extends React.Component {
     console.log('in set playlist, props:')
     console.log(this.props)
     console.log(this.state)
+    debugger
   }
   // const playlistSongArr = [];
   // let playlistSongObjs = this.state.playlistSongs
@@ -173,8 +174,8 @@ class PlaylistShow extends React.Component {
                       album={songObj.album}
                       artist={songObj.artist}
                       index={index + 1}
-                      queueSongs={[]}
-                      // queueSongs={playlist.songs}
+                      // queueSongs={[]}
+                      queueSongs={Object.assign({}, { ...this.state.playlistSongs }) }
                       // albumArt={album.albumArtUrl} 
                       key={songObj.id}
                       parentEl='playlist'
