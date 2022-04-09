@@ -23,22 +23,8 @@ class PlaylistShow extends React.Component {
     // debugger;
     this.props.fetchSongs()
       .then(() => {
-        // const playlistIdx = this.props.match.params.id;
-        // const playlist = this.props.playlists[playlistIdx];
-        // const playlistSongArr = []
-        // const playlistSongObjs = {}
-        // if (Object.values(this.props.songs).length && playlist.songs.length > 0) {
-        //   playlist.songs.map((song) => {
-        //     playlistSongArr.push(this.props.songs[song.id])
-        //   })
-        // }
-        // Object.assign(playlistSongObjs, {playlistSongArr})
-        // console.log(this.state)
-        // console.log(playlistSongObjs)
-
         this.setState({
           allSongs: Object.values(this.props.songs), 
-          // playlistSongs: playlistSongObjs
         }) 
       })
   }
@@ -48,7 +34,7 @@ class PlaylistShow extends React.Component {
     const playlist = this.props.playlists[playlistIdx];
 
     let playlistSongsArr = this.state.playlistSongs
-    if (playlistSongsArr[index] !== song) {
+    if (playlistSongsArr[index] !== song && this.state.playlistSongs.length < playlist.length) {
       playlistSongsArr.push(song)
       this.setState({
         playlistSongs: playlistSongsArr
@@ -64,21 +50,6 @@ class PlaylistShow extends React.Component {
     console.log(this.state)
     debugger
   }
-  // const playlistSongArr = [];
-  // let playlistSongObjs = this.state.playlistSongs
-  // debugger
-  // if (Object.values(playlistSongObjs).length !== playlist.songs.length){
-  //   let newSongObjs = Object.assign({}, playlistSongObjs, song)
-    
-  //   this.setState({
-  //     playlistSongs: newSongObjs
-  //   }) 
-  // } else {  
-    
-  //   this.setState({
-  //     playlistSongs: playlistSongObjs
-  //   });
-  // }
   
   // componentDidUpdate(prevProps){
   //   if (prevProps.songs !== this.props.songs)

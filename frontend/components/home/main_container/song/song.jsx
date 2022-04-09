@@ -45,7 +45,6 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
     console.log(e.target)
     console.log(this.props.song)
     // debugger
-    // let queueSongs = this.props.album.songs
     let queueSongs = this.props.queueSongs
     console.log(this.props.queueSongs)
     this.props.receiveQueue(queueSongs);
@@ -137,7 +136,7 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
             <div className="song-li-info-left">
               <div className="song-li-title" style={activeSong} >{props.song.title}</div>
               <Link to={`/home/artists/${props.artist.id}`} className="song-li-artist">
-                <p>{artist.name}</p>
+                <p>{props.artist.name}</p>
               </Link>
             </div>
             <div className="song-li-info-right">
@@ -175,12 +174,15 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
                 <p>{props.artist.name}</p>
               </Link>
             </div>
-            <div className="song-li-info-mid">{props.album.name}</div>
+            <div className="song-li-info-mid">
+              <Link to={`/home/albums/${props.album.id}`} className="song-li-album">
+                <p>{props.album.name}</p>
+              </Link>
+            </div>
             <div className="song-li-info-right">
               <div className="song-li-like"></div>
               <div className="song-li-duration" id={`song-li-${props.index}`} style={activeSong} ></div>
-              <button className="btn-pl-add" onClick={(e) => console.log(e.currentTarget)}>REMOVE</button>
-              {/* <button className="btn-pl-add" onClick={(e) => this.handleRemove(e)}>REMOVE</button> */}
+              <button className="btn-pl-remove" onClick={(e) => console.log(e.currentTarget)}>X</button>
             </div>
           </li>
         )
@@ -252,83 +254,8 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
     }
 
     // debugger
-
-    // possible to make this into a switch? multiple render types
-    
+    // renders contextually based on the switch params above     
     return this.renderSwitch(this.props, activeSong)
-
-    // return (
-    //   (this.props.parentEl === 'album')
-    //   ? <li 
-    //       className='song-li' 
-    //       onMouseEnter={() => this.toggleHover()} 
-    //       onMouseLeave={() => this.toggleHover()}>
-    //         {(!this.state.hover)
-    //         ? <div 
-    //             className="song-li-idx" 
-    //             onClick={e => this.songPlayback(e)} 
-    //             id={`song-${index + 1}`}
-    //             style={activeSong} 
-    //           >{index}</div>
-    //         : <div 
-    //             className="song-li-idx" 
-    //             onClick={e => this.songPlayback(e)} 
-    //             id={`song-${index}`}
-    //             style={activeSong}   
-    //           >
-    //             <img id="li-play-pause" src={playSolidWhite} alt="play-pause" />
-    //           </div>
-    //       }
-          
-    //       <div className="song-li-info-left">
-    //         <div className="song-li-title" style={activeSong} >{song.title}</div>
-    //         <Link to={`/home/artists/${artist.id}`} className="song-li-artist">
-    //           <p>{artist.name}</p>
-    //         </Link>  
-    //       </div>
-    //       <div className="song-li-info-right">
-    //         <div className="song-li-like"></div>
-    //         <div className="song-li-duration" id={`song-li-${index}`} style={activeSong} ></div>
-    //       </div>
-    //     </li>
-
-    //     // parent NOT album  
-    //   : <li
-    //       className='song-li'
-    //       onMouseEnter={() => this.toggleHover()}
-    //       onMouseLeave={() => this.toggleHover()}>
-    //       { (!this.state.hover)
-    //         ? <div
-    //             className="song-li-idx"
-    //             onClick={e => this.songPlayback(e)}
-    //             id={`song-${index + 1}`}
-    //             style={activeSong}
-    //           ></div>
-    //         : <div
-    //             className="song-li-idx"
-    //             onClick={e => this.songPlayback(e)}
-    //             id={`song-${index}`}
-    //             style={activeSong}
-    //           >
-    //             <img id="li-play-pause" src={playSolidWhite} alt="play-pause" />
-    //           </div>
-    //       }
-
-    //       <div className="song-li-info-left">
-    //         <div className="song-li-title" style={activeSong} >{song.title}</div>
-    //         <Link to={`/home/artists/${artist.id}`} className="song-li-artist">
-    //           <p>{artist.name}</p>
-    //         </Link>
-    //       </div>
-    //       <div className="song-li-info-mid">{this.props.album.name}</div>
-    //       <div className="song-li-info-right">
-    //         <div className="song-li-like"></div>
-    //         <div className="song-li-duration" id={`song-li-${index}`} style={activeSong} ></div>
-    //         <button className="btn-pl-add" onClick={(e) => this.handleAdd(e)}>ADD</button>
-    //         {/* <button className="btn-pl-add" onClick={() => console.log(this.props.parentPlaylistId)}>ADD</button> */}
-    //       </div>
-    //     </li>
-    // )
   }
 }
 

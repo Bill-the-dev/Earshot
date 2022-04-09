@@ -59,6 +59,20 @@
       font-weight: 600;
       color: white;
     }
+    .pl-btn-delete {
+      background-color: var(--dk-gray);
+      color: gray;
+      border: 1px solid var(--md-gray);
+      border-radius: 12px;
+      padding: 0.3rem;
+      &:hover:after{
+        cursor: pointer;
+        font-weight: 600;
+        color: white;
+        background-color: rgb(86, 21, 15);
+      
+      }
+    }
   }
 
 // CONTENT
@@ -80,10 +94,36 @@
 
   // PLAYLIST SONGS
   .pl-songs-container {
-    margin-top: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+  }
+  .song-li-album {
+    text-decoration: none;
+    font-size: 1rem;
+    color: inherit;
+    &:hover{
+      cursor: pointer;
+      color: white;
+      text-decoration: underline;
+    }
   }
 
-
+  .btn-pl-remove {
+    padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+    border-radius: 20px;
+    border: 1px solid var(--md-gray);
+    color: var(--md-gray);
+    background-color: var(--dk-gray);
+  
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+      border: 1px solid var(--lt-gray-a);
+      color: white;
+      background-color: rgb(86, 21, 15);
+  
+    }
+  }
 
   // SEARCH
   .pl-create-search {
