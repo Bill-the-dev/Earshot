@@ -81,7 +81,7 @@ class PlaylistShow extends React.Component {
   }
 
   handleDelete() {
-    debugger
+    // debugger
     this.props.deletePlaylist(this.props.match.params.id)
       .then(() => this.props.fetchPlaylists())
       .then(this.props.history.push(`/home`))
@@ -95,7 +95,7 @@ class PlaylistShow extends React.Component {
     const { playlists, currentUser, songs } = this.props;
     if (!playlists || !currentUser || !playlist || !songs ) return null;
 
-    debugger
+    // debugger
     return (
       <div className="pl-create-container">
         {/* PLAYLIST CREATE HEADER */}
@@ -123,7 +123,7 @@ class PlaylistShow extends React.Component {
               ? <ul className="pl-songs-list">
                 <PlaylistHeader />
                 {playlist.songs.map((song, index) => {
-                  debugger;
+                  // debugger;
                   let songObj = songs[song.id]
                   this.setPlaylistSongs(songObj, index)
                   return (
@@ -204,44 +204,44 @@ class PlaylistShow extends React.Component {
 
 export default withRouter(PlaylistShow);
 
-class PlaylistSongs extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+// class PlaylistSongs extends React.Component {
+//   constructor(props) {
+//     super(props)
+//   }
 
-  render() {
-    debugger
-    return (
-      <div className='pl-songs-container'>
-        {(this.props.playlist && this.props.playlist.songs.length > 0)
-          ? <ul className="pl-songs-list">
-              <PlaylistHeader />
-              {this.props.playlist.songs.map((song, index) => {
-                debugger
-                // let songObj = this.props.songs[song.id]
-                return(
-                  <li>{` ${index} - ${song.title}`}</li>
-                  // <Song 
-                  //   // song={songObj}
-                  //   // album={songObj.album}
-                  //   // artist={songObj.artist}
-                  //   // index={index + 1}
-                  //   // queueSongs={this.props.playlist.songs}
-                  //   // // albumArt={album.albumArtUrl} 
-                  //   // key={songObj.id}
-                  //   // parentEl='playlist'
-                  //   // parentPlaylistId={playlist.id}
-                  // />
-                )
-              })}
-            </ul>
-          : <></>
+//   render() {
+//     // debugger
+//     return (
+//       <div className='pl-songs-container'>
+//         {(this.props.playlist && this.props.playlist.songs.length > 0)
+//           ? <ul className="pl-songs-list">
+//               <PlaylistHeader />
+//               {this.props.playlist.songs.map((song, index) => {
+//                 // debugger
+//                 // let songObj = this.props.songs[song.id]
+//                 return(
+//                   <li>{` ${index} - ${song.title}`}</li>
+//                   // <Song 
+//                   //   // song={songObj}
+//                   //   // album={songObj.album}
+//                   //   // artist={songObj.artist}
+//                   //   // index={index + 1}
+//                   //   // queueSongs={this.props.playlist.songs}
+//                   //   // // albumArt={album.albumArtUrl} 
+//                   //   // key={songObj.id}
+//                   //   // parentEl='playlist'
+//                   //   // parentPlaylistId={playlist.id}
+//                   // />
+//                 )
+//               })}
+//             </ul>
+//           : <></>
   
-        }
-      </div>
-    )
-  }
-}
+//         }
+//       </div>
+//     )
+//   }
+// }
 
 const ResultHeader = () => {
   return (

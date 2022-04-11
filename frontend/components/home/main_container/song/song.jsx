@@ -236,6 +236,47 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
             </div>
           </li>
         )
+      case 'search-show':
+        return (
+          <li
+            className='song-li'
+            onMouseEnter={() => this.toggleHover()}
+            onMouseLeave={() => this.toggleHover()}>
+            {(!this.state.hover)
+              ? <div
+                className="song-li-idx search"
+                onClick={e => this.songPlayback(e)}
+                id={`song-${props.index + 1}`}
+                style={activeSong}
+              >{props.index}</div>
+              : <div
+                className="song-li-idx search"
+                onClick={e => this.songPlayback(e)}
+                id={`song-${props.index}`}
+                style={activeSong}
+              >
+                <img id="li-play-pause" src={playSolidWhite} alt="play-pause" />
+              </div>
+            }
+
+            <div className="song-li-info-left">
+              <div className="song-li-title search" style={activeSong} >{props.song.title}</div>
+              <Link to={`/home/artists/${props.artist.id}`} className="song-li-artist search">
+                <p>{props.artist.name}</p>
+              </Link>
+            </div>
+            <div className="song-li-info-mid">
+              <Link to={`/home/albums/${props.album.id}`} className="song-li-album search">
+                <p>{props.album.name}</p>
+              </Link>
+            </div>
+            <div className="song-li-info-right">
+              <div className="song-li-like"></div>
+              <div className="song-li-duration" id={`song-li-${props.index}`} style={activeSong} ></div>
+              {/* <button className="btn-pl-remove" onClick={(e) => this.handleRemove(e)}>X</button> */}
+            </div>
+          </li>
+        )
 
       // default:
     }

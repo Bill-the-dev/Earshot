@@ -7,7 +7,7 @@ import { closeModal } from '../../actions/modal_actions'
 import PlaylistEdit from '../../components/home/main_container/playlist/playlist_edit_container' 
 
 const Modal = ({modal, closeModal}) => {
-  debugger
+  // debugger
   if (!modal) return null
 
   switch (modal) {

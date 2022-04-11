@@ -9,6 +9,7 @@ import AlbumShow from "./main_container/album/album_container";
 import ArtistShow from "./main_container/artist/artist_container";
 import MainHeader from "./main_container/main_header_container";
 import PlaylistShow from "./main_container/playlist/playlist_show_container";
+import SearchShow from "./main_container/search/search_show_container";
 
 
 
@@ -28,12 +29,12 @@ class Home extends React.Component {
   render() {
     const userId = this.props.currentUser.id
 
-    // debugger
     return (
       <div className="home-container">
         <LeftMenuBar />
         <MainHeader />
         <Switch >
+          <AuthRoute path={`/home/search`} component={SearchShow}/>
           <AuthRoute path={`/home/playlists/u${userId}/:id`} component={PlaylistShow} />
           <AuthRoute path='/home/albums/:albumId' component={AlbumShow} />
           <AuthRoute path='/home/artists/:artistId' component={ArtistShow} />

@@ -34,7 +34,7 @@
 
   .logo-text {
     display: flex;
-    font-size: 1.5em;
+    font-size: 2rem;
     font-weight: 600;
     padding-right: 8px;
     color: var(--white);
@@ -44,8 +44,8 @@
   .logo-white {
     display: flex;
     color: var(--white);
-    height: 2.8em;
-    width: 2.8em;
+    height: 3rem;
+    width: 3rem;
     margin-left: 1rem;
     // margin-top: 0.5rem;
     padding: 8px;
@@ -70,7 +70,8 @@
   }
 
   #menu-home-icon{
-    transform: scale(0.4);
+    transform: scale(0.6);
+    margin: 0.5rem;
   }
 
   .nav-large .active{
@@ -80,7 +81,7 @@
   
   .nav-lg-item {
     display: flex;
-    font-size: 1rem;
+    font-size: 1.4rem;
     padding-top: 5px;
     cursor: pointer;
     list-style: none;
@@ -109,14 +110,14 @@
     }
     #create-pl-icon{
       width: 20%;
-      transform: scale(0.5);
+      transform: scale(0.4);
     }
 
   }
 
   .nav-sm-item {
 
-    font-size: 1rem;
+    font-size: 1.1rem;
     padding-top: 5px;
     cursor: pointer;
   }

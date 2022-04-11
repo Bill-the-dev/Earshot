@@ -55,7 +55,7 @@ class LeftMenuBar extends React.Component {
               </Link>
             </li>
             <li className="nav-lg-item">
-              <Link className='home-link' to={'/home'}>
+              <Link className='home-link' to={'/home/search'}>
                 <img id="menu-home-icon" src={menuSearch} alt="search" />
                 <p>Search</p>
               </Link>
