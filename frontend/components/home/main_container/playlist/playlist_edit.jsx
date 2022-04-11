@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 import musicNoteIcon from '../../../../../app/assets/images/music-note-pl.svg'
+import modalX from '../../../../../app/assets/images/close-x.svg'
 
 
 class PlaylistEdit extends React.Component {
@@ -40,7 +41,10 @@ class PlaylistEdit extends React.Component {
     debugger
     return (
       <div className='modal-edit-playlist-container'>
-        <h1>Edit Details</h1>
+        <div className="pl-edit-header">
+          <h1 id="pl-edit-header-h1">Edit Details</h1>
+          <img id="pl-edit-close" src={modalX} onClick={() => this.props.closeModal()}/>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <div className="pl-edit-art">
             <img src={musicNoteIcon} alt="playlist-art" id='pl-edit-img' />
@@ -51,6 +55,7 @@ class PlaylistEdit extends React.Component {
                 type="text" 
                 onChange={this.handleUpdate()} 
                 placeholder={currentPlaylist.title}
+                autoComplete="off"
                 id="pl-edit-input" 
               />
             </label>            
