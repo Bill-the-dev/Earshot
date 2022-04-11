@@ -41,10 +41,6 @@ class PlaylistShow extends React.Component {
         playlistSongs: playlistSongsArr
       }) 
     }
-
-    // console.log('in set playlist, props:')
-    // console.log(this.props)
-    // console.log(this.state)
   }
   
   // componentDidUpdate(prevProps){
@@ -110,7 +106,7 @@ class PlaylistShow extends React.Component {
           <div className="pl-create-info">  
           {/* onClick open modal to edit pl info, save and delete button? */}
             <p className='pl-create-type'>PLAYLIST</p>
-            <h1>{playlist.title}</h1>
+            <h1 className='pl-title-click' onClick={() => this.props.openModal('PlaylistEdit')}>{playlist.title}</h1>
             <h2>{currentUser.username}</h2>
             <button className="pl-btn-delete"onClick={() => this.handleDelete()}>Delete</button>
           </div>

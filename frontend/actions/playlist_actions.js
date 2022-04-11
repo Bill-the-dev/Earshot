@@ -40,11 +40,19 @@ export const createPlaylist = (playlist) => dispatch => {
   )
 }
 
+export const editPlaylist = (playlist) => dispatch => {
+  return (
+    PlaylistUtil.editPlaylist(playlist)
+      .then(playlist => dispatch(receivePlaylist(playlist)))
+  )
+}
+
 export const deletePlaylist = (id) => dispatch => {
   return (
     PlaylistUtil.deletePlaylist(id)
   )
 }
+
 
 // delete playlist?
 // update playlist?

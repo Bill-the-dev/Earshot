@@ -13,10 +13,12 @@ import LogInFormContainer from './session_form/login_form_container';
 import SplashContainer from './splash/splash_container';
 import HomeContainer from './home/home_container';
 import AlbumContainer from './home/main_container/album/album_container';
+import Modal from './modal/modal';
 
 const App = () => (
   <div className='app-container'>
     <header></header>
+    <Modal />
     <Switch>
       <Route exact path="/" component={SplashContainer}/>
       <Route exact path="/login" component={LogInFormContainer} /> 

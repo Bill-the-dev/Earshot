@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PlaylistShow from './playlist_show' 
 import { createPlaylist, deletePlaylist, fetchPlaylist, fetchPlaylists } from '../../../../actions/playlist_actions';
 import { fetchSongs } from '../../../../actions/song_actions';
+import { openModal } from '../../../../actions/modal_actions';
 
 const mSTP = (state) => {
   // debugger
@@ -20,8 +21,8 @@ const mDTP = (dispatch) => {
     deletePlaylist: (playlistId) => dispatch(deletePlaylist(playlistId)),
     fetchPlaylists: () => dispatch(fetchPlaylists()),
     fetchPlaylist: (playlistId) => dispatch(fetchPlaylist(playlistId)),
-    fetchSongs: () => dispatch(fetchSongs())
-    // will need add and remove song
+    fetchSongs: () => dispatch(fetchSongs()),
+    openModal: (modal) => dispatch(openModal(modal))
   };
 };
 

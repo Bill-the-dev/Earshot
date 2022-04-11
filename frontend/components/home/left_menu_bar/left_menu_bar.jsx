@@ -29,7 +29,12 @@ class LeftMenuBar extends React.Component {
       title: `My playlist #${playlistId}`,
       creator_id: userId
     })
-      .then((playlist) => this.props.history.push(`/home/playlists/u${userId}/${playlist.id}`));
+      .then((response) => {
+        debugger
+        return(
+          this.props.history.push(`/home/playlists/u${userId}/${response.playlist.id}`)
+        )
+      })
       // push string ensures no user/pl overlap
   }
 
