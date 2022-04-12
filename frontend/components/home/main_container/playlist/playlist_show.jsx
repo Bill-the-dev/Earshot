@@ -42,18 +42,7 @@ class PlaylistShow extends React.Component {
       }) 
     }
   }
-  
-  // componentDidUpdate(prevProps){
-  //   debugger
-    // const playlistIdx = this.props.match.params.id;
-    // const playlist = this.props.playlists[playlistIdx];
 
-    // if (prevProps.playlists[playlistIdx] !== playlist){
-    //   this.setState({
-    //     playlistLength: playlist.length
-    //   })
-    // }
-  // }
 
   searchUpdate() {
     // debugger
@@ -71,8 +60,6 @@ class PlaylistShow extends React.Component {
         resArtists.push(songObj.artist)
       }
     }
-    // console.log(resSongs)
-    // console.log(resArtists)
 
     this.setState({
       filterSongs: resSongs,
@@ -85,6 +72,7 @@ class PlaylistShow extends React.Component {
     this.props.deletePlaylist(this.props.match.params.id)
       .then(() => this.props.fetchPlaylists())
       .then(this.props.history.push(`/home`))
+   
   }
 
   render() {
@@ -103,13 +91,25 @@ class PlaylistShow extends React.Component {
           <div className="pl-create-art">
             <img src={musicNoteIcon} alt="playlist-art" id='pl-create-img' />
           </div>
-          <div className="pl-create-info">  
+            
           {/* onClick open modal to edit pl info, save and delete button? */}
-            <p className='pl-create-type'>PLAYLIST</p>
-            <h1 className='pl-title-click' onClick={() => this.props.openModal('PlaylistEdit')}>{playlist.title}</h1>
-            <h2>{currentUser.username}</h2>
-            <button className="pl-btn-delete"onClick={() => this.handleDelete()}>Delete</button>
-          </div>
+            
+            { (this.props.playlists[this.props.match.params.id].title !== "Liked Songs")
+            ? <div className="pl-create-info">
+                <p className='pl-create-type'>PLAYLIST</p>
+                <h1 className='pl-title-click' onClick={() => this.props.openModal('PlaylistEdit')}>{playlist.title}</h1>
+                <h2>{currentUser.username}</h2>
+                <button className="pl-btn-delete"onClick={() => this.handleDelete()}>Delete</button>
+              </div>
+            : <div className="pl-create-info"> 
+                <p className='pl-create-type'>PLAYLIST</p>
+                <h1 className='pl-title-click'>{playlist.title}</h1>
+                <h2>{currentUser.username}</h2>
+                <></>
+              </div>
+            }
+            
+          
         </div>
 
         

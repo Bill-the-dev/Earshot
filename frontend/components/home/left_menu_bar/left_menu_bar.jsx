@@ -17,25 +17,53 @@ class LeftMenuBar extends React.Component {
   constructor(props) {
     super(props);
     this.handleCreatePlaylist = this.handleCreatePlaylist.bind(this);
+    this.handleLikedSongs = this.handleLikedSongs.bind(this);
   }
+
 
   handleCreatePlaylist() {
     debugger;
-    // e.preventDefault();
-    const userId = this.props.currentUser.id
-    const playlistsLength = Object.values(this.props.playlists).length
+    const userId = this.props.currentUser.id;
+    const playlistsLength = Object.values(this.props.playlists).length;
     const playlistId = playlistsLength ? (playlistsLength + 1) : (1);
     this.props.createPlaylist({
       title: `My playlist #${playlistId}`,
       creator_id: userId
     })
       .then((response) => {
-        debugger
-        return(
+        debugger;
+        return (
           this.props.history.push(`/home/playlists/u${userId}/${response.playlist.id}`)
-        )
+        );
+      });
+    // push string ensures no user/pl overlap
+  }
+
+  handleLikedSongs() {
+    debugger;
+    const playlists = Object.values(this.props.playlists)
+    const userId = this.props.currentUser.id;
+    let likedSongsId = 0 
+    
+    for (let i = 1; i < playlists.length; i++) {
+      // debugger
+      if (playlists[i].creator.id === userId && playlists[i].title === "Liked Songs") {
+        likedSongsId = playlists[i].id
+      }
+    }
+    console.log(playlists[playlists.length - 1].id)
+    // If user does not have a 'liked songs' playlist, one is created and then redirected to.
+    if (likedSongsId !== 0) {
+      return this.props.history.push(`/home/playlists/u${userId}/${likedSongsId}`)
+    } else {
+      likedSongsId = playlists[playlists.length - 1].id + 1
+      this.props.createPlaylist({
+        id: likedSongsId,
+        title: `Liked Songs`,
+        creator_id: userId
       })
-      // push string ensures no user/pl overlap
+        .then(() => this.props.history.push(`/home/playlists/u${userId}/${likedSongsId}`))
+    }
   }
 
   render() {
@@ -69,18 +97,30 @@ class LeftMenuBar extends React.Component {
           </ul>
           {/* NAV-SMALL */}
           <ul className="nav-small">
-            <Link to={'/home/playlists'} onClick={(e) => this.handleCreatePlaylist()} className="nav-small-link">
-              <img id="create-pl-icon" src={createPlaylistIcon} alt="create-playlist" />
+            <Link
+              to={'/home/playlists'}
+              onClick={e => this.handleCreatePlaylist()}
+              className="nav-small-link"
+            >
+              <img
+                id="create-pl-icon"
+                src={createPlaylistIcon}
+                alt="create-playlist"
+              />
               <li className="nav-sm-item">Create Playlist</li>
             </Link>
-            {/* <Link to={'/home/playlists/create'} className="nav-small-link">
-              <img id="create-pl-icon" src={createPlaylistIcon} alt="create-playlist" />
-              <li className="nav-sm-item">Create Playlist</li>
-            </Link> */}
-            <Link className="nav-small-link" to="/home">
-              <img id="create-pl-icon" src={likedSongsIcon} alt="liked-songs" />
+            <div
+              className="nav-small-link"
+              to="/home/playlists"
+              onClick={this.handleLikedSongs}
+            >
+              <img
+                id="create-pl-icon"
+                src={likedSongsIcon}
+                alt="liked-songs"
+              />
               <li className="nav-sm-item">Liked Songs</li>
-            </Link>
+            </div>
           </ul>
         </div>
         <div className="border-line"></div>
@@ -90,4 +130,4 @@ class LeftMenuBar extends React.Component {
   }
 }
 
-export default withRouter(LeftMenuBar)
+export default withRouter(LeftMenuBar);

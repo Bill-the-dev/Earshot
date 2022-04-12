@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import playSolidWhite from '../../../../../app/assets/images/media_bar/play-solid-white.svg'
 import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-solid-white.svg'
+import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg';
+// import likeOutlineIcon from '../../../../../app/assets/images/like-heart-outline.svg';
 
  class Song extends React.Component {
   constructor(props) {
@@ -12,7 +14,8 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
       duration: null,
       parentEl: null,
       parentPlaylistId: null,
-      queueSongs: []
+      queueSongs: [], 
+      liked: false
     }
 
     this.songPlayback = this.songPlayback.bind(this)
@@ -119,6 +122,10 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
     }
   }
 
+  songLikeStatus() {
+
+  }
+
   renderSwitch(props, activeSong) {
     // const {} = props
     switch (props.parentEl) {
@@ -152,7 +159,9 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
               </Link>
             </div>
             <div className="song-li-info-right">
-              <div className="song-li-like"></div>
+              <div className="song-li-like">
+                <img src={this.songLikeStatus()} alt="song-like" />
+              </div>
               <div className="song-li-duration" id={`song-li-${props.index}`} style={activeSong} ></div>
             </div>
           </li>
@@ -271,7 +280,10 @@ import pauseSolidWhite from '../../../../../app/assets/images/media_bar/pause-so
               </Link>
             </div>
             <div className="song-li-info-right">
-              <div className="song-li-like"></div>
+              <div className="song-li-like">LIKE
+                {/* <img className="like-icon-true" src={likeGreenIcon} alt="like" /> */}
+
+              </div>
               <div className="song-li-duration" id={`song-li-${props.index}`} style={activeSong} ></div>
               {/* <button className="btn-pl-remove" onClick={(e) => this.handleRemove(e)}>X</button> */}
             </div>

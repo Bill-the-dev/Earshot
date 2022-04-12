@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { signup, login } from '../../actions/session_actions';
+import { createPlaylist } from '../../actions/playlist_actions';
 import SignupForm from './signup_form';
 
 const mapStateToProps = ({ errors }) => {
@@ -15,7 +16,8 @@ const mapStateToProps = ({ errors }) => {
 const mapDispatchToProps = dispatch => {
   return {
     signup: (user) => dispatch(signup(user)),
-    login: (user) => dispatch(login(user))
+    login: (user) => dispatch(login(user)),
+    createPlaylist: (playlist) => dispatch(createPlaylist(playlist))
   };
 };
 

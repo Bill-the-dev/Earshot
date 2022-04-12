@@ -71,3 +71,21 @@ export const removePlaylistSong = (playlistId, songId) => dispatch => {
       // .then(playlist => dispatch(receivePlaylist(playlist)))
   )
 }
+
+// // SONG LIKES
+// // playlist song likes stored in playlist.id = 999
+// export const addLikeSong = (songId) => dispatch => {
+//   const playlistId = 999;
+//   return (
+//     PlaylistUtil.addPlaylistSong(playlistId, songId)
+//       .then(playlist => dispatch(receivePlaylist(playlist)))
+//   );
+// };
+
+// export const removeLikeSong = (songId) => dispatch => {
+//   const playlistId = 999;
+//   return (
+//     PlaylistUtil.removePlaylistSong(playlistId, songId)
+//     // .then(playlist => dispatch(receivePlaylist(playlist)))
+//   );
+// };

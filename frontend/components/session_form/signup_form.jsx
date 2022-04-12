@@ -20,9 +20,14 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.signup(user)
+      // .then((user) => this.props.createPlaylist({
+      //   title: `Liked Songs`,
+      //   creator_id: user.id
+      // })) 
       .then(() => this.props.history.push('/home'))
   }
 

@@ -18,7 +18,7 @@ class LeftMenuPlaylists extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // debugger
+    debugger
     if (prevProps.playlists !== this.props.playlists) {
       // debugger
       this.updateUserPlaylists()
@@ -39,22 +39,39 @@ class LeftMenuPlaylists extends React.Component {
   }
 
   updateUserPlaylists() {
+    let userLikedSongs = null;
     const userPlaylists = [];
     const currentUserId = this.props.currentUser.id;
-    // creatorId is being passed in differently on create Playlist, data mismatch? Potential issue, temporary solution with turnery
+
     Object.values(this.props.playlists).forEach((playlist) => {
-      // debugger
-      // const creatorId = (!playlist.creator.id) ? playlist.creatorId : playlist.creator.id 
       const creatorId = playlist.creator.id
-      // debugger;
-      if (creatorId === currentUserId) {
+
+      if (creatorId === currentUserId && playlist.title !== 'Liked Songs') {
         userPlaylists.push(playlist);
-      }
+      } 
     });
     this.setState({
       currentPlaylists: userPlaylists
     })
+    // if (!userPlaylists.includes('Liked Songs')) {
+    //   this.props.createPlaylist({
+    //     title: `Liked Songs`,
+    //     creator_id: currentUserId
+    //   })
+    //     .then((playlist) => { 
+    //       userPlaylists.push(playlist) 
+    //       // this.setState({
+    //       //   currentPlaylists: userPlaylists, 
+    //       // })
+    //     })
+    // } else {
+    //   this.setState({
+    //     currentPlaylists: userPlaylists
+    //   })
+
+    // }
   }
+
 
 
   render() {

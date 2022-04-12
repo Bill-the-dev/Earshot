@@ -34,11 +34,11 @@ class Home extends React.Component {
         <LeftMenuBar />
         <MainHeader />
         <Switch >
-          <AuthRoute path={`/home/search`} component={SearchShow}/>
-          <AuthRoute path={`/home/playlists/u${userId}/:id`} component={PlaylistShow} />
-          <AuthRoute path='/home/albums/:albumId' component={AlbumShow} />
-          <AuthRoute path='/home/artists/:artistId' component={ArtistShow} />
-          <AuthRoute path='/home' component={MainPage} />
+          <Route path={`/home/search`} component={SearchShow}/>
+          <Route path={`/home/playlists/u${userId}/:id`} component={PlaylistShow} />
+          <Route path='/home/albums/:albumId' component={AlbumShow} />
+          <Route path='/home/artists/:artistId' component={ArtistShow} />
+          <Route path='/home' component={MainPage} />
         </Switch>
         <MediaFooter />
       </div>
