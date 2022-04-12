@@ -1,8 +1,7 @@
 .artist-show {
   background: rgb(86, 21, 15);
-  background: linear-gradient(180deg, rgba(86, 21, 15, 1)10%, rgba(19, 18, 18, 1)50%);
+  background: linear-gradient(180deg, rgba(86, 21, 15, 1) 10%, rgba(19, 18, 18, 1) 50%);
   grid-column: 2 / 2;
-  // padding: 2.5rem;
   overflow-y: auto;
 
 }
@@ -25,11 +24,12 @@
 .artist-show-header {
   display: flex;
   box-sizing: border-box;
-  height: 10em;
+  height: 25vh;
   width: 100%;
   // border: solid 1px grey;
-  margin-top: 4em;
-  margin-left: 1em;
+  margin-top: 4rem;
+  margin-left: 1.5rem;
+  padding: 1rem;
 }
 
 .artist-sh-art {
@@ -47,25 +47,25 @@
 .artist-sh-info {
   display: flex;
   flex-direction: column;
-  margin-left: 1em;
+  margin-left: 1.5em;
   margin-top: 1.7em;
   justify-content: space-around;
 }
 
 
 .artist-sh-info p {
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: white;
  }
 
 .artist-sh-info h1{
-  font-size: 2.2rem;
+  font-size: 3rem;
   font-weight: 600;
   color: white;
 }
 .artist-sh-info h2{
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: white;
 }
@@ -77,7 +77,7 @@
   height: 4em;
   width: 100%;
   // border: solid 1px grey;
-  padding: 1em;
+  padding: 1.5rem;
 }
 
 .artist-sp-play-pause{
@@ -88,7 +88,8 @@
   background-color: var(--green);
   justify-content: center;
   align-items: center;
-  margin-right: 1em;
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .artist-sp-play-pause:hover {
@@ -114,7 +115,8 @@
   color: white;
   font-weight: 600;
   width: 100%;
-  margin-bottom: 1.5em;
+  padding: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .artist-show-list {

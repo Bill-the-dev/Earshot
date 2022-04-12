@@ -1,0 +1,150 @@
+/* Section - Menu Bar */
+.left-container {
+  background-color: rgb(1, 0, 0);
+  grid-column: 1 / 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-nav {
+  margin-left: 0.5rem;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1rem;
+
+}
+
+.logo-text {
+  display: flex;
+  font-size: 2rem;
+  font-weight: 600;
+  padding-right: 8px;
+  color: var(--white);
+
+}
+
+.logo-white {
+  display: flex;
+  color: var(--white);
+  height: 3rem;
+  width: 3rem;
+  margin-left: 1rem;
+  // margin-top: 0.5rem;
+  padding: 8px;
+  padding-right: 4px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nav-large {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 8px;
+}
+
+.home-link {
+  display: flex;
+  text-decoration: none;
+  color: white;
+  align-items: center;
+  width: 3rem;
+}
+
+#menu-home-icon {
+  transform: scale(0.8);
+  margin: 0.5rem;
+}
+
+.nav-large .active {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-lg-item {
+  display: flex;
+  font-size: 1.3rem;
+  padding-top: 5px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.nav-small {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 8px;
+  list-style: none;
+}
+
+.nav-small-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    font-weight: 500;
+    color: white;
+  }
+
+  #create-pl-icon {
+    width: 14%;
+    transform: scale(0.45);
+  }
+
+}
+
+.nav-sm-item {
+
+  font-size: 1.1rem;
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+.border-line {
+  border-top: 1px solid rgb(159, 159, 159);
+  width: 85%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  align-self: center;
+}
+
+/* Section - Left Playlist Container */
+
+.left-playlists-container {
+  margin-left: 0.7rem;
+  height: 58vh;
+  overflow-y: auto;
+}
+
+.pl-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1rem;
+  // overflow-y: auto;
+}
+
+.pl-item-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.pl-item {
+  font-size: 1.1rem;
+  padding-bottom: 1rem;
+  list-style: none;
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+  }
+}

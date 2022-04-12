@@ -12,6 +12,7 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
       song: this.props.song,
       hover: false,
       duration: null,
+      showDuration: '',
       parentEl: null,
       parentPlaylistId: null,
       queueSongs: [], 
@@ -30,11 +31,12 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
     let audio = document.createElement('audio');   
     audio.src = this.props.song.songUrl;
     audio.onloadedmetadata = () => {
-      // debugger
-      const durationEl = document.getElementById(`song-li-${this.props.index}`)
+      debugger
       let audioDuration = this.formatTime(audio.duration);
-      // durationEl.innerHTML = audioDuration
-      // this.setState({ duration: audioDuration })
+      this.setState({
+        duration: audio.duration,
+        showDuration: audioDuration
+      });      
     }    
   }
   
@@ -160,9 +162,10 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
             </div>
             <div className="song-li-info-right">
               <div className="song-li-like">
-                <img src={this.songLikeStatus()} alt="song-like" />
+                {/* <img src={this.songLikeStatus()} alt="song-like" /> */}
               </div>
-              <div className="song-li-duration" id={`song-li-${props.index}`} style={activeSong} ></div>
+                <div className="song-li-duration" id={`song-li-${props.index}`} style={activeSong} >{this.state.showDuration}</div>
+              
             </div>
           </li>
         ) 
@@ -280,11 +283,11 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
               </Link>
             </div>
             <div className="song-li-info-right">
-              <div className="song-li-like">LIKE
+              <div className="song-li-like">
                 {/* <img className="like-icon-true" src={likeGreenIcon} alt="like" /> */}
 
               </div>
-              <div className="song-li-duration" id={`song-li-${props.index}`} style={activeSong} ></div>
+              <div className="song-li-duration" id={`song-li-${props.index}`} style={activeSong} >{this.state.showDuration}</div>
               {/* <button className="btn-pl-remove" onClick={(e) => this.handleRemove(e)}>X</button> */}
             </div>
           </li>
@@ -302,6 +305,8 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
     const liPlayPause = document.getElementById('li-play-pause');
     const audio = document.createElement('audio');
     audio.src = song.songUrl;
+
+
 
     // PLAYING COLOR
     const activeSong = (this.props.currentSong?.id === this.props.song?.id)

@@ -40,7 +40,7 @@
   display: flex;
   align-items: center;
   margin-left: 0.5em;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   font-weight: 700;
 }
 
@@ -54,8 +54,8 @@
 
 .splash-nav li {
   display: flex;
-  padding-inline-end: 1.8em;
-  font-size: 0.8em;
+  padding-inline-end: 1.5rem;
+  font-size: 1.1rem;
 }
 
 .splash-nav li:hover {
@@ -118,13 +118,12 @@
   border: none;
   transition: 100ms;
   text-decoration: none;
-}
-
-.splash-get-btn:hover{
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.1);
-  background-color: var(--lt-green);
+  &:hover{
+      -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      transform: scale(1.2);
+      background-color: var(--lt-green);
+  }
 }
 
 .splash-footer{
@@ -145,7 +144,7 @@
   display: flex;
   align-items: center;
   margin-left: 0.5em;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   font-weight: 700;
   
 }
