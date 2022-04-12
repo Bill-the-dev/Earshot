@@ -6,6 +6,7 @@ import nextIcon from '../../../../app/assets/images/media_bar/forward-step-solid
 import prevIcon from '../../../../app/assets/images/media_bar/backward-step-solid.svg';
 import mutedIcon from '../../../../app/assets/images/media_bar/volume-xmark-solid.svg';
 import volHighIcon from '../../../../app/assets/images/media_bar/volume-high-solid.svg';
+import likeHeartWhite from '../../../../app/assets/images/media_bar/like-heart-white.svg';
 
 
 // QUESTION: how to store const in document?
@@ -47,10 +48,7 @@ class MediaFooter extends React.Component {
     console.log(this.props.song);
     const playbackIcon = document.getElementById('play-pause-icon');
 
-    // debugger;
-
     if (this.props.currentSong && this.props.playback === true) {
-      // debugger;
       this.songPause();
       playbackIcon.src = playIcon;
     }
@@ -59,11 +57,11 @@ class MediaFooter extends React.Component {
       playbackIcon.src = pauseIcon;
     }
   }
+
   songPlay() {
     const audioEl = document.getElementsByClassName("audio-element")[0];
     this.props.playSong();
     audioEl.play();
-    // debugger
     audioEl.ontimeupdate = () => {
       this.props.fetchCurrentTime();
     };
@@ -89,7 +87,6 @@ class MediaFooter extends React.Component {
       this.songPlay()
       playbackIcon.src = playIcon;
     }
-    // what to do with the old song?
   }
 
   songPrev() {
@@ -106,7 +103,6 @@ class MediaFooter extends React.Component {
       this.songPlay()
       playbackIcon.src = playIcon;
     }
-    // what to do with the old song?
   }
 
   // updateRange() {
@@ -170,27 +166,28 @@ class MediaFooter extends React.Component {
     // debugger
     return (
       <div className="media-footer">
-        {/* TRACK */}
-        {
-          (this.props.currentSong)
-            ? <div className="current-track">
-              <div className="ct-art">
-                <img src={this.props.currentSong.albumArtUrl} alt="album-art" id='album-sh-img' />
-              </div>
-              <div className="ct-track-info">
-                <div className="ct-title">{this.props.currentSong.title}</div>
-                <div className="ct-artist">{this.props.currentSong.artist.name}</div>
-              </div>
-              <div className="ct-like">{'<3'}</div>
+        {/* TRACK INFO LEFT*/}
+        { (this.props.currentSong)
+          ? <div className="current-track">
+            <div className="ct-art">
+              <img src={this.props.currentSong.albumArtUrl} alt="album-art" id='album-sh-img' />
             </div>
-            : <div className="current-track">
-              <div className="ct-art"></div>
-              <div className="ct-track-info">
-                <div className="ct-title"></div>
-                <div className="ct-artist"></div>
-              </div>
-              <div className="ct-like">{'<3'}</div>
+            <div className="ct-track-info">
+              <div className="ct-title">{this.props.currentSong.title}</div>
+              <div className="ct-artist">{this.props.currentSong.artist.name}</div>
             </div>
+            <div className="ct-like">
+              <img src={likeHeartWhite} alt="like" />  
+            </div>
+          </div>
+          : <div className="current-track">
+            <div className="ct-art"></div>
+            <div className="ct-track-info">
+              <div className="ct-title"></div>
+              <div className="ct-artist"></div>
+            </div>
+            <div className="ct-like"></div>
+          </div>
         }
         {/* MEDIA CONTROLS CTR */}
         <div className="media-player">
@@ -213,7 +210,9 @@ class MediaFooter extends React.Component {
           {/* Track Time */}
           <div className="track-time">
             <div id="current-track-time">{this.props.currentTimeShow}</div>
-            <input type="range" id="time-range" max={this.props.duration} defaultValue="0" onClick={e => this.seekRange(e)} />
+            {/* <input type="range" id="time-range" max={this.props.duration} defaultValue="0" onClick={e => this.seekRange(e)} /> */}
+            <progress id="time-range" value={this.props.currentTime} max={this.props.duration} defaultValue="0" onClick={e => this.seekRange(e)} />
+
             <div id="duration" >{this.props.durationShow}</div>
           </div>
         </div>
@@ -223,7 +222,7 @@ class MediaFooter extends React.Component {
             <img id="volume-icon" src={volHighIcon} alt="volume-mute" />
           </button>
           <output id="volume-output"></output>
-          <input type="range" id="volume-slider" step='1' max="100" defaultValue="50" onChange={e => this.updateVolume(e)} />
+          <input type="range" id="volume-slider" step='1' max="100" defaultValue="30" onChange={e => this.updateVolume(e)} />
 
         </div>
       </div>
