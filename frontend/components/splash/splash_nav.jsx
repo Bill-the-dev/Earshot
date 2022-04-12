@@ -1,10 +1,11 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 // import { logout, loginDemo, login } from "../../actions/session_actions";
 import LogoWhite from '../../../app/assets/images/ear-listen-solid-white.svg'
 
 
-export default class SplashNav extends React.Component {
+class SplashNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -68,3 +69,5 @@ export default class SplashNav extends React.Component {
     )
   }
 }
+
+export default withRouter(SplashNav)
