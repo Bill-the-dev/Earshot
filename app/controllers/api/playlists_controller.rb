@@ -18,10 +18,10 @@ class Api::PlaylistsController < ApplicationController
     @playlist = Playlist.new(playlist_params)
     @playlist.creator = @creator
     if @playlist.save
-      # debugger
+      # 
       render '/api/playlists/show'
     else 
-      # debugger
+      # 
       render json: @playlist.errors.full_messages, status: 422
     end
   end
@@ -39,7 +39,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def remove_playlist_song
-    # debugger
+    # 
     @song = Song.find(params[:song_id])
     @playlist = Playlist.find(params[:playlist_id])
     @playlist_song = @playlist.playlists_songs.find_by(song_id: @song.id)

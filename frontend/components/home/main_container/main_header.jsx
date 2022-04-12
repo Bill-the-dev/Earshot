@@ -16,7 +16,7 @@ const MainHeader = ({currentUser, logout}) => {
   
 
   const [isActive, setIsActive] = useState(false)
-  // debugger
+  // 
   return (
     <div className="main-header">
       <div className="mh-nav"></div>

@@ -6,7 +6,7 @@ import { fetchSongs } from '../../../../actions/song_actions';
 import { openModal } from '../../../../actions/modal_actions';
 
 const mSTP = (state) => {
-  // debugger
+  // 
   return {
     playlists: state.entities.playlists,
     songs: state.entities.songs,
@@ -15,7 +15,7 @@ const mSTP = (state) => {
 };
 
 const mDTP = (dispatch) => {
-  // debugger
+  // 
   return {
     createPlaylist: (playlist) => dispatch(createPlaylist(playlist)),
     deletePlaylist: (playlistId) => dispatch(deletePlaylist(playlistId)),

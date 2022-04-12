@@ -31,7 +31,7 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
     let audio = document.createElement('audio');   
     audio.src = this.props.song.songUrl;
     audio.onloadedmetadata = () => {
-      debugger
+      
       let audioDuration = this.formatTime(audio.duration);
       this.setState({
         duration: audio.duration,
@@ -50,7 +50,7 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
   songPlayback(e) {
     console.log(e.target)
     console.log(this.props.song)
-    // debugger
+    // 
     let queueSongs = this.props.queueSongs
     console.log(this.props.queueSongs)
     this.props.receiveQueue(queueSongs);
@@ -64,7 +64,7 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
   
   songPlay() {
     const audioEl = document.getElementsByClassName("audio-element")[0];
-    // debugger
+    // 
     if (!this.props.song || this.props.currentSong !== this.props.song) {  
       // if target is empty or not current song, assign and play it! 
       this.props.fetchCurrentSong(this.props.song);
@@ -106,7 +106,7 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
     const playlistId = this.props.parentPlaylistId
     const songId = this.props.song.id
     if(playlistId && songId) {
-      // debugger
+      // 
       console.log('valid')
       this.props.addPlaylistSong(playlistId, songId)
       .then(() => this.props.fetchPlaylists())
@@ -117,7 +117,7 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
     const playlistId = this.props.parentPlaylistId;
     const songId = this.props.song.id;
     if (playlistId && songId) {
-      // debugger
+      // 
       console.log('valid');
       this.props.removePlaylistSong(playlistId, songId)
         .then(() => this.props.fetchPlaylists());
@@ -298,7 +298,7 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
   }
   
   render() {
-    // debugger
+    // 
     // CONSTANTS
     const { index, song, albumSongs, artist } = this.props;  
     if (!index || !song || !artist) return null;
@@ -324,7 +324,7 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
       }, 100);
     }
 
-    // debugger
+    // 
     // renders contextually based on the switch params above     
     return this.renderSwitch(this.props, activeSong)
   }

@@ -11,17 +11,17 @@ class ArtistShow extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
+    // 
     let artistIdStr = this.props.match.params.artistId;
     this.props.fetchArtist(artistIdStr)
       .then((res) => {
-        // debugger
+        // 
         console.log(this.props)
       })
   }
 
   componentDidUpdate(prevProps) {
-    // debugger
+    // 
     if (prevProps.artist !== this.props.artist) {
       this.setState(this.props.artist);
     }
@@ -35,7 +35,7 @@ class ArtistShow extends React.Component {
       this.btnPlayPause = playIcon;
     } 
 
-    // debugger
+    // 
     return(
       <div className='artist-show'>
         {/* <div className="main-header-temp"></div> */}

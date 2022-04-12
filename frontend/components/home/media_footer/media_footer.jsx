@@ -106,7 +106,7 @@ class MediaFooter extends React.Component {
   }
 
   // updateRange() {
-  //   // debugger
+  //   // 
   //   const currentTrackTime = document.getElementById('current-track-time');
   //   const timeRange = document.getElementById('time-range');
   //   const audioEl = document.getElementsByClassName("audio-element")[0];
@@ -156,7 +156,7 @@ class MediaFooter extends React.Component {
   }
 
   render() {
-    // debugger
+    // 
     const audioEl = document.getElementsByClassName("audio-element")[0];
     const playbackIcon = document.getElementById('play-pause-icon');
     const ctTrackTitle = document.getElementById('ct-title');
@@ -174,7 +174,7 @@ class MediaFooter extends React.Component {
     //   // ctTrackTitle.value = this.props.currentSong.title
     // }
 
-    // debugger
+    // 
     return (
       <div className="media-footer">
         {/* TRACK INFO LEFT*/}

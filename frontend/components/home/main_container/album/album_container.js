@@ -6,7 +6,7 @@ import AlbumShow from "./album_show";
 import { withRouter } from "react-router-dom";
 
 const mSTP = (state, ownProps) => {
-  // debugger
+  // 
   return {
     album: state.entities.albums[ownProps.match.params.albumId],
     currentUser: state.entities.users[state.session.id]
@@ -14,7 +14,7 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = (dispatch) => {
-  // debugger
+  // 
   return {
     fetchAlbums: () => dispatch(fetchAlbums()),
     fetchAlbum: (albumId) => dispatch(fetchAlbum(albumId)),

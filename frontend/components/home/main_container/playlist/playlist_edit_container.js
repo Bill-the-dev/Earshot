@@ -4,7 +4,7 @@ import { fetchPlaylists, editPlaylist } from "../../../../actions/playlist_actio
 import PlaylistEdit from './playlist_edit'
 
 const mSTP = (state) => {
-  debugger
+  
   // let playlistId = parseInt(this.props.location.pathname.slice(19))
 
   return {
@@ -15,7 +15,7 @@ const mSTP = (state) => {
 };
 
 const mDTP = (dispatch) => {
-  // debugger
+  // 
   return {
     editPlaylist: (playlist) => dispatch(editPlaylist(playlist)),
     fetchPlaylists: () => dispatch(fetchPlaylists()),

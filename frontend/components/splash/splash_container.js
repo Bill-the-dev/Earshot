@@ -3,7 +3,7 @@ import { logout, loginDemo, login } from "../../actions/session_actions";
 import Splash from "./splash";
 
 const mSTP = (state) => {
-  // debugger
+  // 
   return {
     currentUser: state.entities.users[state.session.id]
   };

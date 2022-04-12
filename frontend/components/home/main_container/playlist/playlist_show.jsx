@@ -21,7 +21,7 @@ class PlaylistShow extends React.Component {
   }
 
   componentDidMount() {
-    // debugger;
+    // ;
     this.props.fetchSongs()
       .then(() => {
         this.setState({
@@ -45,7 +45,7 @@ class PlaylistShow extends React.Component {
 
 
   searchUpdate() {
-    // debugger
+    // 
     const input = document.getElementById("pl-create-search-input");
     let resSongs = [];
     let resArtists = [];
@@ -56,7 +56,7 @@ class PlaylistShow extends React.Component {
       } else if (songObj.artist.name.includes(input.value) && resArtists.indexOf(songObj.artist) === -1) {
       // } else if (songObj.artist.name.includes(input.value) && !resArtists.includes(songObj.artist.id)) {
       // Both push multiple copies of the artist object for each song
-        // debugger
+        // 
         resArtists.push(songObj.artist)
       }
     }
@@ -68,7 +68,7 @@ class PlaylistShow extends React.Component {
   }
 
   handleDelete() {
-    // debugger
+    // 
     this.props.deletePlaylist(this.props.match.params.id)
       .then(() => this.props.fetchPlaylists())
       .then(this.props.history.push(`/home`))
@@ -76,14 +76,14 @@ class PlaylistShow extends React.Component {
   }
 
   render() {
-    // debugger;
+    // ;
     const filterSongs = this.state.filterSongs
     const playlistIdx = this.props.match.params.id
     const playlist = this.props.playlists[playlistIdx];
     const { playlists, currentUser, songs } = this.props;
     if (!playlists || !currentUser || !playlist || !songs ) return null;
 
-    // debugger
+    // 
     return (
       <div className="pl-create-container">
         {/* PLAYLIST CREATE HEADER */}
@@ -123,7 +123,7 @@ class PlaylistShow extends React.Component {
               ? <ul className="pl-songs-list">
                 <PlaylistHeader />
                 {playlist.songs.map((song, index) => {
-                  // debugger;
+                  // ;
                   let songObj = songs[song.id]
                   this.setPlaylistSongs(songObj, index)
                   return (
@@ -175,7 +175,7 @@ class PlaylistShow extends React.Component {
               ? < ul className="plc-create-results" >
                   <ResultHeader />
                   {Object.values(filterSongs).map((song, index) => {
-                    // debugger
+                    // 
                     return (
                     <Song
                       song={song}
@@ -210,14 +210,14 @@ export default withRouter(PlaylistShow);
 //   }
 
 //   render() {
-//     // debugger
+//     // 
 //     return (
 //       <div className='pl-songs-container'>
 //         {(this.props.playlist && this.props.playlist.songs.length > 0)
 //           ? <ul className="pl-songs-list">
 //               <PlaylistHeader />
 //               {this.props.playlist.songs.map((song, index) => {
-//                 // debugger
+//                 // 
 //                 // let songObj = this.props.songs[song.id]
 //                 return(
 //                   <li>{` ${index} - ${song.title}`}</li>

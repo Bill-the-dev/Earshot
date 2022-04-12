@@ -38,7 +38,7 @@ class PlaylistEdit extends React.Component {
     // const playlistId = this.state.playlistId
     const currentPlaylist = this.props.playlists[playlistId]
 
-    debugger
+    
     return (
       <div className='modal-edit-playlist-container'>
         <div className="pl-edit-header">

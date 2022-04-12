@@ -1,12 +1,12 @@
 class Api::SongsController < ApplicationController
   def index
-    # debugger
+    # 
     @songs = Song.all
     render :index
   end
 
   def show
-    # debugger
+    # 
     @song = Song.find(params[:id])
     render :show
   end

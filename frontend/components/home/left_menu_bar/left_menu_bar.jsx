@@ -22,7 +22,7 @@ class LeftMenuBar extends React.Component {
 
 
   handleCreatePlaylist() {
-    debugger;
+    ;
     const userId = this.props.currentUser.id;
     const playlistsLength = Object.values(this.props.playlists).length;
     const playlistId = playlistsLength ? (playlistsLength + 1) : (1);
@@ -31,7 +31,7 @@ class LeftMenuBar extends React.Component {
       creator_id: userId
     })
       .then((response) => {
-        debugger;
+        ;
         return (
           this.props.history.push(`/home/playlists/u${userId}/${response.playlist.id}`)
         );
@@ -40,13 +40,13 @@ class LeftMenuBar extends React.Component {
   }
 
   handleLikedSongs() {
-    debugger;
+    ;
     const playlists = Object.values(this.props.playlists)
     const userId = this.props.currentUser.id;
     let likedSongsId = 0 
     
     for (let i = 1; i < playlists.length; i++) {
-      // debugger
+      // 
       if (playlists[i].creator.id === userId && playlists[i].title === "Liked Songs") {
         likedSongsId = playlists[i].id
       }

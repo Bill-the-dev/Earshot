@@ -18,7 +18,7 @@ export const receiveErrors = errors => ({
 });
 
 export const signup = user => dispatch => {
-  debugger
+  
   return (
     APIUtil.signup(user)
     .then(
@@ -36,7 +36,7 @@ export const login = user => dispatch => (
 );
 
 export const logout = () => dispatch => {
-  // debugger
+  // 
   return (
     APIUtil.logout()
     .then(() => (dispatch(logoutCurrentUser())))

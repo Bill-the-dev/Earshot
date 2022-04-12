@@ -4,7 +4,7 @@ import { fetchPlaylist, fetchPlaylists, createPlaylist } from '../../../actions/
 import LeftMenuBar from '../left_menu_bar/left_menu_bar'
 
 const mSTP = (state, ownProps) => {
-  // debugger
+  // 
   return {
     playlists: state.entities.playlists,
     currentUser: state.entities.users[state.session.id]
@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = (dispatch) => {
-  // debugger
+  // 
   return {
     fetchPlaylists: () => dispatch(fetchPlaylists()),
     fetchPlaylist: (playlist) => dispatch(fetchPlaylist(playlist)),

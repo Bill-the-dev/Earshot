@@ -5,7 +5,7 @@ import SearchShow from './search_show'
 
 
 const mSTP = (state) => {
-  // debugger
+  // 
   return {
     playlists: state.entities.playlists,
     songs: state.entities.songs,
@@ -14,7 +14,7 @@ const mSTP = (state) => {
 };
 
 const mDTP = (dispatch) => {
-  // debugger
+  // 
   return {
     fetchSongs: () => dispatch(fetchSongs()),
   };

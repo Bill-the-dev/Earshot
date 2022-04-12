@@ -7,7 +7,7 @@ class AlbumTile extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
+    // 
     // console.log(this.props)
   }
 

@@ -16,7 +16,7 @@ function openLink(url, newTab) {
 const Splash = (props) => {
   
   const { currentUser, logout, loginDemo, login } = props
-  // debugger
+  // 
   return (
     <div className="splash-background">
       <div className="splash-container">

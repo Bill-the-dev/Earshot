@@ -4,7 +4,7 @@ import { playSong, pauseSong, fetchCurrentSong, fetchDuration, fetchCurrentTime,
 import { addPlaylistSong, removePlaylistSong, fetchPlaylist, fetchPlaylists } from '../../../../actions/playlist_actions';
 
 const mSTP = (state, ownProps) => {
-  // debugger
+  // 
   return {
     currentSong: state.entities.media.currentSong,
     playback: state.entities.media.playback,

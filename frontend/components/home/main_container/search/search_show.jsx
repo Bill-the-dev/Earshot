@@ -18,7 +18,7 @@ class SearchShow extends React.Component {
   }
 
   componentDidMount() {
-    // debugger;
+    // ;
     this.props.fetchSongs()
       .then(() => {
         this.setState({
@@ -28,7 +28,7 @@ class SearchShow extends React.Component {
   }
 
   searchUpdate() {
-    // debugger
+    // 
     const input = document.getElementById("search-show-input");
     let resSongs = [];
     let resArtists = [];
@@ -78,7 +78,7 @@ class SearchShow extends React.Component {
             ? < ul className="plc-create-results" >
               <ResultHeader />
               {Object.values(filterSongs).map((song, index) => {
-                // debugger
+                // 
                 return (
                   <Song
                     song={song}

@@ -5,7 +5,7 @@ import MainHeader from "./main_header";
 
 
 const mSTP = (state) => {
-  // debugger
+  // 
   return {
     currentUser: state.entities.users[state.session.id]
   };

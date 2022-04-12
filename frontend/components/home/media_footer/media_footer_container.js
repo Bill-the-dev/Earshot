@@ -9,7 +9,7 @@ import { withRouter } from "react-router-dom";
 
 
 const mSTP = state => {
-  // debugger
+  // 
   // let AlbId = state.entities.media.currentSong.albumId
   // currentSong: Object.asssign(state.entities.media.currentSong, { albumUrl: state.entities.albums[AlbId].albumArtUrl })
   return ( {
@@ -25,7 +25,7 @@ const mSTP = state => {
 }
 
 const mDTP = (dispatch) => {
-  // debugger
+  // 
   return ({
     fetchCurrentSong: (song) => dispatch(fetchCurrentSong(song)),
     playSong: () => dispatch(playSong()),

@@ -35,7 +35,7 @@ class AlbumShow extends React.Component {
   }
 
   albumQueue() {
-    // debugger
+    // 
     const firstSong = document.getElementsByClassName("song-li-idx")[1];
     // this.props.receiveQueue(this.props.album.songs) 
     this.simulateMouseClick(firstSong)
@@ -64,7 +64,7 @@ class AlbumShow extends React.Component {
       this.btnPlayPause = playIcon;
     }
 
-    // debugger
+    // 
     return (
       <div className="album-show">
         {/* <MainHeader />   */}
