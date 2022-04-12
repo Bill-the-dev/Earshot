@@ -1,57 +1,126 @@
-
-// THUMB STYLING ------------
-
-input[type=range]::-webkit-slider-thumb {
+// PROGRESS BAR --------------
+// CSS Style removal source at bottom 
+progress,
+progress[role]
+  {
+  appearance: none;
+  -moz-appearance: none;
   -webkit-appearance: none;
-  border: 1px solid #000000;
-  height: 1em;
-  width: 1em;
-  border-radius: 50%;
-  background: #ffffff;
-  margin-top: -4px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
-  box-shadow: -10vw dodgerblue;
-}
-
-/* All the same stuff for Firefox */
-input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-
-  border: 1px solid #000000;
-  height: 1em;
-  width: 1em;
-  border-radius: 50%;
-  background: #ffffff;
-}
-
-
-// SLIDER STYLING ------------
-
-input[type=range]::-webkit-slider-runnable-track {
-  width: 50%;
-  height: 0.5em;
-  margin-left: 2em;
-  margin-right: 2em;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  // overflow: hidden;
-  background: gray;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
   
+  border: none;
+  background-size: auto;
+
+  /* Dimensions */
+  height: 40%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 2px;
 }
 
-input[type=range]:hover::-webkit-slider-runnable-track {
-  background: var(--green);
+progress[role]:after {
+  background-image: none;
 }
 
-input[type=range]::-moz-range-track {
-  width: 50%;
-  height: 8.4px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  // overflow: hidden;
-  background: gray;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
+progress[role] strong {
+  display: none;
 }
 
+  // PROGRESS BACKGROUND
+  progress, 
+  progress[role][aria-valuenow] { 
+    background: gray !important;
+  }
+
+  /* Chrome */
+  progress::-webkit-progress-bar {
+    background: gray;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+
+  /* Firefox */
+  progress::-moz-progress-bar {
+    background: white;  
+    &:hover {
+      background: var(--green);
+    }
+  }
+
+  // PROGRESS VALUE
+  /* Chrome */
+  progress::-webkit-progress-value {
+    background: white; 
+    &:hover {
+      background: var(--green);
+    }
+  }
+
+  /* Polyfill */
+  progress[aria-valuenow]:before {
+    background: white;
+    &:hover {
+      background: var(--green);
+    }
+  }
+
+
+// VOLUME -------
+
+  // THUMB STYLING ------------
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000000;
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    background: #ffffff;
+    margin-top: -4px; 
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; 
+  }
+
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+
+    border: 1px solid #000000;
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    background: #ffffff;
+  }
+
+
+  // SLIDER STYLING ------------
+
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 50%;
+    height: 0.5em;
+    margin-left: 2em;
+    margin-right: 2em;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+
+    background: gray;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+    
+  }
+
+  input[type=range]:hover::-webkit-slider-runnable-track {
+    background: var(--green);
+  }
+
+  input[type=range]::-moz-range-track {
+    width: 50%;
+    height: 8.4px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: gray;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+  }
+
+
+
+
+
+// Progress Style Source : http: //www.useragentman.com/blog/2012/01/03/cross-browser-html5-progress-bars-in-depth/  
 

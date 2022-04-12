@@ -24,7 +24,7 @@ class MediaFooter extends React.Component {
     this.formatTime = this.formatTime.bind(this);
     this.songNext = this.songNext.bind(this);
     this.songPrev = this.songPrev.bind(this);
-    // this.updateRange = this.updateRange.bind(this)
+    this.seekRange = this.seekRange.bind(this)
   }
 
 
@@ -116,12 +116,23 @@ class MediaFooter extends React.Component {
   //   }
   // }
 
+  // seekRange(e) {
+  //   const currentTrackTime = document.getElementById('current-track-time');
+  //   const timeRange = document.getElementById('time-range');
+  //   const audioEl = document.getElementsByClassName("audio-element")[0];
+  //   if (!audioEl) return null;
+  //   audioEl.currentTime = (e.target.value * .001) * this.props.duration;
+  // }
+
   seekRange(e) {
-    const currentTrackTime = document.getElementById('current-track-time');
-    const timeRange = document.getElementById('time-range');
+    e.preventDefault();
+    const width = this.progressBar.getBoundingClientRect().width;
+    const left = this.progressBar.getBoundingClientRect().left;
+    const pos = (e.clientX - left) / width;  // pos 
+;
     const audioEl = document.getElementsByClassName("audio-element")[0];
     if (!audioEl) return null;
-    audioEl.currentTime = (e.target.value * .001) * this.props.duration;
+    audioEl.currentTime = pos * this.props.duration;
   }
 
   muteAudio() {
@@ -210,9 +221,14 @@ class MediaFooter extends React.Component {
           {/* Track Time */}
           <div className="track-time">
             <div id="current-track-time">{this.props.currentTimeShow}</div>
-            {/* <input type="range" id="time-range" max={this.props.duration} defaultValue="0" onClick={e => this.seekRange(e)} /> */}
-            <progress id="time-range" value={this.props.currentTime} max={this.props.duration} defaultValue="0" onClick={e => this.seekRange(e)} />
-
+            <progress 
+              id="time-range" 
+              value={this.props.currentTime} 
+              max={this.props.duration} 
+              defaultValue="0" 
+              onClick={e => this.seekRange(e)} 
+              ref={progressBar => this.progressBar = progressBar}
+            />
             <div id="duration" >{this.props.durationShow}</div>
           </div>
         </div>
