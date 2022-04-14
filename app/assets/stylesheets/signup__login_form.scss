@@ -1,5 +1,5 @@
 
-.login-container {
+.signup-container {
   display: flex;
   background-color: white;
   background-size: 100%; 
@@ -11,8 +11,36 @@
   align-items: center;
 }
 
+.sub-h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  width: 60%; 
+}
+
+.sub-h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.login-container {
+  display: flex;
+  background-color: white;
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Raleway', sans-serif;
+  align-items: center;
+}
+
 #login-continue {
-  font-size: 0.8em;
+  font-size: 1rem;
   font-weight: 600;
   padding-top: 1.5rem;
 }
@@ -20,23 +48,25 @@
 .login-form {
   display: flex;
   flex-direction: column;
-  width: 50%; 
+  width: 50%;
 }
 
 .login-form h3 {
   display: flex;
   align-items: center;
 }
+
 .logo-inline{
   display: inline-flex;
-  margin-top: 2em;
-  margin-bottom: 1em;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
+
 .logo-black {
   display: flex;
   color: black;
-  height: 2.5em;
-  width: 2.5em;
+  height: 2.5rem;
+  width: 2.5rem;
   margin: 5px;
   align-items: center;
 
@@ -45,25 +75,37 @@
   display: flex;
   align-items: center;
   margin: 5px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  
 }
 hr {
   border: 0;
-  width: 100%;
+  width: 50%;
   border-top: 1px solid var(--lt-gray-a);
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
   width: 60%;
+  font-size: 1rem;
 }
 
 .form-input {
+  width: 100%;
   padding: 7px;
   margin-top: 5px;
   margin-bottom: 15px;
+}
+
+.input-label-txt {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.8rem;
 }
 
 .submit-center {
@@ -72,23 +114,7 @@ hr {
   align-items: center;
 }
 
-.session-submit{
-  background-color: var(--green);
-  color: black;
-  cursor: pointer;
-  width: 8em;
-  border-radius: 2em;
-  padding: 1em;
-  padding-left: 2em;
-  padding-right: 2em;
-  font-weight: 700;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.guest-submit{
+.guest-submit {
   background-color: black;
   color: white;
   cursor: pointer;
@@ -99,9 +125,10 @@ hr {
   margin-top: 1.5em;
   padding-left: 2em;
   padding-right: 2em;
+  font-size: 0.9rem;
   font-weight: 700;
-  border: none;
   display: flex;
+  border: none;
   align-items: center;
   justify-content: center;
 }
@@ -113,7 +140,37 @@ hr {
   background-color: black;
 }
 
-.link-signup{
+.session-submit{
+  background-color: var(--green);
+  color: black;
+  cursor: pointer;
+  width: 8em;
+  border-radius: 2em;
+  padding: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.session-submit:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.1);
+  background-color: var(--lt-green);
+}
+
+.have-acct-span {
+  font-size: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.link-signup {
   background-color: white;
   color: inherit;
   cursor: pointer;
@@ -124,8 +181,15 @@ hr {
   padding-left: 2em;
   padding-right: 2em;
   font-weight: 700;
-  border: 1px solid black ;
+  border: 1px solid black;
   display: flex;
   align-items: center;
   justify-content: center;
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    transform: scale(1.05);
+  }
 }
