@@ -16,9 +16,9 @@ Production Site: https://earshot-btd.herokuapp.com/#/
   - [`Song` Component](#-song--component)
 + [Continued Development](#continued-development)
 
-<br></br>
+<br>
 
-### Technologies
+## Technologies
 - Ruby on Rails
 - PostGreSQL
 - Redux
@@ -27,13 +27,12 @@ Production Site: https://earshot-btd.herokuapp.com/#/
 - HTML5 Media Elements
 
 ---
-<br></br>
 
-### Features
+## Features
 
-<br></br>
+<br>
 
-#### User Authentication
+### User Authentication
 
 ![User Auth](https://raw.githubusercontent.com/Bill-the-dev/Earshot/main/app/assets/images/gifs/gifAuth.gif)
 
@@ -43,7 +42,7 @@ Production Site: https://earshot-btd.herokuapp.com/#/
 
 <br></br>
 
-#### `Artist`, `Album`, and `Home` 
+### `Artist`, `Album`, and `Home` 
 - `Artist` show page
   - displays artist information
   - selection of artists albums link to album show page
@@ -57,7 +56,7 @@ Production Site: https://earshot-btd.herokuapp.com/#/
 ---
 <br></br>
 
-#### `Search` and `Playlist` 
+### `Search` and `Playlist` 
 
 <br></br>
 
@@ -73,7 +72,7 @@ Production Site: https://earshot-btd.herokuapp.com/#/
 ---
 <br></br>
 
-#### `Media Player` Component
+### `Media Player` Component
 
 <br></br>
 
@@ -87,11 +86,11 @@ Production Site: https://earshot-btd.herokuapp.com/#/
 ---
 <br></br>
 
-### Challenges
+## Challenges
 
 <br></br>
 
-#### `Media Player` Component
+### `Media Player` Component
 
 The media player presented a several challenges. All functions and design are built from scratch and it uses HTML5 audio for playback. The HTML5 audio is sourced from an AWS S3 bucket and managed using Rails ActiveStorage.
 
@@ -179,7 +178,7 @@ const MediaReducer = (oldState = preloadedState, action) => {
 
 <br></br>
 
-#### `Song` Component
+### `Song` Component
 
 The `Song` component leverages rails associations to help maintain state efficiently, whether passed to the media player, albums, playists, or search.  The component dynamically renders by passing its parent element in through props and returning based on a switch.
 
@@ -231,7 +230,7 @@ The `Song` component leverages rails associations to help maintain state efficie
 
 <br></br>
 
-### Continued Development
+## Continued Development
 
 - Build a more robust `likes` frontend to allow users to like albums, artists, and playlists
 - Add 'right click' menus to `Song` components with contextual menus
