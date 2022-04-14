@@ -77,7 +77,7 @@ class MediaFooter extends React.Component {
     const audioEl = document.getElementsByClassName("audio-element")[0];
     const playbackIcon = document.getElementById('play-pause-icon');
     let currentIdx = this.props.queue.indexOf(this.props.currentSong);
-    // returns -1, will this mess it up?
+    // returns -1
     if (this.props.queue[currentIdx + 1]) {
       let newSong = this.props.queue[currentIdx + 1]
       // fetch song at that queue position
@@ -93,7 +93,7 @@ class MediaFooter extends React.Component {
     const audioEl = document.getElementsByClassName("audio-element")[0];
     const playbackIcon = document.getElementById('play-pause-icon');
     let currentIdx = this.props.queue.indexOf(this.props.currentSong);
-    // returns -1, will this mess it up?
+    // returns -1
     if (this.props.queue[currentIdx - 1]) {
       let newSong = this.props.queue[currentIdx - 1]
       // fetch song at that queue position
@@ -105,31 +105,11 @@ class MediaFooter extends React.Component {
     }
   }
 
-  // updateRange() {
-  //   // 
-  //   const currentTrackTime = document.getElementById('current-track-time');
-  //   const timeRange = document.getElementById('time-range');
-  //   const audioEl = document.getElementsByClassName("audio-element")[0];
-  //   if (!audioEl) return null
-  //   if (audioEl.readyState > 0){
-  //     timeRange.value = Math.floor(audioEl.currentTime)
-  //   }
-  // }
-
-  // seekRange(e) {
-  //   const currentTrackTime = document.getElementById('current-track-time');
-  //   const timeRange = document.getElementById('time-range');
-  //   const audioEl = document.getElementsByClassName("audio-element")[0];
-  //   if (!audioEl) return null;
-  //   audioEl.currentTime = (e.target.value * .001) * this.props.duration;
-  // }
-
   seekRange(e) {
     e.preventDefault();
     const width = this.progressBar.getBoundingClientRect().width;
     const left = this.progressBar.getBoundingClientRect().left;
     const pos = (e.clientX - left) / width;  // pos 
-;
     const audioEl = document.getElementsByClassName("audio-element")[0];
     if (!audioEl) return null;
     audioEl.currentTime = pos * this.props.duration;
@@ -141,18 +121,15 @@ class MediaFooter extends React.Component {
     if (audioEl.muted) {
       audioEl.muted = false;
       muteIcon.src = volHighIcon;
-      // muteState ?
     } else {
       audioEl.muted = true;
       muteIcon.src = mutedIcon;
-      // muteState ?
     }
   }
 
   updateVolume(e) {
     const audioEl = document.getElementsByClassName("audio-element")[0];
     audioEl.volume = (e.target.value * .01);
-    // placeholder to clear errors
   }
 
   render() {
@@ -160,7 +137,6 @@ class MediaFooter extends React.Component {
     const audioEl = document.getElementsByClassName("audio-element")[0];
     const playbackIcon = document.getElementById('play-pause-icon');
     const ctTrackTitle = document.getElementById('ct-title');
-    // const duration = this.audioDuration()
 
     if (!this.btnPlayPause) {
       this.btnPlayPause = playIcon;
@@ -169,43 +145,38 @@ class MediaFooter extends React.Component {
     } else {
       playbackIcon.src = playIcon;
     }
-
-    // if (this.props.currentSong) {
-    //   // ctTrackTitle.value = this.props.currentSong.title
-    // }
-
-    // 
+ 
     return (
       <div className="media-footer">
         {/* TRACK INFO LEFT*/}
         { (this.props.currentSong)
           ? <div className="current-track">
-            <div className="ct-art">
-              <img src={this.props.currentSong.albumArtUrl} alt="album-art" id='album-sh-img' />
+              <div className="ct-art">
+                <img src={this.props.currentSong.albumArtUrl} alt="album-art" id='album-sh-img' />
+              </div>
+              <div className="ct-track-info">
+                <div className="ct-title">{this.props.currentSong.title}</div>
+                <div className="ct-artist">{this.props.currentSong.artist.name}</div>
+              </div>
+              <div className="ct-like">
+                <img src={likeHeartWhite} alt="like" />  
+              </div>
             </div>
-            <div className="ct-track-info">
-              <div className="ct-title">{this.props.currentSong.title}</div>
-              <div className="ct-artist">{this.props.currentSong.artist.name}</div>
-            </div>
-            <div className="ct-like">
-              <img src={likeHeartWhite} alt="like" />  
-            </div>
-          </div>
           : <div className="current-track">
-            <div className="ct-art"></div>
-            <div className="ct-track-info">
-              <div className="ct-title"></div>
-              <div className="ct-artist"></div>
+              <div className="ct-art"></div>
+              <div className="ct-track-info">
+                <div className="ct-title"></div>
+                <div className="ct-artist"></div>
+              </div>
+              <div className="ct-like"></div>
             </div>
-            <div className="ct-like"></div>
-          </div>
         }
         {/* MEDIA CONTROLS CTR */}
         <div className="media-player">
           <audio className="audio-element" src={this.state.songUrl} preload="metadata"></audio>
           {/* MEDIA BUTTONS CTR */}
           <span className="media-controls">
-            {/* PREV (next placeholder) */}
+            {/* PREV */}
             <button onClick={e => this.songPrev(e)} id="prev-btn">
               <img id="prev-icon" src={prevIcon} alt="prev" />
             </button>
@@ -239,7 +210,6 @@ class MediaFooter extends React.Component {
           </button>
           <output id="volume-output"></output>
           <input type="range" id="volume-slider" step='1' max="100" defaultValue="30" onChange={e => this.updateVolume(e)} />
-
         </div>
       </div>
     );

@@ -129,7 +129,6 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
   }
 
   renderSwitch(props, activeSong) {
-    // const {} = props
     switch (props.parentEl) {
       case 'album':
         return (
@@ -160,6 +159,7 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
                 <p>{props.artist.name}</p>
               </Link>
             </div>
+            <div className="song-li-info-mid"></div>
             <div className="song-li-info-right">
               <div className="song-li-like">
                 {/* <img src={this.songLikeStatus()} alt="song-like" /> */}
@@ -298,7 +298,6 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
   }
   
   render() {
-    // 
     // CONSTANTS
     const { index, song, albumSongs, artist } = this.props;  
     if (!index || !song || !artist) return null;
@@ -306,9 +305,7 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
     const audio = document.createElement('audio');
     audio.src = song.songUrl;
 
-
-
-    // PLAYING COLOR
+    // CURRENT PLAYBACK COLOR
     const activeSong = (this.props.currentSong?.id === this.props.song?.id)
       ? { color: 'var(--green)'}
       : {color: 'white'}
@@ -324,8 +321,7 @@ import likeGreenIcon from '../../../../../app/assets/images/like-heart-green.svg
       }, 100);
     }
 
-    // 
-    // renders contextually based on the switch params above     
+    // RENDER contextually based on the switch params above     
     return this.renderSwitch(this.props, activeSong)
   }
 }

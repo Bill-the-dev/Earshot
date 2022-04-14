@@ -9,13 +9,10 @@ import {
   RECEIVE_QUEUE 
 } from "../actions/media_actions";
 
-
-// possible to load history, song queue, etc?
 const preloadedState = {
   currentSong: null,
   playback: false,
   queue: [],
-  // possible second array for history? Or all in one
   duration: null,
   durationShow: '0:00',
   currentTime: null,
@@ -54,7 +51,6 @@ const MediaReducer = (oldState = preloadedState, action) => {
         return newState;
       }
     case RECEIVE_QUEUE:
-      // 
       const songs = Object.values(action.songs);
       songs.forEach(song => {
         if (!newState.queue.includes(song)) {
@@ -70,12 +66,10 @@ const MediaReducer = (oldState = preloadedState, action) => {
       return newState;
     case NEXT_SONG:
       newState.queue.unshift(action.song);
-      // unshift or shift? check back
       return newState;      
     default:
       return oldState;
   }
-
 };
 
 export default MediaReducer;
