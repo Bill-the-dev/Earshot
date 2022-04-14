@@ -1,6 +1,6 @@
 # Earshot
 
-[Earshot](https://earshot-btd.herokuapp.com/#/) is a single-page clone of Spotify. At its core, Earshot is a media library and player. Users can create a personal music library through playlists and liked songs, artists, and albums.
+[Earshot](https://earshot-btd.herokuapp.com/#/) is a single-page clone of Spotify. Earshot was created **_without_** the use of the Spotify API. At its core, Earshot is a media library and player. Users can create a personal music library through playlists and liked songs, artists, and albums.
 
 Production Site: https://earshot-btd.herokuapp.com/#/
 
@@ -13,25 +13,52 @@ Production Site: https://earshot-btd.herokuapp.com/#/
 - HTML5 Media Elements
 
 ### Features
+
+#### User Authentication
+
+![User Auth](https://raw.githubusercontent.com/Bill-the-dev/Earshot/main/app/assets/images/gifs/gifAuth.gif)
+
 - Custom user authentication (signup, login, logout) and content protection.
-- 'Home' page 
+
+---
+
+#### `Artist`, `Album`, and `Home` 
+- `Artist` show page
+  - displays artist information
+  - selection of artists albums link to album show page
+- `Abum` show page
+  - displays album and individual track information    
+  - allows playback on song selection
+- `Home` 
   - indexed selection of artists and albums from the user's personal library
   - indexed selection of playlists
-- 'Media Player' 
+
+#### `Search` and `Playlist` 
+
+![Search and Playlist CRUD](https://raw.githubusercontent.com/Bill-the-dev/Earshot/main/app/assets/images/gifs/gifSearchPlaylistCRUD.gif)
+
+- `Search` 
+  - Displays live results. 
+  - Component adapted for both stand-alone search and incorporated into `Playlist` CRUD.
+- `Playlist` CRUD.  
+  - Users can create and delete personal playlists.  
+  - Users can select songs to add or remove from their personal playlists.  
+
+---
+
+#### `Media Player` Component
+
+![Media Player and Song](https://raw.githubusercontent.com/Bill-the-dev/Earshot/main/app/assets/images/gifs/gifMedia.gif)
+
+- `Media Player` 
   - persistent song player allows for page navigation with continuous playback
   - custom controls allow play, pause, previous, next, seek (onClick), and volume (onClick)
   - dynamic display of current song, artist, and album
-- 'Artist Show' page
-  - displays artist information
-  - selection of artists albums link to album show page
-- 'Abum Show' page
-  - displays album and individual track information    
-  - allows playback on song selection
-- Playlist CRUD
-  - users can create and delete playlists 
-  - users can select songs to add or remove from their playlists
 
-### `Media Player` Component
+
+### Challenges
+
+#### `Media Player` Component
 
 The media player presented a several challenges. All functions and design are built from scratch and it uses HTML5 audio for playback. The HTML5 audio is sourced from an AWS S3 bucket and managed using Rails ActiveStorage.
 
@@ -118,7 +145,7 @@ const MediaReducer = (oldState = preloadedState, action) => {
 ```
 
 
-### `Song` Component
+#### `Song` Component
 
 The `Song` component leverages rails associations to help maintain state efficiently, whether passed to the media player, albums, playists, or search.  The component dynamically renders by passing its parent element in through props and returning based on a switch.
 
