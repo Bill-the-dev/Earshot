@@ -116,7 +116,7 @@ The media player maintains its own slice of state seaprate from the main react c
   })
 ```
 
-This allows the media player to fetch a song and relevant queue (through `Song` props), and maintain/manipulate playback independent of the main react components changing around it.
+This allows the media player to fetch a song and relevant queue (through `Song` props), and maintain/manipulate playback independent of the main react components changing around it.  See below snippet of `mediaReducer` which shows manipulation of `Song` data and updating the redux store.
 
 ```JSX
 const preloadedState = {
