@@ -103,7 +103,7 @@ The media player presented a several challenges. All functions and design are bu
 
 In designing the overall application, the media player requires persistent and dynamic access to nearly all of the components in Earshot.  I was able to design it such that it was self-contained and updates based on the context of the currently displayed main page component. (See `Song` Component details below)
 
-The media player maintains its own slice of state seaprate from the main react components (home, album, artist, search, etc.).  
+The media player maintains its own slice of state separate from the main react components (home, album, artist, search, etc.).  
 
 ```JSX 
   const entitiesReducer = combineReducers({ 
