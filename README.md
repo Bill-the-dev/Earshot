@@ -12,6 +12,8 @@ Production Site: https://earshot-btd.herokuapp.com/#/
 - AWS - S3 storage 
 - HTML5 Media Elements
 
+---
+
 ### Features
 
 #### User Authentication
@@ -32,6 +34,8 @@ Production Site: https://earshot-btd.herokuapp.com/#/
 - `Home` 
   - indexed selection of artists and albums from the user's personal library
   - indexed selection of playlists
+
+---
 
 #### `Search` and `Playlist` 
 
@@ -55,6 +59,7 @@ Production Site: https://earshot-btd.herokuapp.com/#/
   - custom controls allow play, pause, previous, next, seek (onClick), and volume (onClick)
   - dynamic display of current song, artist, and album
 
+---
 
 ### Challenges
 
@@ -192,6 +197,8 @@ The `Song` component leverages rails associations to help maintain state efficie
     return this.renderSwitch(this.props, activeSong)
   }
 ```
+
+---
 
 ### Continued Development
 
