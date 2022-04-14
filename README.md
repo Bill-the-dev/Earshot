@@ -16,6 +16,8 @@ Production Site: https://earshot-btd.herokuapp.com/#/
   - [`Song` Component](#-song--component)
 + [Continued Development](#continued-development)
 
+<br></br>
+
 ### Technologies
 - Ruby on Rails
 - PostGreSQL
@@ -25,8 +27,11 @@ Production Site: https://earshot-btd.herokuapp.com/#/
 - HTML5 Media Elements
 
 ---
+<br></br>
 
 ### Features
+
+<br></br>
 
 #### User Authentication
 
@@ -35,6 +40,8 @@ Production Site: https://earshot-btd.herokuapp.com/#/
 - Custom user authentication (signup, login, logout) and content protection.
 
 ---
+
+<br></br>
 
 #### `Artist`, `Album`, and `Home` 
 - `Artist` show page
@@ -48,8 +55,11 @@ Production Site: https://earshot-btd.herokuapp.com/#/
   - indexed selection of playlists
 
 ---
+<br></br>
 
 #### `Search` and `Playlist` 
+
+<br></br>
 
 ![Search and Playlist CRUD](https://raw.githubusercontent.com/Bill-the-dev/Earshot/main/app/assets/images/gifs/gifSearchPlaylistCRUD.gif)
 
@@ -61,8 +71,11 @@ Production Site: https://earshot-btd.herokuapp.com/#/
   - Users can select songs to add or remove from their personal playlists.  
 
 ---
+<br></br>
 
 #### `Media Player` Component
+
+<br></br>
 
 ![Media Player and Song](https://raw.githubusercontent.com/Bill-the-dev/Earshot/main/app/assets/images/gifs/gifMedia.gif)
 
@@ -72,8 +85,11 @@ Production Site: https://earshot-btd.herokuapp.com/#/
   - dynamic display of current song, artist, and album
 
 ---
+<br></br>
 
 ### Challenges
+
+<br></br>
 
 #### `Media Player` Component
 
@@ -161,6 +177,7 @@ const MediaReducer = (oldState = preloadedState, action) => {
 };
 ```
 
+<br></br>
 
 #### `Song` Component
 
@@ -211,6 +228,8 @@ The `Song` component leverages rails associations to help maintain state efficie
 ```
 
 ---
+
+<br></br>
 
 ### Continued Development
 
