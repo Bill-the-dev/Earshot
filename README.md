@@ -52,7 +52,7 @@ The media player maintains its own slice of state seaprate from the main react c
 
 This allows the media player to fetch a song and relevant queue (through `Song` props), and maintain/manipulate playback independent of the main react components changing around it.
 
-```
+```JSX
 const preloadedState = {
   currentSong: null,
   playback: false,
