@@ -1,4 +1,14 @@
-# Earshot
+
+<p align = "center">
+   <img src="https://raw.githubusercontent.com/Bill-the-dev/Earshot/main/app/assets/images/earshot-favicon.png" width="100" height="100" />
+</p>
+
+<h1 align = "center" >
+  Earshot
+</h1>
+
+
+---
 
 [Earshot](https://earshot-btd.herokuapp.com/#/) is a single-page clone of Spotify. Earshot was created **_without_** the use of the Spotify API. At its core, Earshot is a media library and player. Users can create a personal music library through playlists and liked songs, artists, and albums.
 
