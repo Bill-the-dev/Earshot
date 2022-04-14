@@ -31,12 +31,147 @@ Production Site: https://earshot-btd.herokuapp.com/#/
   - users can create and delete playlists 
   - users can select songs to add or remove from their playlists
 
-### Media Player
+### `Media Player` Component
 
-The media player presented a several challenges. In designing the overall application, the player required persistent and dynamic access to nearly all of the components in Earshot.  I was able to design it such that it was self-contained and updated based on the context of the main page displayed, whether it was an album, artist, etc.
+The media player presented a several challenges. All functions and design are built from scratch and it uses HTML5 audio for playback. The HTML5 audio is sourced from an AWS S3 bucket and managed using Rails ActiveStorage.
+
+In designing the overall application, the media player requires persistent and dynamic access to nearly all of the components in Earshot.  I was able to design it such that it was self-contained and updates based on the context of the currently displayed main page component. (See `Song` Component details below)
+
+The media player maintains its own slice of state seaprate from the main react components (home, album, artist, search, etc.).  
+
+```JSX 
+  const entitiesReducer = combineReducers({ 
+    users: usersReducer,
+    songs: songsReducer,
+    albums: albumsReducer,
+    artists: artistsReducer,
+    playlists: playlistsReducer,
+    media: mediaReducer
+  })
+```
+
+This allows the media player to fetch a song and relevant queue (through `Song` props), and maintain/manipulate playback independent of the main react components changing around it.
+
+```JSX
+const preloadedState = {
+  currentSong: null,
+  playback: false,
+  queue: [],
+  duration: null,
+  durationShow: '0:00',
+  currentTime: null,
+  currentTimeShow: '0:00'
+};
+
+const MediaReducer = (oldState = preloadedState, action) => {
+  Object.freeze(oldState);
+  const newState = Object.assign({}, oldState);
+  const audioEl = document.getElementsByClassName("audio-element")[0];
+
+  switch (action.type) {
+    case FETCH_CURRENT_SONG:
+      newState.currentSong = action.song;
+      return newState;
+    case FETCH_DURATION:
+      if (!newState.currentSong) {
+        return newState.duration = null;
+      } else {
+        const mins = Math.floor(audioEl.duration / 60);
+        const secs = Math.floor(audioEl.duration % 60);
+        const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
+        newState.durationShow = `${mins}:${formatSecs}`;
+        newState.duration = audioEl.duration;
+        return newState;
+      }
+    case FETCH_CURRENT_TIME: 
+      if (!newState.currentSong) {
+        return newState.currentTime = null;
+      } else {
+        const mins = Math.floor(audioEl.currentTime / 60);
+        const secs = Math.floor(audioEl.currentTime % 60);
+        const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
+        newState.currentTimeShow = `${mins}:${formatSecs}`;
+        newState.currentTime = audioEl.currentTime;
+        return newState;
+      }
+    case RECEIVE_QUEUE:
+      const songs = Object.values(action.songs);
+      songs.forEach(song => {
+        if (!newState.queue.includes(song)) {
+          newState.queue.push(song);
+        }
+      });
+      return newState
+    case PLAY_SONG:
+      newState.playback = true;
+      return newState;
+    case PAUSE_SONG:
+      newState.playback = false;
+      return newState;
+    case NEXT_SONG:
+      newState.queue.unshift(action.song);
+      return newState;      
+    default:
+      return oldState;
+  }
+};
+```
 
 
-<!-- ### Song Items -->
+### `Song` Component
+
+The `Song` component leverages rails associations to help maintain state efficiently, whether passed to the media player, albums, playists, or search.  The component dynamically renders by passing its parent element in through props and returning based on a switch.
+
+```JSX
+  renderSwitch(props, activeSong) {
+
+      switch (props.parentEl) {
+        case 'album':
+          return (
+            <li> 
+              //...
+            </li>
+          )
+        case 'playlist':
+          return(
+            <li> 
+              //...
+            </li>
+          )
+        case 'search':
+          return(
+            <li> 
+              //...
+            </li>
+          )
+      // etc.
+    }
+  }
+
+  render() {
+    // CONSTANTS
+    const { index, song, albumSongs, artist } = this.props;  
+    if (!index || !song || !artist) return null;
+    const liPlayPause = document.getElementById('li-play-pause');
+    const audio = document.createElement('audio');
+    audio.src = song.songUrl;
+
+    // CURRENT PLAYBACK COLOR
+    const activeSong = (this.props.currentSong?.id === this.props.song?.id)
+      ? { color: 'var(--green)'}
+      : {color: 'white'}
+
+    // RENDER contextually based on the switch params above     
+    return this.renderSwitch(this.props, activeSong)
+  }
+```
+
+### Continued Development
+
+- Build a more robust `likes` frontend to allow users to like albums, artists, and playlists
+- Add 'right click' menus to `Song` components with contextual menus
+- Expand `Search` functionality to prioritize results by type (song, album, artist, playlist)
+- Additional media player functions - shuffle, loop, and show queue   
 
 
 
