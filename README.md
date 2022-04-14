@@ -4,6 +4,18 @@
 
 Production Site: https://earshot-btd.herokuapp.com/#/
 
+- [Earshot](#earshot)
+  + [Technologies](#technologies)
+  + [Features](#features)
+    - [User Authentication](#user-authentication)
+    - [`Artist`, `Album`, and `Home`](#-artist----album---and--home-)
+    - [`Search` and `Playlist`](#-search--and--playlist-)
+    - [`Media Player` Component](#-media-player--component)
+  + [Challenges](#challenges)
+    - [`Media Player` Component](#-media-player--component-1)
+    - [`Song` Component](#-song--component)
+  + [Continued Development](#continued-development)
+
 ### Technologies
 - Ruby on Rails
 - PostGreSQL
