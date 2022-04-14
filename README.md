@@ -34,9 +34,9 @@ Production Site: https://earshot-btd.herokuapp.com/#/
 
 ### User Authentication
 
-![User Auth](https://raw.githubusercontent.com/Bill-the-dev/Earshot/main/app/assets/images/gifs/gifAuth.gif)
-
 - Custom user authentication (signup, login, logout) and content protection.
+
+![User Auth](https://raw.githubusercontent.com/Bill-the-dev/Earshot/main/app/assets/images/gifs/gifAuth.gif)
 
 ---
 
@@ -58,37 +58,34 @@ Production Site: https://earshot-btd.herokuapp.com/#/
 
 ### `Search` and `Playlist` 
 
-<br></br>
-
-![Search and Playlist CRUD](https://raw.githubusercontent.com/Bill-the-dev/Earshot/main/app/assets/images/gifs/gifSearchPlaylistCRUD.gif)
-
 - `Search` 
   - Displays live results. 
   - Component adapted for both stand-alone search and incorporated into `Playlist` CRUD.
 - `Playlist` CRUD.  
   - Users can create and delete personal playlists.  
   - Users can select songs to add or remove from their personal playlists.  
+  - 
+
+![Search and Playlist CRUD](https://raw.githubusercontent.com/Bill-the-dev/Earshot/main/app/assets/images/gifs/gifSearchPlaylistCRUD.gif)
+
 
 ---
 <br></br>
 
 ### `Media Player` Component
 
-<br></br>
-
-![Media Player and Song](https://raw.githubusercontent.com/Bill-the-dev/Earshot/main/app/assets/images/gifs/gifMedia.gif)
-
 - `Media Player` 
   - persistent song player allows for page navigation with continuous playback
   - custom controls allow play, pause, previous, next, seek (onClick), and volume (onClick)
   - dynamic display of current song, artist, and album
+
+![Media Player and Song](https://raw.githubusercontent.com/Bill-the-dev/Earshot/main/app/assets/images/gifs/gifMedia.gif)
 
 ---
 <br></br>
 
 ## Challenges
 
-<br></br>
 
 ### `Media Player` Component
 
