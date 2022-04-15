@@ -129,11 +129,17 @@ const preloadedState = {
   currentTimeShow: '0:00'
 };
 
+const formatTime = (seconds) => {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
+  return `${mins}:${formatSecs}`;
+}
+
 const MediaReducer = (oldState = preloadedState, action) => {
   Object.freeze(oldState);
   const newState = Object.assign({}, oldState);
   const audioEl = document.getElementsByClassName("audio-element")[0];
-
   switch (action.type) {
     case FETCH_CURRENT_SONG:
       newState.currentSong = action.song;
@@ -142,10 +148,7 @@ const MediaReducer = (oldState = preloadedState, action) => {
       if (!newState.currentSong) {
         return newState.duration = null;
       } else {
-        const mins = Math.floor(audioEl.duration / 60);
-        const secs = Math.floor(audioEl.duration % 60);
-        const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
-        newState.durationShow = `${mins}:${formatSecs}`;
+        newState.durationShow = formatTime(audioEl.duration)
         newState.duration = audioEl.duration;
         return newState;
       }
@@ -153,13 +156,11 @@ const MediaReducer = (oldState = preloadedState, action) => {
       if (!newState.currentSong) {
         return newState.currentTime = null;
       } else {
-        const mins = Math.floor(audioEl.currentTime / 60);
-        const secs = Math.floor(audioEl.currentTime % 60);
-        const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
-        newState.currentTimeShow = `${mins}:${formatSecs}`;
+        newState.currentTimeShow = formatTime(audioEl.currentTime);
         newState.currentTime = audioEl.currentTime;
         return newState;
       }
+    // QUEUE SENT AS PROPS TO SONG OBJECT, CONTEXTUAL
     case RECEIVE_QUEUE:
       const songs = Object.values(action.songs);
       songs.forEach(song => {
