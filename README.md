@@ -103,7 +103,7 @@ The media player presented a several challenges. All functions and design are bu
 
 In designing the overall application, the media player requires persistent and dynamic access to nearly all of the components in Earshot.  I was able to design it such that it was self-contained and updates based on the context of the currently displayed main page component. (See `Song` Component details below)
 
-The media player maintains its own slice of state seaprate from the main react components (home, album, artist, search, etc.).  
+The media player maintains its own slice of state separate from the main react components (home, album, artist, search, etc.).  
 
 ```JSX 
   const entitiesReducer = combineReducers({ 
@@ -116,7 +116,7 @@ The media player maintains its own slice of state seaprate from the main react c
   })
 ```
 
-This allows the media player to fetch a song and relevant queue (through `Song` props), and maintain/manipulate playback independent of the main react components changing around it.
+This allows the media player to fetch a song and relevant queue (through `Song` props), and maintain/manipulate playback independent of the main react components changing around it.  See below snippet of `mediaReducer` which shows manipulation of `Song` data and updating the redux store.
 
 ```JSX
 const preloadedState = {
@@ -129,11 +129,17 @@ const preloadedState = {
   currentTimeShow: '0:00'
 };
 
+const formatTime = (seconds) => {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
+  return `${mins}:${formatSecs}`;
+}
+
 const MediaReducer = (oldState = preloadedState, action) => {
   Object.freeze(oldState);
   const newState = Object.assign({}, oldState);
   const audioEl = document.getElementsByClassName("audio-element")[0];
-
   switch (action.type) {
     case FETCH_CURRENT_SONG:
       newState.currentSong = action.song;
@@ -142,10 +148,7 @@ const MediaReducer = (oldState = preloadedState, action) => {
       if (!newState.currentSong) {
         return newState.duration = null;
       } else {
-        const mins = Math.floor(audioEl.duration / 60);
-        const secs = Math.floor(audioEl.duration % 60);
-        const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
-        newState.durationShow = `${mins}:${formatSecs}`;
+        newState.durationShow = formatTime(audioEl.duration)
         newState.duration = audioEl.duration;
         return newState;
       }
@@ -153,13 +156,11 @@ const MediaReducer = (oldState = preloadedState, action) => {
       if (!newState.currentSong) {
         return newState.currentTime = null;
       } else {
-        const mins = Math.floor(audioEl.currentTime / 60);
-        const secs = Math.floor(audioEl.currentTime % 60);
-        const formatSecs = secs < 10 ? `0${secs}` : `${secs}`;
-        newState.currentTimeShow = `${mins}:${formatSecs}`;
+        newState.currentTimeShow = formatTime(audioEl.currentTime);
         newState.currentTime = audioEl.currentTime;
         return newState;
       }
+    // QUEUE SENT AS PROPS TO SONG OBJECT, CONTEXTUAL
     case RECEIVE_QUEUE:
       const songs = Object.values(action.songs);
       songs.forEach(song => {
