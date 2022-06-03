@@ -35,6 +35,7 @@ Production Site: https://earshot-btd.herokuapp.com/#/
 - React
 - AWS - S3 storage 
 - HTML5 Media Elements
+- Heroku
 
 ---
 
