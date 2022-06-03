@@ -35,6 +35,7 @@ Production Site: https://earshot-btd.herokuapp.com/#/
 - React
 - AWS - S3 storage 
 - HTML5 Media Elements
+- Heroku
 
 ---
 
@@ -240,6 +241,7 @@ The `Song` component leverages rails associations to help maintain state efficie
 
 ## Continued Development
 
+- Tests! First priority to add RSpec unit tests. 
 - Build a more robust `likes` frontend to allow users to like albums, artists, and playlists
 - Add 'right click' menus to `Song` components with contextual menus
 - Expand `Search` functionality to prioritize results by type (song, album, artist, playlist)
